@@ -5,6 +5,7 @@ import type { User } from '@supabase/supabase-js'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Franchise from './pages/Franchise'
 import './App.css'
 
 function Dashboard() {
@@ -89,6 +90,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/franchise" element={<Franchise />} />
+      <Route path="/apply-franchise" element={<Franchise />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route
