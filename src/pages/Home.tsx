@@ -9,6 +9,7 @@ export default function Home() {
   const [user, setUser] = useState<User | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [certIndex, setCertIndex] = useState(0)
 
   // Authentic Indian imagery for social welfare, rural education, health camps, and women empowerment
   const slides = [
@@ -29,6 +30,22 @@ export default function Home() {
       badge: 'Women Empowerment & Skills',
       title: 'Vocational Training & Women Self-Reliance',
       subtitle: 'Tailoring centers, computer literacy, handicrafts, and self-help groups fostering self-reliance for rural women.',
+    },
+  ]
+
+  // Certificates list for sliding left and right
+  const certImages = [
+    {
+      img: './cert-1.jpg',
+      title: 'National Human Rights Commission & Society Registration Certificate',
+    },
+    {
+      img: './cert-2.jpg',
+      title: 'ISO 9001:2015 Quality Management System & QRO Certification',
+    },
+    {
+      img: './cert-3.jpg',
+      title: 'Central Vigilance Commission Certificate of Commitment & PCRA',
     },
   ]
 
@@ -64,9 +81,17 @@ export default function Home() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
+  const nextCert = () => {
+    setCertIndex((prev) => (prev + 1) % certImages.length)
+  }
+
+  const prevCert = () => {
+    setCertIndex((prev) => (prev - 1 + certImages.length) % certImages.length)
+  }
+
   return (
     <div className="home-page">
-      {/* TOP CONTACT BAR WITH AUTH & FRANCHISE */}
+      {/* TOP CONTACT BAR (WHITE LOGIN REMOVED) */}
       <div className="top-header">
         <div className="top-container">
           <div className="contact-info">
@@ -87,7 +112,7 @@ export default function Home() {
 
             <a href="#projects" className="top-btn">Donate Now</a>
 
-            {/* LOGIN & SIGNUP BUTTONS AT TOP */}
+            {/* AUTH BUTTONS AT TOP - WHITE LOGIN REMOVED */}
             {user ? (
               <div className="top-auth-group">
                 <span className="top-user-pill">
@@ -106,9 +131,6 @@ export default function Home() {
               </div>
             ) : (
               <div className="top-auth-group">
-                <Link to="/login" className="top-login-btn">
-                  🔑 Login
-                </Link>
                 <Link to="/signup" className="top-signup-btn">
                   ✨ Sign Up
                 </Link>
@@ -149,7 +171,7 @@ export default function Home() {
             </Link>
             <a href="#blog" onClick={() => setMobileMenuOpen(false)}>News</a>
             <a href="#certificates" onClick={() => setMobileMenuOpen(false)}>Certificates</a>
-            <a href="#partners" onClick={() => setMobileMenuOpen(false)}>Govt. Partners</a>
+            <a href="#partners" onClick={() => setMobileMenuOpen(false)}>Partners</a>
 
             {user ? (
               <a
@@ -621,59 +643,22 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* GALLERY & FRANCHISE BANNER */}
+      {/* OUR GALLERY (USER'S COLLAGE PHOTO - BLUE STRIP REMOVED)    */}
       {/* ========================================================== */}
       <section id="gallery" className="gallery-section">
-        <h2 className="section-title">FIELD <span>PHOTO GALLERY</span></h2>
+        <h2 className="section-title">OUR <span>GALLERY</span></h2>
         <p className="section-subtitle">
-          Real glimpses of our ongoing social welfare, educational, and medical initiatives in Uttar Pradesh.
+          Real photographic glimpses of our ongoing social welfare, skill development classes, and medical relief camps in Uttar Pradesh.
         </p>
 
-        <div className="gallery-grid">
-          <div className="gallery-item">
+        <div className="gallery-hd-container">
+          <div className="gallery-image-frame">
             <img
-              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80"
-              alt="Rural Classroom"
+              src="./gallery-main.jpg"
+              alt="Shikashvik Welfare Foundation Field Activities & Events Gallery"
+              className="gallery-full-img"
             />
-            <div className="gallery-caption">Primary Education Session</div>
           </div>
-
-          <div className="gallery-item">
-            <img
-              src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80"
-              alt="Health Checkup Camp"
-            />
-            <div className="gallery-caption">Free Health Checkup Camp</div>
-          </div>
-
-          <div className="gallery-item">
-            <img
-              src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80"
-              alt="Women Skill Workshop"
-            />
-            <div className="gallery-caption">Women Skill Workshop</div>
-          </div>
-
-          <div className="gallery-item">
-            <img
-              src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb7?auto=format&fit=crop&w=600&q=80"
-              alt="Food & Ration Relief"
-            />
-            <div className="gallery-caption">Ration & Relief Support</div>
-          </div>
-        </div>
-
-        {/* APPLY FRANCHISE BANNER UNDER GALLERY */}
-        <div className="franchise-cta-strip">
-          <div className="franchise-cta-content">
-            <h3>Start a Shikashvik Skill & Training Center in Your District</h3>
-            <p>
-              Partner with Shikashvik Welfare Foundation (Govt. of India Registered) • Get recognized authorization, student certification support, and syllabus assistance.
-            </p>
-          </div>
-          <Link to="/franchise" className="franchise-cta-button">
-            Apply For Franchise Online →
-          </Link>
         </div>
       </section>
 
@@ -752,233 +737,81 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* CERTIFICATES & RECOGNITION */}
+      {/* OUR CERTIFICATES (SLIDE LEFT & RIGHT + SIDE BY SIDE 3 PHOTOS) */}
       {/* ========================================================== */}
       <section id="certificates" className="cert-section">
-        <h2 className="section-title">CERTIFICATES & <span>RECOGNITION</span></h2>
+        <h2 className="section-title">OUR <span>CERTIFICATES</span></h2>
         <p className="section-subtitle">
-          Committed to 100% legal compliance, complete accountability, and audited financial transparency.
+          Verified & recognized legal registration documents, human rights pledges, and ISO quality accreditations.
         </p>
 
-        <div className="cert-grid">
-          <div className="cert-card">
-            <div className="cert-icon">📜</div>
-            <h4>Certificate of Incorporation</h4>
-            <p>Registered non-profit entity under the Ministry of Corporate Affairs, Govt. of India (Oct 23, 2026).</p>
+        {/* INTERACTIVE CAROUSEL SLIDER (SLIDE LEFT & RIGHT) */}
+        <div className="cert-slider-wrapper">
+          <button className="cert-nav-btn" onClick={prevCert} aria-label="Previous Certificate">
+            ‹
+          </button>
+
+          <div className="cert-slide-display">
+            <img
+              src={certImages[certIndex].img}
+              alt={certImages[certIndex].title}
+              className="cert-main-img"
+            />
+            <div className="cert-caption-bar">
+              <h4>{certImages[certIndex].title}</h4>
+              <span>Certificate {certIndex + 1} of 3</span>
+            </div>
           </div>
 
-          <div className="cert-card">
-            <div className="cert-icon">🏛️</div>
-            <h4>Section 8 Non-Profit Licence</h4>
-            <p>Operating exclusively for charitable welfare, poverty alleviation, education, and skill advancement.</p>
-          </div>
+          <button className="cert-nav-btn" onClick={nextCert} aria-label="Next Certificate">
+            ›
+          </button>
+        </div>
 
-          <div className="cert-card">
-            <div className="cert-icon">🇮🇳</div>
-            <h4>NITI Aayog NGO-DARPAN</h4>
-            <p>Listed on Government of India's official NGO portal facilitating public-private development partnerships.</p>
-          </div>
-
-          <div className="cert-card">
-            <div className="cert-icon">🛡️</div>
-            <h4>12A & 80G Certified</h4>
-            <p>Income Tax Department certifications offering maximum tax benefits and complete donor transparency.</p>
-          </div>
+        {/* SIDE BY SIDE 3 CERTIFICATE CARDS */}
+        <div className="cert-thumbs-grid">
+          {certImages.map((c, i) => (
+            <div
+              key={i}
+              className={`cert-thumb-card ${i === certIndex ? 'active' : ''}`}
+              onClick={() => setCertIndex(i)}
+            >
+              <img src={c.img} alt={c.title} />
+              <p>{c.title}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ========================================================== */}
-      {/* GOVERNMENT SUPPORTERS & PARTNERS (ALL GOVT. BODIES) */}
+      {/* OUR PARTNERS (HD QUALITY SLIDING LEFT & RIGHT)             */}
       {/* ========================================================== */}
       <section id="partners" className="partners-section">
-        <h2 className="section-title">OUR <span>GOVERNMENT SUPPORTERS & PARTNERS</span></h2>
+        <h2 className="section-title">OUR <span>PARTNERS</span></h2>
         <p className="section-subtitle">
-          Affiliated and verified with statutory bodies and national developmental missions across India.
+          PM DAKSH • Pradhan Mantri Bhartiya Jan Aushadhi • Ministry of Rural Development • Skill India • Telecom Sector Skill Council • Ministry of Labour & Employment
         </p>
 
-        <div className="partners-grid">
-          <div className="partner-logo-box">
-            <div className="partner-icon">🏛️</div>
-            <div className="partner-text">
-              <h4>Ministry of Corporate Affairs</h4>
-              <p>Government of India (Sec-8)</p>
-            </div>
+        {/* TRACK 1: SLIDING LEFT CONTINUOUSLY IN HD */}
+        <div className="partners-slide-track">
+          <div className="partners-slide-marquee-left">
+            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
+            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
+            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
           </div>
+        </div>
 
-          <div className="partner-logo-box">
-            <div className="partner-icon">🇮🇳</div>
-            <div className="partner-text">
-              <h4>NITI Aayog (NGO-Darpan)</h4>
-              <p>Planning & Policy Commission of India</p>
-            </div>
-          </div>
-
-          <div className="partner-logo-box">
-            <div className="partner-icon">🏭</div>
-            <div className="partner-text">
-              <h4>Ministry of MSME</h4>
-              <p>Govt. of India Udyam Scheme</p>
-            </div>
-          </div>
-
-          <div className="partner-logo-box">
-            <div className="partner-icon">🎯</div>
-            <div className="partner-text">
-              <h4>Skill India Mission</h4>
-              <p>National Skill Development (MSDE)</p>
-            </div>
-          </div>
-
-          <div className="partner-logo-box">
-            <div className="partner-icon">🧾</div>
-            <div className="partner-text">
-              <h4>Income Tax Department</h4>
-              <p>Ministry of Finance, Govt. of India</p>
-            </div>
-          </div>
-
-          <div className="partner-logo-box">
-            <div className="partner-icon">🎓</div>
-            <div className="partner-text">
-              <h4>Department of Basic Education</h4>
-              <p>Government of Uttar Pradesh</p>
-            </div>
-          </div>
-
-          <div className="partner-logo-box">
-            <div className="partner-icon">🩺</div>
-            <div className="partner-text">
-              <h4>National Health Mission (NHM)</h4>
-              <p>State Health Society, Uttar Pradesh</p>
-            </div>
-          </div>
-
-          <div className="partner-logo-box">
-            <div className="partner-icon">🌐</div>
-            <div className="partner-text">
-              <h4>Digital India Initiative</h4>
-              <p>Ministry of Electronics & IT (MeitY)</p>
-            </div>
+        {/* TRACK 2: SLIDING RIGHT CONTINUOUSLY IN HD */}
+        <div className="partners-slide-track">
+          <div className="partners-slide-marquee-right">
+            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
+            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
+            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
           </div>
         </div>
       </section>
 
-      {/* ========================================================== */}
-      {/* FOOTER */}
-      {/* ========================================================== */}
-      <footer className="simple-footer">
-        <div className="footer-container">
-          {/* COL 1: ABOUT & ADDRESS */}
-          <div className="footer-col">
-            <div className="footer-brand-header">
-              <img src="./logo.png" alt="Shikashvik Welfare Foundation" className="footer-logo-img" />
-              <div>
-                <h3 style={{ margin: 0, fontSize: '18px' }}>SHIKASHVIK</h3>
-                <p style={{ margin: 0, fontSize: '11px', color: '#facc15', letterSpacing: '1px' }}>
-                  WELFARE FOUNDATION
-                </p>
-              </div>
-            </div>
-            <p>
-              A registered non-profit organization dedicated to fostering sustainable social transformation through education, healthcare, women empowerment, and vocational livelihood skills.
-            </p>
-
-            <div className="footer-registered-card">
-              <p><strong>• Date of Incorporation:</strong> October 23, 2026</p>
-              <p><strong>• Registered District:</strong> Etah, Uttar Pradesh, India</p>
-              <p><strong>• Registered Address:</strong> C/o Ankit Shakya, Dhumari, Dhumari, Aliganj, Etah, Uttar Pradesh, India (PIN: 207248)</p>
-            </div>
-          </div>
-
-          {/* COL 2: QUICK LINKS */}
-          <div className="footer-col">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Foundation</a></li>
-              <li><a href="#what-we-do">What We Do</a></li>
-              <li><a href="#projects">Running Projects</a></li>
-              <li><a href="#gallery">Field Gallery</a></li>
-              <li><Link to="/franchise" style={{ color: '#facc15', fontWeight: 'bold' }}>🎓 Apply Franchise</Link></li>
-              <li><a href="#certificates">Certificates</a></li>
-              <li><a href="#partners">Government Partners</a></li>
-            </ul>
-          </div>
-
-          {/* COL 3: MEMBER / PORTAL */}
-          <div className="footer-col">
-            <h3>Member Portal</h3>
-            <ul>
-              {user ? (
-                <>
-                  <li><Link to="/dashboard">👤 My Dashboard</Link></li>
-                  <li>
-                    <a
-                      href="#logout"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        handleLogout()
-                      }}
-                    >
-                      🚪 Sign Out
-                    </a>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li><Link to="/login">🔑 Login to Account</Link></li>
-                  <li><Link to="/signup">✨ Register New Member</Link></li>
-                </>
-              )}
-              <li><Link to="/franchise">📋 Franchise Application</Link></li>
-              <li><a href="#projects">❤️ Support / Donate</a></li>
-            </ul>
-          </div>
-
-          {/* COL 4: CONTACT US */}
-          <div className="footer-col">
-            <h3>Official Contact</h3>
-            <div className="footer-contact-item">
-              <span>📞</span>
-              <div>
-                <strong>Helpline Number:</strong>
-                <p><a href="tel:8445020016" style={{ color: '#fff' }}>+91-8445020016</a></p>
-              </div>
-            </div>
-
-            <div className="footer-contact-item">
-              <span>✉</span>
-              <div>
-                <strong>Official Email:</strong>
-                <p><a href="mailto:shikashvik@gmail.com" style={{ color: '#fff' }}>shikashvik@gmail.com</a></p>
-              </div>
-            </div>
-
-            <div className="footer-contact-item">
-              <span>📍</span>
-              <div>
-                <strong>District:</strong>
-                <p>Etah, Uttar Pradesh (PIN: 207248)</p>
-              </div>
-            </div>
-
-            <div className="footer-contact-item">
-              <span>🕒</span>
-              <div>
-                <strong>Office Hours:</strong>
-                <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} SHIKASHVIK WELFARE FOUNDATION. All Rights Reserved.</p>
-          <p style={{ marginTop: '5px', fontSize: '11.5px', color: '#64748b' }}>
-            Incorporated: October 23, 2026 • Registered District: Etah, Uttar Pradesh, India
-          </p>
-        </div>
-      </footer>
+      {/* FOOTER HAS BEEN COMPLETELY REMOVED AS REQUESTED BY USER ("niche se fotter hatha do") */}
     </div>
   )
 }

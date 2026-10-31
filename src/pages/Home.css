@@ -128,24 +128,6 @@ a {
   gap: 8px;
 }
 
-.top-login-btn {
-  background: #ffffff;
-  color: #3b0764 !important;
-  padding: 6px 14px;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  transition: all 0.2s ease;
-}
-
-.top-login-btn:hover {
-  background: #f3e8ff;
-  transform: translateY(-1px);
-}
-
 .top-signup-btn {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #fff !important;
@@ -962,7 +944,7 @@ a {
 }
 
 /* ========================================================== */
-/* GALLERY SECTION WITH FRANCHISE BANNER                     */
+/* GALLERY SECTION (HD PHOTO COLLAGE)                         */
 /* ========================================================== */
 .gallery-section {
   padding: 70px 24px;
@@ -970,91 +952,31 @@ a {
   width: 100%;
 }
 
-.gallery-grid {
+.gallery-hd-container {
   max-width: 1440px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
 }
 
-.gallery-item {
-  display: block;
-  overflow: hidden;
-  border-radius: 10px;
-  aspect-ratio: 1.4;
-  background: #eee;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.gallery-item img {
+.gallery-image-frame {
   width: 100%;
-  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  border: 4px solid #f8fafc;
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image-frame:hover {
+  box-shadow: 0 15px 45px rgba(59, 7, 100, 0.18);
+}
+
+.gallery-full-img {
+  width: 100%;
+  height: auto;
   display: block;
   object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.08);
-}
-
-.gallery-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 10px 14px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  color: #fff;
-  font-size: 12.5px;
-  font-weight: 600;
-}
-
-/* FRANCHISE BANNER IN GALLERY */
-.franchise-cta-strip {
-  max-width: 1440px;
-  margin: 40px auto 0;
-  background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%);
-  border-radius: 14px;
-  padding: 30px 36px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-  box-shadow: 0 10px 30px rgba(59, 7, 100, 0.2);
-}
-
-.franchise-cta-content h3 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 6px;
-  color: #facc15;
-}
-
-.franchise-cta-content p {
-  font-size: 14.5px;
-  color: #e2e8f0;
-}
-
-.franchise-cta-button {
-  background: #facc15;
-  color: #1e1b4b;
-  padding: 14px 30px;
-  border-radius: 30px;
-  font-weight: 800;
-  font-size: 15px;
-  white-space: nowrap;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
-}
-
-.franchise-cta-button:hover {
-  background: #f59e0b;
-  transform: translateY(-2px);
+  transition: transform 0.35s ease;
 }
 
 /* ========================================================== */
@@ -1169,12 +1091,12 @@ a {
 }
 
 /* ========================================================== */
-/* CERTIFICATES SECTION                                       */
+/* CERTIFICATES SECTION (SLIDE LEFT & RIGHT + SIDE BY SIDE)   */
 /* ========================================================== */
 .cert-section {
   position: relative;
   padding: 70px 24px;
-  background: linear-gradient(rgba(37, 5, 73, 0.92), rgba(15, 23, 42, 0.95)),
+  background: linear-gradient(rgba(37, 5, 73, 0.94), rgba(15, 23, 42, 0.96)),
     url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80')
       center/cover no-repeat;
   color: #fff;
@@ -1185,205 +1107,198 @@ a {
   color: #fff;
 }
 
-.cert-grid {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
+.cert-section .section-subtitle {
+  color: #cbd5e1;
 }
 
-.cert-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 26px 20px;
-  text-align: center;
+/* MAIN CERTIFICATE SLIDER */
+.cert-slider-wrapper {
+  max-width: 1100px;
+  margin: 0 auto 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cert-nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.25s ease;
+  z-index: 10;
+  flex-shrink: 0;
 }
 
-.cert-card:hover {
-  background: rgba(255, 255, 255, 0.14);
-  transform: translateY(-3px);
+.cert-nav-btn:hover {
+  background: #facc15;
+  color: #1e1b4b;
   border-color: #facc15;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
 }
 
-.cert-icon {
-  font-size: 38px;
-  margin-bottom: 12px;
+.cert-slide-display {
+  flex: 1;
+  max-width: 950px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
 }
 
-.cert-card h4 {
-  font-size: 16px;
-  margin-bottom: 8px;
+.cert-main-img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  display: block;
+  object-fit: contain;
+  background: #000;
+  transition: opacity 0.3s ease;
+}
+
+.cert-caption-bar {
+  background: rgba(15, 23, 42, 0.85);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cert-caption-bar h4 {
+  font-size: 15px;
   font-weight: 700;
   color: #facc15;
 }
 
-.cert-card p {
+.cert-caption-bar span {
+  font-size: 12px;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* SIDE BY SIDE 3 CERTIFICATE THUMBNAILS */
+.cert-thumbs-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cert-thumb-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.cert-thumb-card:hover {
+  transform: translateY(-4px);
+  border-color: #facc15;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.cert-thumb-card.active {
+  border-color: #facc15;
+  box-shadow: 0 0 16px rgba(250, 204, 21, 0.35);
+  background: rgba(250, 204, 21, 0.1);
+}
+
+.cert-thumb-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+.cert-thumb-card p {
+  padding: 10px 12px;
   font-size: 13px;
-  color: #cbd5e1;
-  line-height: 1.5;
+  font-weight: 600;
+  color: #e2e8f0;
 }
 
 /* ========================================================== */
-/* GOVERNMENT SUPPORTERS & PARTNERS                           */
+/* OUR PARTNERS (HD SLIDING LEFT & RIGHT)                     */
 /* ========================================================== */
 .partners-section {
   width: 100%;
   background: #ffffff;
-  padding: 60px 24px;
+  padding: 65px 24px;
 }
 
-.partners-grid {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.partner-logo-box {
-  background: #f8fafc;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 20px 22px;
-  font-weight: 700;
-  color: #1e1b4b;
-  font-size: 14.5px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  transition: all 0.25s ease;
-}
-
-.partner-logo-box:hover {
-  transform: translateY(-3px);
-  border-color: #3b0764;
-  box-shadow: 0 6px 18px rgba(59, 7, 100, 0.1);
-  background: #ffffff;
-}
-
-.partner-icon {
-  font-size: 28px;
-  flex: 0 0 44px;
-  height: 44px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.partner-text h4 {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #1e293b;
-  line-height: 1.3;
-}
-
-.partner-text p {
-  font-size: 11px;
-  color: #64748b;
-  font-weight: 500;
-}
-
-/* ========================================================== */
-/* FOOTER                                                     */
-/* ========================================================== */
-.simple-footer {
-  background: #190333;
-  color: #cbd5e1;
-  padding: 65px 24px 25px;
+.partners-slide-track {
   width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #f8fafc;
+  padding: 18px 0;
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.footer-container {
-  max-width: 1440px;
-  margin: 0 auto 40px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 45px;
-}
-
-.footer-brand-header {
+.partners-slide-marquee-left {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  width: max-content;
+  animation: partnersScrollLeft 28s linear infinite;
 }
 
-.footer-logo-img {
-  height: 52px;
+.partners-slide-marquee-right {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: partnersScrollRight 28s linear infinite;
+}
+
+.partners-slide-track:hover .partners-slide-marquee-left,
+.partners-slide-track:hover .partners-slide-marquee-right {
+  animation-play-state: paused;
+}
+
+@keyframes partnersScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes partnersScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.partner-hd-img {
+  height: 85px;
   width: auto;
   object-fit: contain;
+  display: inline-block;
+  padding: 0 40px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.05));
+  transition: transform 0.25s ease;
 }
 
-.footer-col h3 {
-  color: #fff;
-  font-size: 18px;
-  margin-bottom: 18px;
-  font-weight: 700;
-}
-
-.footer-col p {
-  font-size: 14px;
-  line-height: 1.65;
-  color: #94a3b8;
-}
-
-.footer-registered-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 12px 14px;
-  margin-top: 16px;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #cbd5e1;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-col ul li {
-  margin-bottom: 11px;
-}
-
-.footer-col ul li a {
-  color: #94a3b8;
-  font-size: 14px;
-  transition: color 0.2s;
-}
-
-.footer-col ul li a:hover {
-  color: #facc15;
-}
-
-.footer-contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 12px;
-  font-size: 13.5px;
-}
-
-.footer-contact-item strong {
-  color: #ffffff;
-}
-
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 25px;
-  font-size: 13px;
-  color: #94a3b8;
-  max-width: 1440px;
-  margin: 0 auto;
+.partner-hd-img:hover {
+  transform: scale(1.05);
 }
 
 /* RESPONSIVE DESIGN */
@@ -1392,13 +1307,6 @@ a {
   .project-grid,
   .blog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .cert-grid,
-  .partners-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .gallery-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1418,13 +1326,8 @@ a {
     grid-template-columns: 1fr;
     gap: 35px;
   }
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-  }
-  .franchise-cta-strip {
-    flex-direction: column;
-    text-align: center;
+  .cert-thumbs-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1465,19 +1368,22 @@ a {
   }
   .action-grid,
   .project-grid,
-  .blog-grid,
-  .cert-grid,
-  .partners-grid {
+  .blog-grid {
     grid-template-columns: 1fr;
-  }
-  .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .about-key-details {
     grid-template-columns: 1fr;
   }
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 28px;
+  .partner-hd-img {
+    height: 60px;
+    padding: 0 20px;
+  }
+  .cert-slider-wrapper {
+    gap: 8px;
+  }
+  .cert-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
   }
 }
