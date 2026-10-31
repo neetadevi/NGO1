@@ -32,47 +32,47 @@ export default function Home() {
     },
   ]
 
-  // 8 Individual high-resolution real field activity photos for Gallery
+  // 8 Real Indian Government School & Rural Student Education Photos
   const galleryImages = [
     {
-      img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=700&q=80',
-      title: 'Primary School Classroom & Quality Education',
-      tag: 'Education',
+      img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
+      title: 'Indian Primary Government School Classroom Session',
+      tag: 'Govt School',
     },
     {
-      img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=700&q=80',
-      title: 'Women Vocational Tailoring & Skill Institute',
-      tag: 'Skill Training',
+      img: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80',
+      title: 'Rural Students in School Uniform Reading Textbooks',
+      tag: 'Classroom Study',
     },
     {
-      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80',
-      title: 'Free Rural Health Consultation & Eye Checkup Camp',
-      tag: 'Healthcare',
+      img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80',
+      title: 'Distribution of Free School Bags, Books & Stationeries',
+      tag: 'Kit Distribution',
     },
     {
-      img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80',
-      title: 'School Bags, Books & Winter Uniform Distribution',
-      tag: 'Distribution',
+      img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80',
+      title: 'Government School Smart Class & Blackboard Learning',
+      tag: 'Smart Class',
     },
     {
-      img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80',
-      title: 'Computer Training Lab & Digital Literacy Workshop',
-      tag: 'Digital Literacy',
+      img: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80',
+      title: 'Beti Padhao: Rural Girl Student Literacy & Mentoring',
+      tag: 'Girls Education',
     },
     {
-      img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=80',
-      title: 'Youth Certificate Award Ceremony & Graduation',
-      tag: 'Certifications',
+      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
+      title: 'Free Health & Eye Checkup Camp for School Children',
+      tag: 'Health Checkup',
     },
     {
-      img: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb7?auto=format&fit=crop&w=700&q=80',
-      title: 'Community Food Kitchen & Essential Ration Relief',
-      tag: 'Relief Aid',
+      img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80',
+      title: 'Rural Women & Youth Vocational Tailoring Institute',
+      tag: 'Vocational Training',
     },
     {
-      img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=700&q=80',
-      title: 'Green Earth Plantation Drive & Village Awareness',
-      tag: 'Environment',
+      img: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb7?auto=format&fit=crop&w=800&q=80',
+      title: 'Midday Nutrition & Essential Ration Distribution Drive',
+      tag: 'Midday Nutrition',
     },
   ]
 
@@ -309,46 +309,38 @@ export default function Home() {
           </h3>
         </div>
 
-        {/* CENTERED LOGO BADGES (NO LONG TEXT NAMES) */}
+        {/* CENTERED REAL GOVT LOGO BADGES (REAL GOVT LOGOS - NO NAMES - BUTTON STYLE) */}
         <div className="govt-logos-center-row">
-          <div className="govt-logo-badge" title="Ministry of Corporate Affairs (MCA)">
-            <span className="govt-badge-icon">🏛️</span>
-            <span className="govt-badge-tag">MCA Govt. of India</span>
+          <div className="govt-logo-badge" title="State Emblem of India">
+            <img src="./govt/emblem-india.svg" alt="Emblem of India" className="govt-badge-img" />
+          </div>
+
+          <div className="govt-logo-badge" title="Ministry of Corporate Affairs">
+            <img src="./govt/mca-govt.png" alt="MCA Govt. of India" className="govt-badge-img" />
           </div>
 
           <div className="govt-logo-badge" title="NITI Aayog (NGO-DARPAN)">
-            <span className="govt-badge-icon">🇮🇳</span>
-            <span className="govt-badge-tag">NITI Aayog</span>
+            <img src="./govt/niti-aayog.svg" alt="NITI Aayog" className="govt-badge-img" />
           </div>
 
-          <div className="govt-logo-badge" title="MSME Udyam">
-            <span className="govt-badge-icon">🏭</span>
-            <span className="govt-badge-tag">MSME Udyam</span>
+          <div className="govt-logo-badge" title="MSME Government of India">
+            <img src="./govt/msme.svg" alt="MSME Govt of India" className="govt-badge-img" />
           </div>
 
-          <div className="govt-logo-badge" title="Income Tax Section 12A">
-            <span className="govt-badge-icon">🧾</span>
-            <span className="govt-badge-tag">12A Certified</span>
-          </div>
-
-          <div className="govt-logo-badge" title="Income Tax Section 80G">
-            <span className="govt-badge-icon">💰</span>
-            <span className="govt-badge-tag">80G Approved</span>
-          </div>
-
-          <div className="govt-logo-badge" title="CSR-1 Registration">
-            <span className="govt-badge-icon">💼</span>
-            <span className="govt-badge-tag">CSR-1 Registered</span>
+          <div className="govt-logo-badge" title="Income Tax Department India">
+            <img src="./govt/income-tax.png" alt="Income Tax Department" className="govt-badge-img" />
           </div>
 
           <div className="govt-logo-badge" title="Skill India Mission">
-            <span className="govt-badge-icon">🎯</span>
-            <span className="govt-badge-tag">Skill India</span>
+            <img src="./govt/skill-india.png" alt="Skill India" className="govt-badge-img" />
           </div>
 
           <div className="govt-logo-badge" title="Digital India">
-            <span className="govt-badge-icon">🌐</span>
-            <span className="govt-badge-tag">Digital India</span>
+            <img src="./govt/digital-india.svg" alt="Digital India" className="govt-badge-img" />
+          </div>
+
+          <div className="govt-logo-badge" title="PM DAKSH Yojana">
+            <img src="./govt/pm-daksh.png" alt="PM DAKSH" className="govt-badge-img" />
           </div>
         </div>
       </section>

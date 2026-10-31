@@ -496,47 +496,43 @@ a {
   color: #b45309;
 }
 
-/* CENTERED LOGO-ONLY BADGES ROW (NO NAMES) */
+/* CENTERED LOGO-ONLY BADGES ROW (REAL GOVT LOGOS - NO NAMES - BUTTON STYLE) */
 .govt-logos-center-row {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 16px;
 }
 
 .govt-logo-badge {
   background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  height: 80px;
+  min-width: 130px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease;
   user-select: none;
 }
 
 .govt-logo-badge:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.06);
   border-color: #4b087d;
-  box-shadow: 0 6px 18px rgba(75, 8, 125, 0.12);
+  box-shadow: 0 8px 25px rgba(75, 8, 125, 0.15);
 }
 
-.govt-badge-icon {
-  font-size: 30px;
-  line-height: 1;
-}
-
-.govt-badge-tag {
-  font-size: 13px;
-  font-weight: 800;
-  color: #1e1b4b;
-  letter-spacing: 0.5px;
+.govt-badge-img {
+  max-height: 56px;
+  max-width: 105px;
+  object-fit: contain;
+  display: block;
 }
 
 /* ========================================================== */
@@ -1102,28 +1098,28 @@ a {
 .partner-logo-item {
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px 24px;
+  border-radius: 14px;
+  padding: 12px 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 85px;
-  min-width: 170px;
-  margin: 0 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  height: 105px;
+  min-width: 200px;
+  margin: 0 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease;
   user-select: none;
 }
 
 .partner-logo-item:hover {
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-4px) scale(1.06);
   border-color: #4b087d;
-  box-shadow: 0 8px 20px rgba(75, 8, 125, 0.12);
+  box-shadow: 0 10px 25px rgba(75, 8, 125, 0.15);
 }
 
 .partner-logo-only {
-  max-height: 58px;
-  max-width: 130px;
+  max-height: 80px;
+  max-width: 165px;
   object-fit: contain;
   display: block;
 }
@@ -1221,31 +1217,22 @@ a {
     grid-template-columns: 1fr;
   }
   .partner-logo-item {
-    min-width: 140px;
-    height: 70px;
-    padding: 8px 16px;
+    min-width: 160px;
+    height: 85px;
+    padding: 8px 18px;
   }
   .partner-logo-only {
-    max-height: 48px;
-    max-width: 110px;
-  }
-  .cert-cropped-card {
-    width: 210px;
-  }
-  .cert-paper-wrapper {
-    height: 150px;
-  }
-  .govt-logos-center-row {
-    gap: 10px;
+    max-height: 64px;
+    max-width: 130px;
   }
   .govt-logo-badge {
+    height: 68px;
+    min-width: 105px;
     padding: 8px 14px;
   }
-  .govt-badge-icon {
-    font-size: 24px;
-  }
-  .govt-badge-tag {
-    font-size: 11.5px;
+  .govt-badge-img {
+    max-height: 46px;
+    max-width: 85px;
   }
 }
 
