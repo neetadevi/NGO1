@@ -85,14 +85,14 @@ a {
 .top-franchise-btn {
   background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   color: #fff !important;
-  padding: 6px 14px;
-  border-radius: 4px;
+  padding: 7px 16px;
+  border-radius: 6px;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 12.5px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.4);
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.4);
   animation: pulse-glow 2.5s infinite;
   transition: transform 0.2s;
 }
@@ -109,10 +109,10 @@ a {
 .top-btn {
   background: #fff;
   color: #e21c2a !important;
-  padding: 6px 14px;
+  padding: 7px 15px;
   font-weight: 700;
-  font-size: 12px;
-  border-radius: 4px;
+  font-size: 12.5px;
+  border-radius: 6px;
   transition: all 0.2s ease;
 }
 
@@ -131,10 +131,10 @@ a {
 .top-signup-btn {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #fff !important;
-  padding: 6px 14px;
-  border-radius: 4px;
+  padding: 7px 15px;
+  border-radius: 6px;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 12.5px;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -173,20 +173,22 @@ a {
   background: #dc2626;
 }
 
-/* NAVIGATION */
+/* ========================================================== */
+/* MAIN NAVIGATION - LARGER PROMINENT BRAND LOGO              */
+/* ========================================================== */
 .main-header {
   background: #ffffff;
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
 
 .nav-container {
   width: 100%;
   max-width: 1440px;
-  min-height: 86px;
+  min-height: 96px;
   margin: 0 auto;
   padding: 10px 24px;
   display: flex;
@@ -198,18 +200,21 @@ a {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
+/* BIGGER PROMINENT WEBSITE LOGO */
 .site-logo-img {
-  height: 64px;
+  height: 84px;
   width: auto;
+  max-width: 90px;
   object-fit: contain;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease;
+  filter: drop-shadow(0 2px 6px rgba(75, 8, 125, 0.12));
 }
 
 .brand-logo:hover .site-logo-img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .brand-text {
@@ -219,7 +224,7 @@ a {
 
 .brand-title {
   font-family: Georgia, serif;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 800;
   line-height: 1.05;
   color: #3b0764;
@@ -227,10 +232,10 @@ a {
 }
 
 .brand-sub {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 700;
   color: #b45309;
-  letter-spacing: 2.2px;
+  letter-spacing: 2px;
   margin-top: 3px;
   text-transform: uppercase;
 }
@@ -251,8 +256,8 @@ a {
 
 .nav-menu a {
   color: #1f2937;
-  font-size: 13.5px;
-  padding: 9px 12px;
+  font-size: 14px;
+  padding: 9px 13px;
   white-space: nowrap;
   transition: all 0.2s;
   font-weight: 600;
@@ -287,7 +292,7 @@ a {
   border: 0;
   background: #4b087d;
   color: #fff;
-  font-size: 22px;
+  font-size: 24px;
   padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
@@ -448,21 +453,20 @@ a {
 }
 
 /* ========================================================== */
-/* GOVERNMENT VERIFIED & REGISTERED TICKER (MARQUEE SECTION)  */
+/* VERIFIED & REGISTERED (CENTERED - ONLY LOGOS - NO NAMES)   */
 /* ========================================================== */
 .govt-ticker-section {
   width: 100%;
   background: #ffffff;
-  padding: 32px 0 24px;
+  padding: 38px 20px 30px;
   border-bottom: 2px solid #f1f5f9;
-  overflow: hidden;
+  text-align: center;
 }
 
 .ticker-header {
   text-align: center;
-  max-width: 900px;
-  margin: 0 auto 22px;
-  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto 24px;
 }
 
 .ticker-title-badge {
@@ -474,7 +478,7 @@ a {
   border: 1px solid #a7f3d0;
   font-size: 12px;
   font-weight: 800;
-  padding: 4px 14px;
+  padding: 4px 16px;
   border-radius: 20px;
   letter-spacing: 0.6px;
   margin-bottom: 8px;
@@ -492,103 +496,47 @@ a {
   color: #b45309;
 }
 
-.ticker-subtext {
-  font-size: 13.5px;
-  color: #64748b;
-  margin-top: 4px;
-}
-
-/* MARQUEE TRACKS */
-.marquee-wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 12px;
-}
-
-.marquee-track-left {
+/* CENTERED LOGO-ONLY BADGES ROW (NO NAMES) */
+.govt-logos-center-row {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  gap: 18px;
-  width: max-content;
-  animation: scrollMarqueeLeft 35s linear infinite;
-}
-
-.marquee-track-right {
-  display: flex;
-  gap: 18px;
-  width: max-content;
-  animation: scrollMarqueeRight 35s linear infinite;
-}
-
-.marquee-wrapper:hover .marquee-track-left,
-.marquee-wrapper:hover .marquee-track-right {
-  animation-play-state: paused;
-}
-
-@keyframes scrollMarqueeLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes scrollMarqueeRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.govt-badge-card {
-  background: #f8fafc;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 10px 18px;
-  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  min-width: 270px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.govt-logo-badge {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
   transition: all 0.25s ease;
   user-select: none;
 }
 
-.govt-badge-card:hover {
-  background: #ffffff;
-  border-color: #3b0764;
-  box-shadow: 0 4px 12px rgba(59, 7, 100, 0.1);
-  transform: translateY(-2px);
+.govt-logo-badge:hover {
+  transform: translateY(-3px);
+  border-color: #4b087d;
+  box-shadow: 0 6px 18px rgba(75, 8, 125, 0.12);
 }
 
-.govt-emblem-icon {
-  font-size: 26px;
-  flex: 0 0 40px;
-  height: 40px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.govt-badge-info h4 {
-  font-size: 13px;
-  font-weight: 700;
-  color: #1e293b;
-  line-height: 1.3;
-}
-
-.govt-badge-info p {
-  font-size: 11px;
-  color: #64748b;
-  font-weight: 500;
+.govt-badge-icon {
+  font-size: 30px;
+  line-height: 1;
 }
 
 .govt-badge-tag {
-  font-size: 10px;
-  color: #047857;
-  font-weight: 700;
-  background: #ecfdf5;
-  padding: 2px 6px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #1e1b4b;
+  letter-spacing: 0.5px;
 }
 
 /* ========================================================== */
@@ -944,7 +892,7 @@ a {
 }
 
 /* ========================================================== */
-/* GALLERY SECTION (HD PHOTO COLLAGE)                         */
+/* OUR GALLERY (8 INDIVIDUAL REAL PHOTOS GRID)                */
 /* ========================================================== */
 .gallery-section {
   padding: 70px 24px;
@@ -952,146 +900,65 @@ a {
   width: 100%;
 }
 
-.gallery-hd-container {
+.gallery-grid-8 {
   max-width: 1440px;
   margin: 0 auto;
-}
-
-.gallery-image-frame {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
-  border: 4px solid #f8fafc;
-  background: #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-image-frame:hover {
-  box-shadow: 0 15px 45px rgba(59, 7, 100, 0.18);
-}
-
-.gallery-full-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.35s ease;
-}
-
-/* ========================================================== */
-/* BLOG SECTION                                               */
-/* ========================================================== */
-.blog-section {
-  padding: 70px 24px;
-  background: #f8fafc;
-  width: 100%;
-}
-
-.blog-wrap {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.blog-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.blog-card {
-  background: #fff;
+.gallery-card {
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
+  aspect-ratio: 1.35;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid #f1f5f9;
+  background: #0f172a;
 }
 
-.blog-media {
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-
-.blog-media img {
+.gallery-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
-}
-
-.blog-card:hover .blog-media img {
-  transform: scale(1.05);
-}
-
-.blog-body {
-  padding: 22px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  flex-grow: 1;
-}
-
-.blog-date {
-  flex: 0 0 54px;
-  background: #4b087d;
-  color: #fff;
-  text-align: center;
-  padding: 10px 4px;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-.blog-date b {
   display: block;
-  font-size: 19px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 2px;
-  margin-bottom: 2px;
+  transition: transform 0.4s ease;
 }
 
-.blog-date small {
+.gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-overlay-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(37, 5, 73, 0.85);
+  color: #facc15;
   font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.5px;
 }
 
-.blog-content {
-  flex: 1;
-}
-
-.blog-content h3 {
-  font-size: 17px;
-  line-height: 1.4;
-  color: #1e293b;
-  margin: 0 0 10px;
-  font-weight: 700;
-}
-
-.blog-content p {
-  font-size: 13.5px;
-  color: #64748b;
-  line-height: 1.55;
-  margin-bottom: 16px;
-}
-
-.blog-content .read {
-  display: inline-block;
-  border: 1.5px solid #4b087d;
-  color: #4b087d;
-  padding: 6px 16px;
-  border-radius: 4px;
+.gallery-card-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 14px;
+  background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
+  color: #ffffff;
   font-size: 12.5px;
-  font-weight: 700;
-  transition: all 0.2s;
-}
-
-.blog-content .read:hover {
-  background: #4b087d;
-  color: #fff;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 /* ========================================================== */
-/* CERTIFICATES SECTION (SLIDE LEFT & RIGHT + SIDE BY SIDE)   */
+/* OUR CERTIFICATES (SINGLE HORIZONTAL LINE OF CROPPED CERTS) */
 /* ========================================================== */
 .cert-section {
   position: relative;
@@ -1111,169 +978,119 @@ a {
   color: #cbd5e1;
 }
 
-/* MAIN CERTIFICATE SLIDER */
-.cert-slider-wrapper {
-  max-width: 1100px;
-  margin: 0 auto 35px;
+/* SINGLE LINE MARQUEE/SCROLLER OF CERTIFICATES */
+.cert-single-line-track {
+  width: 100%;
+  overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-
-.cert-nav-btn {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  font-size: 30px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
-  z-index: 10;
-  flex-shrink: 0;
-}
-
-.cert-nav-btn:hover {
-  background: #facc15;
-  color: #1e1b4b;
-  border-color: #facc15;
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
-}
-
-.cert-slide-display {
-  flex: 1;
-  max-width: 950px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 24px 0;
   border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.cert-main-img {
-  width: 100%;
-  height: auto;
-  max-height: 520px;
-  display: block;
-  object-fit: contain;
-  background: #000;
-  transition: opacity 0.3s ease;
-}
-
-.cert-caption-bar {
-  background: rgba(15, 23, 42, 0.85);
-  padding: 14px 20px;
+.cert-marquee-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.cert-caption-bar h4 {
-  font-size: 15px;
-  font-weight: 700;
-  color: #facc15;
-}
-
-.cert-caption-bar span {
-  font-size: 12px;
-  color: #94a3b8;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px 10px;
-  border-radius: 12px;
-}
-
-/* SIDE BY SIDE 3 CERTIFICATE THUMBNAILS */
-.cert-thumbs-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
+  width: max-content;
+  animation: certScroll 32s linear infinite;
 }
 
-.cert-thumb-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(255, 255, 255, 0.15);
+.cert-single-line-track:hover .cert-marquee-row {
+  animation-play-state: paused;
+}
+
+@keyframes certScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.cert-cropped-card {
+  background: #ffffff;
   border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.25s ease;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  width: 250px;
+  flex-shrink: 0;
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
 }
 
-.cert-thumb-card:hover {
-  transform: translateY(-4px);
-  border-color: #facc15;
-  background: rgba(255, 255, 255, 0.14);
+.cert-cropped-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(250, 204, 21, 0.3);
 }
 
-.cert-thumb-card.active {
-  border-color: #facc15;
-  box-shadow: 0 0 16px rgba(250, 204, 21, 0.35);
-  background: rgba(250, 204, 21, 0.1);
-}
-
-.cert-thumb-card img {
+.cert-paper-wrapper {
   width: 100%;
-  height: 140px;
-  object-fit: cover;
-  display: block;
-  background: #000;
+  height: 180px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
 }
 
-.cert-thumb-card p {
-  padding: 10px 12px;
+.cert-paper-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.cert-card-caption {
+  margin-top: 10px;
+}
+
+.cert-card-caption h4 {
   font-size: 13px;
-  font-weight: 600;
-  color: #e2e8f0;
+  font-weight: 700;
+  color: #1e1b4b;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.cert-card-caption p {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0;
 }
 
 /* ========================================================== */
-/* OUR PARTNERS (INDIVIDUAL LOGOS SLIDING LEFT & RIGHT)       */
+/* OUR PARTNERS (SINGLE LINE - ONLY LOGOS - NO GOVT NAMES)    */
 /* ========================================================== */
 .partners-section {
   width: 100%;
   background: #ffffff;
-  padding: 65px 24px;
+  padding: 60px 24px;
+  text-align: center;
 }
 
-.partners-slide-track {
+.partners-single-line-track {
   width: 100%;
   overflow: hidden;
   position: relative;
   background: #f8fafc;
-  padding: 18px 0;
+  padding: 20px 0;
   border-radius: 16px;
   border: 1.5px solid #e2e8f0;
-  margin-bottom: 22px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.partners-slide-marquee-left {
+.partners-single-marquee {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: partnersScrollLeft 32s linear infinite;
+  animation: partnersScrollLeft 26s linear infinite;
 }
 
-.partners-slide-marquee-right {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  animation: partnersScrollRight 32s linear infinite;
-}
-
-.partners-slide-track:hover .partners-slide-marquee-left,
-.partners-slide-track:hover .partners-slide-marquee-right {
+.partners-single-line-track:hover .partners-single-marquee {
   animation-play-state: paused;
 }
 
@@ -1282,76 +1099,45 @@ a {
   100% { transform: translateX(-50%); }
 }
 
-@keyframes partnersScrollRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.partner-individual-card {
+.partner-logo-item {
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
   border-radius: 12px;
-  padding: 12px 18px;
-  display: inline-flex;
+  padding: 12px 24px;
+  display: flex;
   align-items: center;
-  gap: 16px;
-  min-width: 290px;
-  margin: 0 10px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  justify-content: center;
+  height: 85px;
+  min-width: 170px;
+  margin: 0 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
   transition: all 0.25s ease;
   user-select: none;
 }
 
-.partner-individual-card:hover {
-  transform: translateY(-3px);
+.partner-logo-item:hover {
+  transform: translateY(-3px) scale(1.05);
   border-color: #4b087d;
-  box-shadow: 0 8px 25px rgba(75, 8, 125, 0.12);
+  box-shadow: 0 8px 20px rgba(75, 8, 125, 0.12);
 }
 
-.partner-logo-wrapper {
-  flex: 0 0 90px;
-  height: 65px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 2px;
-}
-
-.partner-single-logo {
-  max-width: 100%;
-  max-height: 100%;
+.partner-logo-only {
+  max-height: 58px;
+  max-width: 130px;
   object-fit: contain;
   display: block;
 }
 
-.partner-card-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.partner-card-info h4 {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #1e293b;
-  line-height: 1.3;
-  margin-bottom: 2px;
-}
-
-.partner-card-info p {
-  font-size: 11px;
-  color: #64748b;
-  line-height: 1.35;
-  margin: 0;
-}
-
-/* RESPONSIVE DESIGN */
+/* ========================================================== */
+/* RESPONSIVE DESIGN - PROFESSIONAL & MOBILE USER FRIENDLY    */
+/* ========================================================== */
 @media (max-width: 1200px) {
   .action-grid,
-  .project-grid,
-  .blog-grid {
+  .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gallery-grid-8 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1360,9 +1146,11 @@ a {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    gap: 8px;
   }
   .contact-info {
     justify-content: center;
+    font-size: 11.5px;
   }
   .top-actions {
     justify-content: center;
@@ -1371,21 +1159,30 @@ a {
     grid-template-columns: 1fr;
     gap: 35px;
   }
-  .cert-thumbs-grid {
-    grid-template-columns: 1fr;
+  .gallery-grid-8 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
   .nav-container {
-    min-height: 72px;
-    padding: 10px 16px;
+    min-height: 80px;
+    padding: 8px 16px;
+  }
+  /* PROMINENT MOBILE LOGO */
+  .site-logo-img {
+    height: 65px;
+    max-width: 70px;
   }
   .brand-title {
-    font-size: 20px;
+    font-size: 21px;
   }
-  .site-logo-img {
-    height: 48px;
+  .brand-sub {
+    font-size: 9.5px;
+    letter-spacing: 1px;
+  }
+  .brand-reg {
+    font-size: 8.5px;
   }
   .menu-toggle {
     display: block;
@@ -1396,10 +1193,10 @@ a {
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: #ffffff;
     flex-direction: column;
     align-items: stretch;
-    padding: 14px 16px;
+    padding: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   }
   .nav-menu.active {
@@ -1407,28 +1204,59 @@ a {
   }
   .nav-menu a {
     width: 100%;
-    padding: 12px 14px;
-    font-size: 14px;
+    padding: 13px 16px;
+    font-size: 15px;
     border-bottom: 1px solid #f1f5f9;
   }
   .action-grid,
-  .project-grid,
-  .blog-grid {
+  .project-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .gallery-grid-8 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
   .about-key-details {
     grid-template-columns: 1fr;
   }
-  .partner-hd-img {
-    height: 60px;
-    padding: 0 20px;
+  .partner-logo-item {
+    min-width: 140px;
+    height: 70px;
+    padding: 8px 16px;
   }
-  .cert-slider-wrapper {
-    gap: 8px;
+  .partner-logo-only {
+    max-height: 48px;
+    max-width: 110px;
   }
-  .cert-nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
+  .cert-cropped-card {
+    width: 210px;
+  }
+  .cert-paper-wrapper {
+    height: 150px;
+  }
+  .govt-logos-center-row {
+    gap: 10px;
+  }
+  .govt-logo-badge {
+    padding: 8px 14px;
+  }
+  .govt-badge-icon {
+    font-size: 24px;
+  }
+  .govt-badge-tag {
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid-8 {
+    grid-template-columns: 1fr;
+  }
+  .brand-title {
+    font-size: 18px;
+  }
+  .site-logo-img {
+    height: 56px;
   }
 }

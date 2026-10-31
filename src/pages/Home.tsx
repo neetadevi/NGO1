@@ -9,7 +9,6 @@ export default function Home() {
   const [user, setUser] = useState<User | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [certIndex, setCertIndex] = useState(0)
 
   // Authentic Indian imagery for social welfare, rural education, health camps, and women empowerment
   const slides = [
@@ -33,54 +32,92 @@ export default function Home() {
     },
   ]
 
-  // Certificates list for sliding left and right
-  const certImages = [
+  // 8 Individual high-resolution real field activity photos for Gallery
+  const galleryImages = [
     {
-      img: './cert-1.jpg',
-      title: 'National Human Rights Commission & Society Registration Certificate',
+      img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=700&q=80',
+      title: 'Primary School Classroom & Quality Education',
+      tag: 'Education',
     },
     {
-      img: './cert-2.jpg',
-      title: 'ISO 9001:2015 Quality Management System & QRO Certification',
+      img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=700&q=80',
+      title: 'Women Vocational Tailoring & Skill Institute',
+      tag: 'Skill Training',
     },
     {
-      img: './cert-3.jpg',
-      title: 'Central Vigilance Commission Certificate of Commitment & PCRA',
+      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80',
+      title: 'Free Rural Health Consultation & Eye Checkup Camp',
+      tag: 'Healthcare',
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80',
+      title: 'School Bags, Books & Winter Uniform Distribution',
+      tag: 'Distribution',
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80',
+      title: 'Computer Training Lab & Digital Literacy Workshop',
+      tag: 'Digital Literacy',
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=80',
+      title: 'Youth Certificate Award Ceremony & Graduation',
+      tag: 'Certifications',
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb7?auto=format&fit=crop&w=700&q=80',
+      title: 'Community Food Kitchen & Essential Ration Relief',
+      tag: 'Relief Aid',
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=700&q=80',
+      title: 'Green Earth Plantation Drive & Village Awareness',
+      tag: 'Environment',
     },
   ]
 
-  // Individual Partner Logos for sliding left and right
+  // Clean cropped individual certificates for single line display
+  const certificates = [
+    {
+      img: './certificates/cert-nhrc.jpg',
+      title: 'National Human Rights Commission (NHRC)',
+      subtitle: 'Human Rights Pledge Certificate',
+    },
+    {
+      img: './certificates/cert-registration.jpg',
+      title: 'Certificate of Registration',
+      subtitle: 'Societies Registration Act',
+    },
+    {
+      img: './certificates/cert-iso-management.jpg',
+      title: 'ISO 9001:2015 Management System',
+      subtitle: 'QPS Quality Standard',
+    },
+    {
+      img: './certificates/cert-iso-qro.jpg',
+      title: 'QRO ISO Certificate',
+      subtitle: 'Quality Certification System',
+    },
+    {
+      img: './certificates/cert-cvc.jpg',
+      title: 'Central Vigilance Commission (CVC)',
+      subtitle: 'Certificate of Commitment',
+    },
+    {
+      img: './certificates/cert-pcra.jpg',
+      title: 'PCRA Ministry of Petroleum',
+      subtitle: 'Fuel Conservation Pledge',
+    },
+  ]
+
+  // Partner logos (ONLY LOGOS - NO GOVT NAMES)
   const partnerLogos = [
-    {
-      name: 'PM DAKSH',
-      subtitle: 'Ministry of Social Justice & Empowerment',
-      img: './partners/pm-daksh.png',
-    },
-    {
-      name: 'PM Bhartiya Jan Aushadhi',
-      subtitle: 'Department of Pharmaceuticals, Govt. of India',
-      img: './partners/jan-aushadhi.png',
-    },
-    {
-      name: 'Ministry of Rural Development',
-      subtitle: 'Government of India',
-      img: './partners/rural-dev.png',
-    },
-    {
-      name: 'Skill India',
-      subtitle: 'Kaushal Bharat - Kushal Bharat',
-      img: './partners/skill-india.png',
-    },
-    {
-      name: 'Telecom Sector Skill Council',
-      subtitle: 'TSSC India',
-      img: './partners/tssc.png',
-    },
-    {
-      name: 'Ministry of Labour & Employment',
-      subtitle: 'Government of India',
-      img: './partners/labour-ministry.png',
-    },
+    { id: 1, name: 'PM DAKSH', img: './partners/pm-daksh.png' },
+    { id: 2, name: 'Jan Aushadhi', img: './partners/jan-aushadhi.png' },
+    { id: 3, name: 'Rural Development', img: './partners/rural-dev.png' },
+    { id: 4, name: 'Skill India', img: './partners/skill-india.png' },
+    { id: 5, name: 'TSSC India', img: './partners/tssc.png' },
+    { id: 6, name: 'Labour Ministry', img: './partners/labour-ministry.png' },
   ]
 
   useEffect(() => {
@@ -113,14 +150,6 @@ export default function Home() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
-
-  const nextCert = () => {
-    setCertIndex((prev) => (prev + 1) % certImages.length)
-  }
-
-  const prevCert = () => {
-    setCertIndex((prev) => (prev - 1 + certImages.length) % certImages.length)
   }
 
   return (
@@ -174,7 +203,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* MAIN NAVIGATION */}
+      {/* MAIN NAVIGATION WITH BIGGER PROMINENT LOGO */}
       <header className="main-header">
         <div className="nav-container">
           <a href="#home" className="brand-logo" aria-label="Shikashvik Welfare Foundation Home">
@@ -203,7 +232,6 @@ export default function Home() {
             <Link to="/franchise" className="nav-franchise-link" onClick={() => setMobileMenuOpen(false)}>
               🎓 Apply Franchise
             </Link>
-            <a href="#blog" onClick={() => setMobileMenuOpen(false)}>News</a>
             <a href="#certificates" onClick={() => setMobileMenuOpen(false)}>Certificates</a>
             <a href="#partners" onClick={() => setMobileMenuOpen(false)}>Partners</a>
 
@@ -269,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* GOVERNMENT VERIFIED & REGISTERED WITH TICKER (LEFT & RIGHT) */}
+      {/* VERIFIED & REGISTERED (CENTERED - ONLY LOGOS - NO NAMES)   */}
       {/* ========================================================== */}
       <section className="govt-ticker-section">
         <div className="ticker-header">
@@ -279,218 +307,48 @@ export default function Home() {
           <h3 className="ticker-heading">
             VERIFIED & REGISTERED WITH <span>GOVERNMENT OF INDIA</span>
           </h3>
-          <p className="ticker-subtext">
-            Operating in complete statutory compliance with National & State Government portals and regulatory bodies
-          </p>
         </div>
 
-        {/* TRACK 1: SCROLLING LEFT */}
-        <div className="marquee-wrapper">
-          <div className="marquee-track-left">
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🏛️</div>
-              <div className="govt-badge-info">
-                <h4>Ministry of Corporate Affairs (MCA)</h4>
-                <p>Section 8 Non-Profit Licensed Foundation</p>
-                <span className="govt-badge-tag">Govt. of India</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🇮🇳</div>
-              <div className="govt-badge-info">
-                <h4>NITI Aayog (NGO-DARPAN)</h4>
-                <p>Registered Non-Governmental Organization</p>
-                <span className="govt-badge-tag">NITI-DARPAN ID Active</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🏭</div>
-              <div className="govt-badge-info">
-                <h4>MSME Udyam Registration</h4>
-                <p>Ministry of Micro, Small & Medium Enterprises</p>
-                <span className="govt-badge-tag">Udyam Verified</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🧾</div>
-              <div className="govt-badge-info">
-                <h4>Income Tax Department (12A)</h4>
-                <p>Tax Exemption Certificate under Section 12A</p>
-                <span className="govt-badge-tag">12A Approved</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">💼</div>
-              <div className="govt-badge-info">
-                <h4>CSR-1 Registration</h4>
-                <p>Eligible for Corporate Social Responsibility Grants</p>
-                <span className="govt-badge-tag">MCA CSR-1 Form</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🎯</div>
-              <div className="govt-badge-info">
-                <h4>Skill India Mission</h4>
-                <p>Vocational & Skill Development Initiative</p>
-                <span className="govt-badge-tag">Empanelment Ready</span>
-              </div>
-            </div>
-
-            {/* Duplicate for seamless infinite loop */}
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🏛️</div>
-              <div className="govt-badge-info">
-                <h4>Ministry of Corporate Affairs (MCA)</h4>
-                <p>Section 8 Non-Profit Licensed Foundation</p>
-                <span className="govt-badge-tag">Govt. of India</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🇮🇳</div>
-              <div className="govt-badge-info">
-                <h4>NITI Aayog (NGO-DARPAN)</h4>
-                <p>Registered Non-Governmental Organization</p>
-                <span className="govt-badge-tag">NITI-DARPAN ID Active</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🏭</div>
-              <div className="govt-badge-info">
-                <h4>MSME Udyam Registration</h4>
-                <p>Ministry of Micro, Small & Medium Enterprises</p>
-                <span className="govt-badge-tag">Udyam Verified</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🧾</div>
-              <div className="govt-badge-info">
-                <h4>Income Tax Department (12A)</h4>
-                <p>Tax Exemption Certificate under Section 12A</p>
-                <span className="govt-badge-tag">12A Approved</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">💼</div>
-              <div className="govt-badge-info">
-                <h4>CSR-1 Registration</h4>
-                <p>Eligible for Corporate Social Responsibility Grants</p>
-                <span className="govt-badge-tag">MCA CSR-1 Form</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🎯</div>
-              <div className="govt-badge-info">
-                <h4>Skill India Mission</h4>
-                <p>Vocational & Skill Development Initiative</p>
-                <span className="govt-badge-tag">Empanelment Ready</span>
-              </div>
-            </div>
+        {/* CENTERED LOGO BADGES (NO LONG TEXT NAMES) */}
+        <div className="govt-logos-center-row">
+          <div className="govt-logo-badge" title="Ministry of Corporate Affairs (MCA)">
+            <span className="govt-badge-icon">🏛️</span>
+            <span className="govt-badge-tag">MCA Govt. of India</span>
           </div>
-        </div>
 
-        {/* TRACK 2: SCROLLING RIGHT */}
-        <div className="marquee-wrapper">
-          <div className="marquee-track-right">
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">💰</div>
-              <div className="govt-badge-info">
-                <h4>Section 80G Tax Exemption</h4>
-                <p>50% Income Tax Benefit for Donor Contributions</p>
-                <span className="govt-badge-tag">80G Certified</span>
-              </div>
-            </div>
+          <div className="govt-logo-badge" title="NITI Aayog (NGO-DARPAN)">
+            <span className="govt-badge-icon">🇮🇳</span>
+            <span className="govt-badge-tag">NITI Aayog</span>
+          </div>
 
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🌐</div>
-              <div className="govt-badge-info">
-                <h4>Digital India & e-Governance</h4>
-                <p>Promoting Digital Inclusion in Rural Districts</p>
-                <span className="govt-badge-tag">Digital Literacy</span>
-              </div>
-            </div>
+          <div className="govt-logo-badge" title="MSME Udyam">
+            <span className="govt-badge-icon">🏭</span>
+            <span className="govt-badge-tag">MSME Udyam</span>
+          </div>
 
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🎓</div>
-              <div className="govt-badge-info">
-                <h4>Department of Education (UP)</h4>
-                <p>Sarva Shiksha Abhiyan & Rural Child Education</p>
-                <span className="govt-badge-tag">Uttar Pradesh</span>
-              </div>
-            </div>
+          <div className="govt-logo-badge" title="Income Tax Section 12A">
+            <span className="govt-badge-icon">🧾</span>
+            <span className="govt-badge-tag">12A Certified</span>
+          </div>
 
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🩺</div>
-              <div className="govt-badge-info">
-                <h4>National Health Mission (NHM)</h4>
-                <p>Health & Hygiene Awareness Partnerships</p>
-                <span className="govt-badge-tag">Health Partner</span>
-              </div>
-            </div>
+          <div className="govt-logo-badge" title="Income Tax Section 80G">
+            <span className="govt-badge-icon">💰</span>
+            <span className="govt-badge-tag">80G Approved</span>
+          </div>
 
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">📜</div>
-              <div className="govt-badge-info">
-                <h4>Govt. Registration: Etah (UP)</h4>
-                <p>Registered Office: Dhumari, Aliganj, Etah - 207248</p>
-                <span className="govt-badge-tag">Incorporated Oct 2026</span>
-              </div>
-            </div>
+          <div className="govt-logo-badge" title="CSR-1 Registration">
+            <span className="govt-badge-icon">💼</span>
+            <span className="govt-badge-tag">CSR-1 Registered</span>
+          </div>
 
-            {/* Duplicate for seamless infinite loop */}
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">💰</div>
-              <div className="govt-badge-info">
-                <h4>Section 80G Tax Exemption</h4>
-                <p>50% Income Tax Benefit for Donor Contributions</p>
-                <span className="govt-badge-tag">80G Certified</span>
-              </div>
-            </div>
+          <div className="govt-logo-badge" title="Skill India Mission">
+            <span className="govt-badge-icon">🎯</span>
+            <span className="govt-badge-tag">Skill India</span>
+          </div>
 
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🌐</div>
-              <div className="govt-badge-info">
-                <h4>Digital India & e-Governance</h4>
-                <p>Promoting Digital Inclusion in Rural Districts</p>
-                <span className="govt-badge-tag">Digital Literacy</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🎓</div>
-              <div className="govt-badge-info">
-                <h4>Department of Education (UP)</h4>
-                <p>Sarva Shiksha Abhiyan & Rural Child Education</p>
-                <span className="govt-badge-tag">Uttar Pradesh</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">🩺</div>
-              <div className="govt-badge-info">
-                <h4>National Health Mission (NHM)</h4>
-                <p>Health & Hygiene Awareness Partnerships</p>
-                <span className="govt-badge-tag">Health Partner</span>
-              </div>
-            </div>
-
-            <div className="govt-badge-card">
-              <div className="govt-emblem-icon">📜</div>
-              <div className="govt-badge-info">
-                <h4>Govt. Registration: Etah (UP)</h4>
-                <p>Registered Office: Dhumari, Aliganj, Etah - 207248</p>
-                <span className="govt-badge-tag">Incorporated Oct 2026</span>
-              </div>
-            </div>
+          <div className="govt-logo-badge" title="Digital India">
+            <span className="govt-badge-icon">🌐</span>
+            <span className="govt-badge-tag">Digital India</span>
           </div>
         </div>
       </section>
@@ -677,101 +535,29 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* OUR GALLERY (USER'S COLLAGE PHOTO - BLUE STRIP REMOVED)    */}
+      {/* OUR GALLERY (8 INDIVIDUAL REAL PHOTOS)                     */}
       {/* ========================================================== */}
       <section id="gallery" className="gallery-section">
         <h2 className="section-title">OUR <span>GALLERY</span></h2>
         <p className="section-subtitle">
-          Real photographic glimpses of our ongoing social welfare, skill development classes, and medical relief camps in Uttar Pradesh.
+          Real glimpses of our ongoing social welfare, skill development classes, and medical relief camps in Uttar Pradesh.
         </p>
 
-        <div className="gallery-hd-container">
-          <div className="gallery-image-frame">
-            <img
-              src="./gallery-main.jpg"
-              alt="Shikashvik Welfare Foundation Field Activities & Events Gallery"
-              className="gallery-full-img"
-            />
-          </div>
+        <div className="gallery-grid-8">
+          {galleryImages.map((item, idx) => (
+            <div key={idx} className="gallery-card">
+              <img src={item.img} alt={item.title} loading="lazy" />
+              <span className="gallery-overlay-badge">{item.tag}</span>
+              <div className="gallery-card-caption">
+                <p>{item.title}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ========================================================== */}
-      {/* BLOG / NEWS SECTION */}
-      {/* ========================================================== */}
-      <section id="blog" className="blog-section">
-        <div className="blog-wrap">
-          <h2 className="section-title">LATEST <span>NEWS & ACTIVITIES</span></h2>
-          <p className="section-subtitle">
-            Updates and milestones achieved by our grassroots teams and volunteer network.
-          </p>
-
-          <div className="blog-grid">
-            <div className="blog-card">
-              <div className="blog-media">
-                <img
-                  src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80"
-                  alt="School Kit Distribution"
-                />
-              </div>
-              <div className="blog-body">
-                <div className="blog-date">
-                  <b>28</b>
-                  <small>OCT</small>
-                </div>
-                <div className="blog-content">
-                  <h3>Distribution of 400+ School Kits Completed</h3>
-                  <p>Textbooks, geometry boxes, and bags were distributed to primary students across rural schools in Etah district.</p>
-                  <a href="#about" className="read">Read Update</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="blog-card">
-              <div className="blog-media">
-                <img
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80"
-                  alt="Medical Camp"
-                />
-              </div>
-              <div className="blog-body">
-                <div className="blog-date">
-                  <b>25</b>
-                  <small>OCT</small>
-                </div>
-                <div className="blog-content">
-                  <h3>Special Eye & Health Checkup in Aliganj</h3>
-                  <p>Over 380 elderly villagers received doctor examinations, blood sugar tests, and complimentary prescription glasses.</p>
-                  <a href="#about" className="read">Read Update</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="blog-card">
-              <div className="blog-media">
-                <img
-                  src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80"
-                  alt="Women Tailoring Batch"
-                />
-              </div>
-              <div className="blog-body">
-                <div className="blog-date">
-                  <b>23</b>
-                  <small>OCT</small>
-                </div>
-                <div className="blog-content">
-                  <h3>Official Incorporation & 1st Skill Batch</h3>
-                  <p>Shikashvik Welfare Foundation officially marks its foundation day and commenced its first women tailoring program.</p>
-                  <a href="#about" className="read">Read Update</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================== */}
-      {/* OUR CERTIFICATES (SLIDE LEFT & RIGHT + SIDE BY SIDE 3 PHOTOS) */}
+      {/* OUR CERTIFICATES (SINGLE LINE CROPPED CERTIFICATES)         */}
       {/* ========================================================== */}
       <section id="certificates" className="cert-section">
         <h2 className="section-title">OUR <span>CERTIFICATES</span></h2>
@@ -779,89 +565,43 @@ export default function Home() {
           Verified & recognized legal registration documents, human rights pledges, and ISO quality accreditations.
         </p>
 
-        {/* INTERACTIVE CAROUSEL SLIDER (SLIDE LEFT & RIGHT) */}
-        <div className="cert-slider-wrapper">
-          <button className="cert-nav-btn" onClick={prevCert} aria-label="Previous Certificate">
-            ‹
-          </button>
-
-          <div className="cert-slide-display">
-            <img
-              src={certImages[certIndex].img}
-              alt={certImages[certIndex].title}
-              className="cert-main-img"
-            />
-            <div className="cert-caption-bar">
-              <h4>{certImages[certIndex].title}</h4>
-              <span>Certificate {certIndex + 1} of 3</span>
-            </div>
+        {/* SINGLE HORIZONTAL LINE OF CROPPED CERTIFICATES */}
+        <div className="cert-single-line-track">
+          <div className="cert-marquee-row">
+            {certificates.concat(certificates).map((c, idx) => (
+              <div key={`cert-${idx}`} className="cert-cropped-card">
+                <div className="cert-paper-wrapper">
+                  <img src={c.img} alt={c.title} className="cert-paper-img" />
+                </div>
+                <div className="cert-card-caption">
+                  <h4>{c.title}</h4>
+                  <p>{c.subtitle}</p>
+                </div>
+              </div>
+            ))}
           </div>
-
-          <button className="cert-nav-btn" onClick={nextCert} aria-label="Next Certificate">
-            ›
-          </button>
-        </div>
-
-        {/* SIDE BY SIDE 3 CERTIFICATE CARDS */}
-        <div className="cert-thumbs-grid">
-          {certImages.map((c, i) => (
-            <div
-              key={i}
-              className={`cert-thumb-card ${i === certIndex ? 'active' : ''}`}
-              onClick={() => setCertIndex(i)}
-            >
-              <img src={c.img} alt={c.title} />
-              <p>{c.title}</p>
-            </div>
-          ))}
         </div>
       </section>
 
       {/* ========================================================== */}
-      {/* OUR PARTNERS (INDIVIDUAL LOGOS SLIDING LEFT & RIGHT)        */}
+      {/* OUR PARTNERS (SINGLE LINE - ONLY LOGOS - NO GOVT NAMES)    */}
       {/* ========================================================== */}
       <section id="partners" className="partners-section">
         <h2 className="section-title">OUR <span>PARTNERS</span></h2>
-        <p className="section-subtitle">
-          PM DAKSH • Pradhan Mantri Bhartiya Jan Aushadhi • Ministry of Rural Development • Skill India • Telecom Sector Skill Council • Ministry of Labour & Employment
-        </p>
 
-        {/* TRACK 1: INDIVIDUAL LOGOS SLIDING LEFT */}
-        <div className="partners-slide-track">
-          <div className="partners-slide-marquee-left">
-            {partnerLogos.concat(partnerLogos).map((p, idx) => (
-              <div key={`partner-left-${idx}`} className="partner-individual-card">
-                <div className="partner-logo-wrapper">
-                  <img src={p.img} alt={p.name} className="partner-single-logo" />
-                </div>
-                <div className="partner-card-info">
-                  <h4>{p.name}</h4>
-                  <p>{p.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* TRACK 2: INDIVIDUAL LOGOS SLIDING RIGHT */}
-        <div className="partners-slide-track" style={{ marginTop: '22px' }}>
-          <div className="partners-slide-marquee-right">
-            {partnerLogos.concat(partnerLogos).map((p, idx) => (
-              <div key={`partner-right-${idx}`} className="partner-individual-card">
-                <div className="partner-logo-wrapper">
-                  <img src={p.img} alt={p.name} className="partner-single-logo" />
-                </div>
-                <div className="partner-card-info">
-                  <h4>{p.name}</h4>
-                  <p>{p.subtitle}</p>
-                </div>
+        {/* SINGLE CONTINUOUS SLIDING TRACK - ONLY LOGOS */}
+        <div className="partners-single-line-track">
+          <div className="partners-single-marquee">
+            {partnerLogos.concat(partnerLogos).concat(partnerLogos).map((p, idx) => (
+              <div key={`partner-${idx}`} className="partner-logo-item" title={p.name}>
+                <img src={p.img} alt={p.name} className="partner-logo-only" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FOOTER HAS BEEN COMPLETELY REMOVED AS REQUESTED BY USER ("niche se fotter hatha do") */}
+      {/* FOOTER HAS BEEN REMOVED */}
     </div>
   )
 }
