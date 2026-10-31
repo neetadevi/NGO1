@@ -82,6 +82,11 @@ export default function Login() {
         <p className="auth-footer">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
+        <p style={{ textAlign: 'center', marginTop: '16px' }}>
+          <Link to="/" style={{ color: '#6b7280', fontSize: '13px', textDecoration: 'none' }}>
+            ← Back to Website
+          </Link>
+        </p>
       </div>
     </div>
   )

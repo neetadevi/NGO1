@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useNavigate, Link } from 'react-router-dom'
 import { supabase } from './lib/supabase'
 import type { User } from '@supabase/supabase-js'
+import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import './App.css'
@@ -18,21 +19,33 @@ function Dashboard() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
-    navigate('/login')
+    navigate('/')
   }
 
   return (
     <div className="dashboard-container">
       <div className="dashboard-card">
-        <h1>🎉 Welcome!</h1>
-        <p className="user-email">{user?.email}</p>
-        <p className="user-name">{user?.user_metadata?.full_name}</p>
-        <p style={{ color: '#6b7280', marginTop: '16px' }}>
-          You are successfully logged in.
+        <div style={{ fontSize: '42px', marginBottom: '10px' }}>🌿</div>
+        <h1>My Account</h1>
+        <p className="user-name">
+          {user?.user_metadata?.full_name || 'Member'}
         </p>
-        <button onClick={handleLogout} className="logout-button">
-          Sign Out
-        </button>
+        <p className="user-email">{user?.email}</p>
+
+        <div style={{ background: '#f3f4f6', borderRadius: '10px', padding: '16px', margin: '24px 0', textAlign: 'left', fontSize: '14px', color: '#4b5563' }}>
+          <p style={{ margin: '0 0 6px' }}><strong>Status:</strong> <span style={{ color: '#10b981' }}>● Active</span></p>
+          <p style={{ margin: '0 0 6px' }}><strong>Organization:</strong> Shikashvik Welfare Foundation</p>
+          <p style={{ margin: '0' }}><strong>Role:</strong> Supporter / Volunteer</p>
+        </div>
+
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+          <Link to="/" style={{ padding: '12px 24px', background: '#4b087d', color: '#fff', borderRadius: '10px', fontWeight: '600', textDecoration: 'none' }}>
+            Go to Website
+          </Link>
+          <button onClick={handleLogout} className="logout-button" style={{ margin: 0 }}>
+            Sign Out
+          </button>
+        </div>
       </div>
     </div>
   )
@@ -75,16 +88,18 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route
-        path="/"
+        path="/dashboard"
         element={
           <ProtectedRoute>
             <Dashboard />
           </ProtectedRoute>
         }
       />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }
