@@ -10,69 +10,95 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Authentic Indian imagery for social welfare, rural education, health camps, and women empowerment
+  // Authentic Real Indian Field & Community photos from Shikashvik Welfare Foundation operations
   const slides = [
     {
-      img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1600&q=80',
+      img: './gallery/field-3.jpg',
       badge: 'Education For All Children',
       title: 'Empowering Underprivileged Children in Rural India',
-      subtitle: 'Bringing smiles, quality school education, digital literacy, and books to every child across Etah and Uttar Pradesh.',
+      subtitle: 'Free school kit distribution, daily tutoring, books, and digital literacy across Etah and Uttar Pradesh.',
     },
     {
-      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1600&q=80',
+      img: './gallery/field-4.jpg',
       badge: 'Free Healthcare & Medicine',
-      title: 'Aarogya Seva: Rural Health & Medical Camps',
-      subtitle: 'Organizing free doctor checkups, eye testing, dental hygiene, and distributing vital nutrition kits for rural families.',
+      title: 'Aarogya Seva: Rural Free Health & Medical Camps',
+      subtitle: 'Free doctor checkups, vital health screenings, and distributing free medicines to underprivileged rural families.',
     },
     {
-      img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1600&q=80',
-      badge: 'Women Empowerment & Skills',
-      title: 'Vocational Training & Women Self-Reliance',
-      subtitle: 'Tailoring centers, computer literacy, handicrafts, and self-help groups fostering self-reliance for rural women.',
+      img: './gallery/field-7.jpg',
+      badge: 'PM DAKSH & Skill Training',
+      title: 'Youth Vocational & Professional Career Empowerment',
+      subtitle: 'Job-oriented skill programs, digital computer training, and livelihood skills fostering self-reliance.',
+    },
+    {
+      img: './gallery/field-12.jpg',
+      badge: 'Student Certification & Honors',
+      title: 'Official Accreditation & Skill Certificate Distribution',
+      subtitle: 'Awarding government-recognized skill certificates and recognizing students transforming their communities.',
     },
   ]
 
-  // 8 Real Indian Government School & Rural Student Education Photos
+  // 12 Authentic Cropped Field Photos from Foundation Events
   const galleryImages = [
     {
-      img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
-      title: 'Indian Primary Government School Classroom Session',
-      tag: 'Govt School',
+      img: './gallery/field-1.jpg',
+      title: 'Community Social Welfare & Rural Empowerment Assembly',
+      tag: 'Field Meet',
     },
     {
-      img: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80',
-      title: 'Rural Students in School Uniform Reading Textbooks',
-      tag: 'Classroom Study',
+      img: './gallery/field-2.jpg',
+      title: 'Press Media Coverage & Recognition of Social Work',
+      tag: 'Media Report',
     },
     {
-      img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80',
-      title: 'Distribution of Free School Bags, Books & Stationeries',
-      tag: 'Kit Distribution',
+      img: './gallery/field-3.jpg',
+      title: 'Free Distribution of School Bags, Books & Stationeries',
+      tag: 'Education Kits',
     },
     {
-      img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80',
-      title: 'Government School Smart Class & Blackboard Learning',
-      tag: 'Smart Class',
+      img: './gallery/field-4.jpg',
+      title: 'Aarogya Seva Free Medical Checkup & Diagnostic Camp',
+      tag: 'Medical Relief',
     },
     {
-      img: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80',
-      title: 'Beti Padhao: Rural Girl Student Literacy & Mentoring',
-      tag: 'Girls Education',
+      img: './gallery/field-5.jpg',
+      title: 'Rural Women Empowerment & Livelihood Training Center',
+      tag: 'Women Upliftment',
     },
     {
-      img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
-      title: 'Free Health & Eye Checkup Camp for School Children',
-      tag: 'Health Checkup',
+      img: './gallery/field-6.jpg',
+      title: 'Digital Literacy & Computer Lab Learning Session',
+      tag: 'Digital Learning',
     },
     {
-      img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80',
-      title: 'Rural Women & Youth Vocational Tailoring Institute',
-      tag: 'Vocational Training',
+      img: './gallery/field-7.jpg',
+      title: 'PM DAKSH Skill Training & Career Development Workshop',
+      tag: 'PM DAKSH',
     },
     {
-      img: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb7?auto=format&fit=crop&w=800&q=80',
-      title: 'Midday Nutrition & Essential Ration Distribution Drive',
-      tag: 'Midday Nutrition',
+      img: './gallery/field-8.jpg',
+      title: 'Rural Student Assembly & Mentoring Seminar in UP',
+      tag: 'Youth Workshop',
+    },
+    {
+      img: './gallery/field-9.jpg',
+      title: 'Grassroots Education Awareness & Classroom Guidance',
+      tag: 'Rural Classroom',
+    },
+    {
+      img: './gallery/field-10.jpg',
+      title: 'Self-Help Group Discussion & Community Development',
+      tag: 'Community Meet',
+    },
+    {
+      img: './gallery/field-11.jpg',
+      title: 'Interactive Skill Orientation for Rural Youth & Students',
+      tag: 'Skill Seminar',
+    },
+    {
+      img: './gallery/field-12.jpg',
+      title: 'Official Certificate Distribution & Valedictory Ceremony',
+      tag: 'Certification',
     },
   ]
 
@@ -110,14 +136,26 @@ export default function Home() {
     },
   ]
 
-  // Partner logos (ONLY LOGOS - NO GOVT NAMES)
+  // Verified & Registered Government Badges (ONLY LOGOS - NO NAMES)
+  const govtLogos = [
+    { id: 1, name: 'State Emblem of India', img: './govt/emblem-india.svg' },
+    { id: 2, name: 'Ministry of Corporate Affairs', img: './govt/mca-govt.png' },
+    { id: 3, name: 'NITI Aayog (NGO-DARPAN)', img: './govt/niti-aayog.svg' },
+    { id: 4, name: 'MSME Government of India', img: './govt/msme.svg' },
+    { id: 5, name: 'Income Tax Department India', img: './govt/income-tax.png' },
+    { id: 6, name: 'Skill India Mission', img: './govt/skill-india.png' },
+    { id: 7, name: 'Digital India', img: './govt/digital-india.svg' },
+    { id: 8, name: 'PM DAKSH Yojana', img: './govt/pm-daksh.png' },
+  ]
+
+  // Partner logos (ENLARGED - TRANSPARENT BACKGROUND - ONLY LOGOS)
   const partnerLogos = [
     { id: 1, name: 'PM DAKSH', img: './partners/pm-daksh.png' },
-    { id: 2, name: 'Jan Aushadhi', img: './partners/jan-aushadhi.png' },
-    { id: 3, name: 'Rural Development', img: './partners/rural-dev.png' },
-    { id: 4, name: 'Skill India', img: './partners/skill-india.png' },
-    { id: 5, name: 'TSSC India', img: './partners/tssc.png' },
-    { id: 6, name: 'Labour Ministry', img: './partners/labour-ministry.png' },
+    { id: 2, name: 'Pradhan Mantri Bhartiya Jan Aushadhi', img: './partners/jan-aushadhi.png' },
+    { id: 3, name: 'Ministry of Rural Development', img: './partners/rural-dev.png' },
+    { id: 4, name: 'Skill India Mission', img: './partners/skill-india.png' },
+    { id: 5, name: 'Telecom Sector Skill Council', img: './partners/tssc.png' },
+    { id: 6, name: 'Ministry of Labour & Employment', img: './partners/labour-ministry.png' },
   ]
 
   useEffect(() => {
@@ -256,7 +294,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO SLIDER (EXPANSIVE DESKTOP VIEW) */}
+      {/* HERO SLIDER (AUTHENTIC REAL FIELD PHOTOS) */}
       <section id="home" className="hero-slider">
         <div className="slider-image">
           <img src={slides[currentSlide].img} alt={slides[currentSlide].title} />
@@ -297,7 +335,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* VERIFIED & REGISTERED (CENTERED - ONLY LOGOS - NO NAMES)   */}
+      {/* VERIFIED & REGISTERED (SINGLE LINE SLIDING RIGHT TO LEFT)  */}
       {/* ========================================================== */}
       <section className="govt-ticker-section">
         <div className="ticker-header">
@@ -309,38 +347,14 @@ export default function Home() {
           </h3>
         </div>
 
-        {/* CENTERED REAL GOVT LOGO BADGES (REAL GOVT LOGOS - NO NAMES - BUTTON STYLE) */}
-        <div className="govt-logos-center-row">
-          <div className="govt-logo-badge" title="State Emblem of India">
-            <img src="./govt/emblem-india.svg" alt="Emblem of India" className="govt-badge-img" />
-          </div>
-
-          <div className="govt-logo-badge" title="Ministry of Corporate Affairs">
-            <img src="./govt/mca-govt.png" alt="MCA Govt. of India" className="govt-badge-img" />
-          </div>
-
-          <div className="govt-logo-badge" title="NITI Aayog (NGO-DARPAN)">
-            <img src="./govt/niti-aayog.svg" alt="NITI Aayog" className="govt-badge-img" />
-          </div>
-
-          <div className="govt-logo-badge" title="MSME Government of India">
-            <img src="./govt/msme.svg" alt="MSME Govt of India" className="govt-badge-img" />
-          </div>
-
-          <div className="govt-logo-badge" title="Income Tax Department India">
-            <img src="./govt/income-tax.png" alt="Income Tax Department" className="govt-badge-img" />
-          </div>
-
-          <div className="govt-logo-badge" title="Skill India Mission">
-            <img src="./govt/skill-india.png" alt="Skill India" className="govt-badge-img" />
-          </div>
-
-          <div className="govt-logo-badge" title="Digital India">
-            <img src="./govt/digital-india.svg" alt="Digital India" className="govt-badge-img" />
-          </div>
-
-          <div className="govt-logo-badge" title="PM DAKSH Yojana">
-            <img src="./govt/pm-daksh.png" alt="PM DAKSH" className="govt-badge-img" />
+        {/* SINGLE HORIZONTAL LINE SLIDING RIGHT-TO-LEFT (ONLY REAL LOGOS - BUTTON STYLE) */}
+        <div className="govt-single-line-track">
+          <div className="govt-marquee-row">
+            {govtLogos.concat(govtLogos).concat(govtLogos).map((g, idx) => (
+              <div key={`govt-${idx}`} className="govt-logo-badge" title={g.name}>
+                <img src={g.img} alt={g.name} className="govt-badge-img" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -476,7 +490,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* RUNNING PROJECTS (INDIAN PHOTOS) */}
+      {/* RUNNING PROJECTS (AUTHENTIC FIELD PHOTOS)                 */}
       {/* ========================================================== */}
       <section id="projects" className="running-projects">
         <h2 className="section-title">RUNNING <span>PROJECTS</span></h2>
@@ -487,7 +501,7 @@ export default function Home() {
         <div className="project-grid">
           <div className="project-card">
             <img
-              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
+              src="./gallery/field-8.jpg"
               alt="Project Shiksha Jyoti"
             />
             <div className="project-info">
@@ -500,7 +514,7 @@ export default function Home() {
 
           <div className="project-card">
             <img
-              src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80"
+              src="./gallery/field-4.jpg"
               alt="Aarogya Seva Initiative"
             />
             <div className="project-info">
@@ -513,13 +527,13 @@ export default function Home() {
 
           <div className="project-card">
             <img
-              src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80"
+              src="./gallery/field-7.jpg"
               alt="Mission Swavalamban"
             />
             <div className="project-info">
               <h3>Mission Swavalamban</h3>
               <p className="project-country">📍 Women Vocational Training Centers</p>
-              <p>Empowering over 300 rural women through sewing machine training, embroidery craft, and micro-livelihood self-reliance.</p>
+              <p>Empowering over 300 rural women and youth through PM DAKSH skills, computer courses, and micro-livelihood self-reliance.</p>
               <a href="#about" className="project-read-more">Learn More →</a>
             </div>
           </div>
@@ -527,7 +541,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* OUR GALLERY (8 INDIVIDUAL REAL PHOTOS)                     */}
+      {/* OUR GALLERY (ALL 12 REAL CROPPED FIELD EVENT PHOTOS)       */}
       {/* ========================================================== */}
       <section id="gallery" className="gallery-section">
         <h2 className="section-title">OUR <span>GALLERY</span></h2>
@@ -535,7 +549,7 @@ export default function Home() {
           Real glimpses of our ongoing social welfare, skill development classes, and medical relief camps in Uttar Pradesh.
         </p>
 
-        <div className="gallery-grid-8">
+        <div className="gallery-grid-12">
           {galleryImages.map((item, idx) => (
             <div key={idx} className="gallery-card">
               <img src={item.img} alt={item.title} loading="lazy" />
@@ -576,12 +590,12 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* OUR PARTNERS (SINGLE LINE - ONLY LOGOS - NO GOVT NAMES)    */}
+      {/* OUR PARTNERS (ENLARGED - TRANSPARENT - ONLY GOVT LOGOS)    */}
       {/* ========================================================== */}
       <section id="partners" className="partners-section">
         <h2 className="section-title">OUR <span>PARTNERS</span></h2>
 
-        {/* SINGLE CONTINUOUS SLIDING TRACK - ONLY LOGOS */}
+        {/* SINGLE CONTINUOUS SLIDING TRACK - ONLY ENLARGED LOGOS WITH TRANSPARENT BACKGROUND */}
         <div className="partners-single-line-track">
           <div className="partners-single-marquee">
             {partnerLogos.concat(partnerLogos).concat(partnerLogos).map((p, idx) => (
@@ -593,7 +607,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER HAS BEEN REMOVED */}
+      {/* FOOTER REMOVED AS REQUESTED */}
     </div>
   )
 }

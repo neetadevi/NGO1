@@ -188,9 +188,9 @@ a {
 .nav-container {
   width: 100%;
   max-width: 1440px;
-  min-height: 96px;
+  min-height: 110px;
   margin: 0 auto;
-  padding: 10px 24px;
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -200,17 +200,17 @@ a {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 /* BIGGER PROMINENT WEBSITE LOGO */
 .site-logo-img {
-  height: 84px;
+  height: 105px;
   width: auto;
-  max-width: 90px;
+  max-width: 125px;
   object-fit: contain;
   transition: transform 0.25s ease;
-  filter: drop-shadow(0 2px 6px rgba(75, 8, 125, 0.12));
+  filter: drop-shadow(0 3px 8px rgba(75, 8, 125, 0.15));
 }
 
 .brand-logo:hover .site-logo-img {
@@ -453,12 +453,12 @@ a {
 }
 
 /* ========================================================== */
-/* VERIFIED & REGISTERED (CENTERED - ONLY LOGOS - NO NAMES)   */
+/* VERIFIED & REGISTERED (SINGLE LINE SLIDING RIGHT-TO-LEFT)  */
 /* ========================================================== */
 .govt-ticker-section {
   width: 100%;
   background: #ffffff;
-  padding: 38px 20px 30px;
+  padding: 40px 24px 34px;
   border-bottom: 2px solid #f1f5f9;
   text-align: center;
 }
@@ -478,15 +478,15 @@ a {
   border: 1px solid #a7f3d0;
   font-size: 12px;
   font-weight: 800;
-  padding: 4px 16px;
+  padding: 5px 18px;
   border-radius: 20px;
   letter-spacing: 0.6px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   text-transform: uppercase;
 }
 
 .ticker-heading {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 800;
   color: #1e1b4b;
   letter-spacing: 0.5px;
@@ -496,27 +496,45 @@ a {
   color: #b45309;
 }
 
-/* CENTERED LOGO-ONLY BADGES ROW (REAL GOVT LOGOS - NO NAMES - BUTTON STYLE) */
-.govt-logos-center-row {
-  max-width: 1200px;
-  margin: 0 auto;
+/* SINGLE HORIZONTAL TRACK SLIDING RIGHT-TO-LEFT (ONLY REAL LOGOS - BUTTON STYLE) */
+.govt-single-line-track {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #f8fafc;
+  padding: 22px 0;
+  border-radius: 16px;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.govt-marquee-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  width: max-content;
+  animation: govtScrollLeft 28s linear infinite;
+}
+
+.govt-single-line-track:hover .govt-marquee-row {
+  animation-play-state: paused;
+}
+
+@keyframes govtScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
 }
 
 .govt-logo-badge {
   background: #ffffff;
   border: 2px solid #e2e8f0;
   border-radius: 14px;
-  padding: 12px 22px;
+  padding: 14px 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
-  min-width: 130px;
+  height: 95px;
+  min-width: 170px;
+  margin: 0 12px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease;
   user-select: none;
@@ -529,8 +547,8 @@ a {
 }
 
 .govt-badge-img {
-  max-height: 56px;
-  max-width: 105px;
+  max-height: 68px;
+  max-width: 125px;
   object-fit: contain;
   display: block;
 }
@@ -888,7 +906,7 @@ a {
 }
 
 /* ========================================================== */
-/* OUR GALLERY (8 INDIVIDUAL REAL PHOTOS GRID)                */
+/* OUR GALLERY (12 INDIVIDUAL CROPPED REAL FIELD PHOTOS)      */
 /* ========================================================== */
 .gallery-section {
   padding: 70px 24px;
@@ -896,7 +914,7 @@ a {
   width: 100%;
 }
 
-.gallery-grid-8 {
+.gallery-grid-12 {
   max-width: 1440px;
   margin: 0 auto;
   display: grid;
@@ -1059,7 +1077,7 @@ a {
 }
 
 /* ========================================================== */
-/* OUR PARTNERS (SINGLE LINE - ONLY LOGOS - NO GOVT NAMES)    */
+/* OUR PARTNERS (ENLARGED - TRANSPARENT BACKGROUND - ONLY LOGOS) */
 /* ========================================================== */
 .partners-section {
   width: 100%;
@@ -1073,7 +1091,7 @@ a {
   overflow: hidden;
   position: relative;
   background: #f8fafc;
-  padding: 20px 0;
+  padding: 24px 0;
   border-radius: 16px;
   border: 1.5px solid #e2e8f0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
@@ -1095,33 +1113,35 @@ a {
   100% { transform: translateX(-50%); }
 }
 
+/* ENLARGED PARTNER ITEM - NO WHITE BACKGROUND */
 .partner-logo-item {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 12px 26px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 105px;
-  min-width: 200px;
-  margin: 0 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: all 0.25s ease;
+  height: 125px;
+  min-width: 220px;
+  margin: 0 16px;
+  box-shadow: none;
+  transition: transform 0.25s ease;
   user-select: none;
 }
 
 .partner-logo-item:hover {
-  transform: translateY(-4px) scale(1.06);
-  border-color: #4b087d;
-  box-shadow: 0 10px 25px rgba(75, 8, 125, 0.15);
+  transform: translateY(-4px) scale(1.08);
 }
 
+/* BIGGER LOGO DISPLAY */
 .partner-logo-only {
-  max-height: 80px;
-  max-width: 165px;
+  max-height: 98px;
+  max-width: 205px;
   object-fit: contain;
   display: block;
+  background: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12));
 }
 
 /* ========================================================== */
@@ -1132,7 +1152,7 @@ a {
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .gallery-grid-8 {
+  .gallery-grid-12 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
@@ -1155,30 +1175,30 @@ a {
     grid-template-columns: 1fr;
     gap: 35px;
   }
-  .gallery-grid-8 {
+  .gallery-grid-12 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
   .nav-container {
-    min-height: 80px;
-    padding: 8px 16px;
+    min-height: 88px;
+    padding: 10px 16px;
   }
   /* PROMINENT MOBILE LOGO */
   .site-logo-img {
-    height: 65px;
-    max-width: 70px;
+    height: 75px;
+    max-width: 85px;
   }
   .brand-title {
-    font-size: 21px;
+    font-size: 22px;
   }
   .brand-sub {
-    font-size: 9.5px;
-    letter-spacing: 1px;
+    font-size: 10px;
+    letter-spacing: 1.2px;
   }
   .brand-reg {
-    font-size: 8.5px;
+    font-size: 9px;
   }
   .menu-toggle {
     display: block;
@@ -1209,7 +1229,7 @@ a {
     grid-template-columns: 1fr;
     gap: 18px;
   }
-  .gallery-grid-8 {
+  .gallery-grid-12 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
@@ -1217,33 +1237,36 @@ a {
     grid-template-columns: 1fr;
   }
   .partner-logo-item {
-    min-width: 160px;
-    height: 85px;
-    padding: 8px 18px;
+    min-width: 170px;
+    height: 95px;
+    padding: 6px 14px;
+    margin: 0 10px;
   }
   .partner-logo-only {
-    max-height: 64px;
-    max-width: 130px;
+    max-height: 74px;
+    max-width: 150px;
   }
   .govt-logo-badge {
-    height: 68px;
-    min-width: 105px;
-    padding: 8px 14px;
+    height: 78px;
+    min-width: 130px;
+    padding: 10px 16px;
+    margin: 0 8px;
   }
   .govt-badge-img {
-    max-height: 46px;
-    max-width: 85px;
+    max-height: 54px;
+    max-width: 95px;
   }
 }
 
 @media (max-width: 480px) {
-  .gallery-grid-8 {
+  .gallery-grid-12 {
     grid-template-columns: 1fr;
   }
   .brand-title {
-    font-size: 18px;
+    font-size: 19px;
   }
   .site-logo-img {
-    height: 56px;
+    height: 64px;
+    max-width: 72px;
   }
 }
