@@ -11,25 +11,24 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match')
+      setError('Passwords match nahi ho rahe')
       return
     }
 
     if (password.length < 6) {
-      setError('Password must be at least 6 characters')
+      setError('Password kam se kam 6 characters hona chahiye')
       return
     }
 
     setLoading(true)
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -42,37 +41,22 @@ export default function Signup() {
     if (error) {
       setError(error.message)
       setLoading(false)
-    } else {
-      setSuccess(true)
-      setLoading(false)
+    } else if (data.user) {
+      // Auto-confirmed, directly go to dashboard
+      navigate('/')
     }
-  }
-
-  if (success) {
-    return (
-      <div className="auth-container">
-        <div className="auth-card">
-          <div className="auth-header">
-            <h1>🎉 Account Created!</h1>
-            <p>Please check your email to verify your account.</p>
-          </div>
-          <Link to="/login" className="auth-button" style={{ textAlign: 'center', textDecoration: 'none', display: 'block' }}>
-            Go to Login
-          </Link>
-        </div>
-      </div>
-    )
   }
 
   return (
     <div className="auth-container">
       <div className="auth-card">
         <div className="auth-header">
+          <div className="auth-logo">🌿</div>
           <h1>Create Account</h1>
-          <p>Join us today</p>
+          <p>Join our NGO community</p>
         </div>
 
-        {error && <div className="auth-error">{error}</div>}
+        {error && <div className="auth-error">⚠️ {error}</div>}
 
         <form onSubmit={handleSignup} className="auth-form">
           <div className="form-group">
@@ -104,10 +88,11 @@ export default function Signup() {
             <input
               id="password"
               type="password"
-              placeholder="Create a password"
+              placeholder="Create a password (min 6 chars)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              minLength={6}
             />
           </div>
 
@@ -124,7 +109,13 @@ export default function Signup() {
           </div>
 
           <button type="submit" className="auth-button" disabled={loading}>
-            {loading ? 'Creating account...' : 'Sign Up'}
+            {loading ? (
+              <span className="btn-loading">
+                <span className="btn-spinner"></span> Creating account...
+              </span>
+            ) : (
+              'Sign Up'
+            )}
           </button>
         </form>
 
@@ -135,4 +126,3 @@ export default function Signup() {
     </div>
   )
 }
-

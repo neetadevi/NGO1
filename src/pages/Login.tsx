@@ -21,7 +21,11 @@ export default function Login() {
     })
 
     if (error) {
-      setError(error.message)
+      if (error.message === 'Invalid login credentials') {
+        setError('Email ya password galat hai. Pehle Sign Up karo agar account nahi hai.')
+      } else {
+        setError(error.message)
+      }
       setLoading(false)
     } else {
       navigate('/')
@@ -32,11 +36,12 @@ export default function Login() {
     <div className="auth-container">
       <div className="auth-card">
         <div className="auth-header">
+          <div className="auth-logo">🌿</div>
           <h1>Welcome Back</h1>
-          <p>Sign in to your account</p>
+          <p>Sign in to your NGO account</p>
         </div>
 
-        {error && <div className="auth-error">{error}</div>}
+        {error && <div className="auth-error">⚠️ {error}</div>}
 
         <form onSubmit={handleLogin} className="auth-form">
           <div className="form-group">
@@ -64,7 +69,13 @@ export default function Login() {
           </div>
 
           <button type="submit" className="auth-button" disabled={loading}>
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? (
+              <span className="btn-loading">
+                <span className="btn-spinner"></span> Signing in...
+              </span>
+            ) : (
+              'Sign In'
+            )}
           </button>
         </form>
 
@@ -75,4 +86,3 @@ export default function Login() {
     </div>
   )
 }
-
