@@ -49,6 +49,40 @@ export default function Home() {
     },
   ]
 
+  // Individual Partner Logos for sliding left and right
+  const partnerLogos = [
+    {
+      name: 'PM DAKSH',
+      subtitle: 'Ministry of Social Justice & Empowerment',
+      img: './partners/pm-daksh.png',
+    },
+    {
+      name: 'PM Bhartiya Jan Aushadhi',
+      subtitle: 'Department of Pharmaceuticals, Govt. of India',
+      img: './partners/jan-aushadhi.png',
+    },
+    {
+      name: 'Ministry of Rural Development',
+      subtitle: 'Government of India',
+      img: './partners/rural-dev.png',
+    },
+    {
+      name: 'Skill India',
+      subtitle: 'Kaushal Bharat - Kushal Bharat',
+      img: './partners/skill-india.png',
+    },
+    {
+      name: 'Telecom Sector Skill Council',
+      subtitle: 'TSSC India',
+      img: './partners/tssc.png',
+    },
+    {
+      name: 'Ministry of Labour & Employment',
+      subtitle: 'Government of India',
+      img: './partners/labour-ministry.png',
+    },
+  ]
+
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
       setUser(data.user)
@@ -784,7 +818,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================== */}
-      {/* OUR PARTNERS (HD QUALITY SLIDING LEFT & RIGHT)             */}
+      {/* OUR PARTNERS (INDIVIDUAL LOGOS SLIDING LEFT & RIGHT)        */}
       {/* ========================================================== */}
       <section id="partners" className="partners-section">
         <h2 className="section-title">OUR <span>PARTNERS</span></h2>
@@ -792,21 +826,37 @@ export default function Home() {
           PM DAKSH • Pradhan Mantri Bhartiya Jan Aushadhi • Ministry of Rural Development • Skill India • Telecom Sector Skill Council • Ministry of Labour & Employment
         </p>
 
-        {/* TRACK 1: SLIDING LEFT CONTINUOUSLY IN HD */}
+        {/* TRACK 1: INDIVIDUAL LOGOS SLIDING LEFT */}
         <div className="partners-slide-track">
           <div className="partners-slide-marquee-left">
-            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
-            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
-            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
+            {partnerLogos.concat(partnerLogos).map((p, idx) => (
+              <div key={`partner-left-${idx}`} className="partner-individual-card">
+                <div className="partner-logo-wrapper">
+                  <img src={p.img} alt={p.name} className="partner-single-logo" />
+                </div>
+                <div className="partner-card-info">
+                  <h4>{p.name}</h4>
+                  <p>{p.subtitle}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* TRACK 2: SLIDING RIGHT CONTINUOUSLY IN HD */}
-        <div className="partners-slide-track">
+        {/* TRACK 2: INDIVIDUAL LOGOS SLIDING RIGHT */}
+        <div className="partners-slide-track" style={{ marginTop: '22px' }}>
           <div className="partners-slide-marquee-right">
-            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
-            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
-            <img src="./our-partners.png" alt="Our Partners HD" className="partner-hd-img" />
+            {partnerLogos.concat(partnerLogos).map((p, idx) => (
+              <div key={`partner-right-${idx}`} className="partner-individual-card">
+                <div className="partner-logo-wrapper">
+                  <img src={p.img} alt={p.name} className="partner-single-logo" />
+                </div>
+                <div className="partner-card-info">
+                  <h4>{p.name}</h4>
+                  <p>{p.subtitle}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

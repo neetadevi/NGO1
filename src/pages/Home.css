@@ -1238,7 +1238,7 @@ a {
 }
 
 /* ========================================================== */
-/* OUR PARTNERS (HD SLIDING LEFT & RIGHT)                     */
+/* OUR PARTNERS (INDIVIDUAL LOGOS SLIDING LEFT & RIGHT)       */
 /* ========================================================== */
 .partners-section {
   width: 100%;
@@ -1252,9 +1252,9 @@ a {
   position: relative;
   background: #f8fafc;
   padding: 18px 0;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1.5px solid #e2e8f0;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
@@ -1262,14 +1262,14 @@ a {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: partnersScrollLeft 28s linear infinite;
+  animation: partnersScrollLeft 32s linear infinite;
 }
 
 .partners-slide-marquee-right {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: partnersScrollRight 28s linear infinite;
+  animation: partnersScrollRight 32s linear infinite;
 }
 
 .partners-slide-track:hover .partners-slide-marquee-left,
@@ -1287,18 +1287,63 @@ a {
   100% { transform: translateX(0); }
 }
 
-.partner-hd-img {
-  height: 85px;
-  width: auto;
-  object-fit: contain;
-  display: inline-block;
-  padding: 0 40px;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.05));
-  transition: transform 0.25s ease;
+.partner-individual-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 290px;
+  margin: 0 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+  user-select: none;
 }
 
-.partner-hd-img:hover {
-  transform: scale(1.05);
+.partner-individual-card:hover {
+  transform: translateY(-3px);
+  border-color: #4b087d;
+  box-shadow: 0 8px 25px rgba(75, 8, 125, 0.12);
+}
+
+.partner-logo-wrapper {
+  flex: 0 0 90px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.partner-single-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.partner-card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.partner-card-info h4 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.partner-card-info p {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.35;
+  margin: 0;
 }
 
 /* RESPONSIVE DESIGN */
