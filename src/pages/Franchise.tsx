@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 import './Franchise.css'
 
 export default function Franchise() {
@@ -55,46 +56,7 @@ export default function Franchise() {
 
   return (
     <div className="franchise-page">
-      {/* TOP HEADER */}
-      <div className="top-header">
-        <div className="top-container">
-          <div className="contact-info">
-            <a href="tel:+918445020016">☎ +91-84450-20016</a>
-            <span>|</span>
-            <a href="mailto:shikashvik@gmail.com">✉ shikashvik@gmail.com</a>
-            <span>|</span>
-            <span>Registration: October 23, 2026</span>
-          </div>
-          <div className="top-actions">
-            <Link to="/" style={{ color: '#fff', fontSize: '13px', fontWeight: 'bold' }}>← Back to Website</Link>
-            <Link to="/login" className="top-login-btn">Login</Link>
-            <Link to="/signup" className="top-signup-btn">Sign Up</Link>
-          </div>
-        </div>
-      </div>
-
-      {/* HEADER / LOGO */}
-      <header className="main-header" style={{ padding: '12px 6%' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-            <img src="./logo.png" alt="Shikashvik Welfare Foundation" style={{ height: '62px', width: 'auto' }} />
-            <div>
-              <div style={{ fontFamily: 'Georgia, serif', fontSize: '26px', fontWeight: 'bold', color: '#4b087d', lineHeight: 1.1 }}>
-                SHIKASHVIK
-              </div>
-              <small style={{ fontSize: '10px', color: '#6b7280', letterSpacing: '0.8px', textTransform: 'uppercase', fontWeight: 600 }}>
-                Welfare Foundation • Section 8 Non-Profit
-              </small>
-            </div>
-          </Link>
-          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-            <Link to="/" style={{ color: '#4b087d', fontWeight: 700, fontSize: '14px' }}>Home</Link>
-            <Link to="/#about" style={{ color: '#374151', fontWeight: 600, fontSize: '14px' }}>About Us</Link>
-            <Link to="/#projects" style={{ color: '#374151', fontWeight: 600, fontSize: '14px' }}>Projects</Link>
-            <Link to="/#gallery" style={{ color: '#374151', fontWeight: 600, fontSize: '14px' }}>Gallery</Link>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* HERO BANNER */}
       <section className="franchise-banner">

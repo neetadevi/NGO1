@@ -2,10 +2,41 @@ import { useEffect, useState } from 'react'
 import { Routes, Route, Navigate, useNavigate, Link } from 'react-router-dom'
 import { supabase } from './lib/supabase'
 import type { User } from '@supabase/supabase-js'
+
+// Pages
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Franchise from './pages/Franchise'
+
+// About Us Pages
+import AboutFoundation from './pages/AboutFoundation'
+import ChairmanMessage from './pages/ChairmanMessage'
+import MissionVision from './pages/MissionVision'
+
+// Course Offered Pages
+import VocationalCourses from './pages/VocationalCourses'
+import SkillCourses from './pages/SkillCourses'
+import ComputerCourses from './pages/ComputerCourses'
+import OtherCourses from './pages/OtherCourses'
+
+// Student Zone Pages
+import AuthorizedStudyCentres from './pages/AuthorizedStudyCentres'
+import StudentRegistration from './pages/StudentRegistration'
+import StudentVerification from './pages/StudentVerification'
+import StudentResult from './pages/StudentResult'
+
+// Franchise Pages
+import SampleCertificate from './pages/SampleCertificate'
+import SampleMarksheet from './pages/SampleMarksheet'
+import FranchiseEnquiry from './pages/FranchiseEnquiry'
+import BenefitsRequirement from './pages/BenefitsRequirement'
+
+// Login Pages
+import FranchiseLogin from './pages/FranchiseLogin'
+import StudentLogin from './pages/StudentLogin'
+import VolunteerLogin from './pages/VolunteerLogin'
+
 import './App.css'
 
 function Dashboard() {
@@ -89,11 +120,43 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 function App() {
   return (
     <Routes>
+      {/* Home */}
       <Route path="/" element={<Home />} />
+
+      {/* About Us */}
+      <Route path="/about-foundation" element={<AboutFoundation />} />
+      <Route path="/chairman-message" element={<ChairmanMessage />} />
+      <Route path="/mission-vision" element={<MissionVision />} />
+
+      {/* Course Offered */}
+      <Route path="/courses/vocational" element={<VocationalCourses />} />
+      <Route path="/courses/skill" element={<SkillCourses />} />
+      <Route path="/courses/computer" element={<ComputerCourses />} />
+      <Route path="/courses/other" element={<OtherCourses />} />
+
+      {/* Student Zone */}
+      <Route path="/student-zone/study-centres" element={<AuthorizedStudyCentres />} />
+      <Route path="/student-zone/registration" element={<StudentRegistration />} />
+      <Route path="/student-zone/verification" element={<StudentVerification />} />
+      <Route path="/student-zone/result" element={<StudentResult />} />
+
+      {/* Franchise */}
       <Route path="/franchise" element={<Franchise />} />
+      <Route path="/franchise/apply" element={<Franchise />} />
       <Route path="/apply-franchise" element={<Franchise />} />
+      <Route path="/franchise/sample-certificate" element={<SampleCertificate />} />
+      <Route path="/franchise/sample-marksheet" element={<SampleMarksheet />} />
+      <Route path="/franchise/enquiry" element={<FranchiseEnquiry />} />
+      <Route path="/franchise/benefits-requirement" element={<BenefitsRequirement />} />
+
+      {/* Login */}
       <Route path="/login" element={<Login />} />
+      <Route path="/login/franchise" element={<FranchiseLogin />} />
+      <Route path="/login/student" element={<StudentLogin />} />
+      <Route path="/login/volunteer" element={<VolunteerLogin />} />
       <Route path="/signup" element={<Signup />} />
+
+      {/* Dashboard */}
       <Route
         path="/dashboard"
         element={
@@ -102,6 +165,8 @@ function App() {
           </ProtectedRoute>
         }
       />
+
+      {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

@@ -1,0 +1,569 @@
+/* ========================================================== */
+/* SITE HEADER & ADVANCED DROPDOWN NAVIGATION                */
+/* ========================================================== */
+
+.site-header-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* TOP CONTACT BAR */
+.top-header {
+  background: #250549;
+  color: #fff;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.top-container {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 44px;
+  margin: 0 auto;
+  padding: 6px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.contact-info a {
+  color: #f3e8ff;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.contact-info a:hover {
+  color: #facc15;
+}
+
+.contact-divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.top-franchise-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #fff !important;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.4);
+  transition: transform 0.2s;
+}
+
+.top-franchise-btn:hover {
+  transform: translateY(-1px);
+}
+
+.top-donate-btn {
+  background: #ffffff;
+  color: #dc2626 !important;
+  text-decoration: none;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.top-donate-btn:hover {
+  background: #fee2e2;
+  transform: translateY(-1px);
+}
+
+.top-auth-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-signup-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff !important;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.top-signup-btn:hover {
+  background: #047857;
+  transform: translateY(-1px);
+}
+
+.top-user-pill {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11.5px;
+}
+
+.top-dash-btn {
+  background: #ffffff;
+  color: #4b087d;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.top-logout-btn {
+  background: #ef4444;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.top-logout-btn:hover {
+  background: #dc2626;
+}
+
+/* ========================================================== */
+/* MAIN NAVIGATION CONTAINER                                  */
+/* ========================================================== */
+.main-header {
+  background: #ffffff;
+  width: 100%;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 98px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* BRAND LOGO */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-logo-img {
+  height: 96px;
+  width: auto;
+  max-width: 115px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+  filter: drop-shadow(0 2px 6px rgba(75, 8, 125, 0.14));
+}
+
+.brand-logo:hover .site-logo-img {
+  transform: scale(1.04);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: #3b0764;
+  letter-spacing: 0.5px;
+}
+
+.brand-sub {
+  font-size: 11px;
+  font-weight: 800;
+  color: #b45309;
+  letter-spacing: 1.8px;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+.brand-reg {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ========================================================== */
+/* NAVIGATION MENU & DROPDOWNS                                */
+/* ========================================================== */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item.home-link {
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-item.home-link:hover,
+.nav-item.home-link.active-link {
+  color: #ffffff;
+  background: #4b087d;
+}
+
+/* DROPDOWN TOGGLE BUTTON */
+.dropdown-toggle {
+  background: transparent;
+  border: none;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.dropdown-arrow {
+  font-size: 11px;
+  transition: transform 0.25s ease;
+  color: #6b7280;
+}
+
+.dropdown-toggle:hover,
+.dropdown.open .dropdown-toggle {
+  color: #4b087d;
+  background: #f5f3ff;
+}
+
+.dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+  color: #4b087d;
+}
+
+.franchise-toggle {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+.franchise-toggle:hover {
+  background: #fde68a;
+  color: #78350f;
+}
+
+.login-toggle-btn {
+  background: #4b087d;
+  color: #ffffff !important;
+  border-radius: 20px;
+  padding: 9px 18px;
+  box-shadow: 0 2px 8px rgba(75, 8, 125, 0.25);
+}
+
+.login-toggle-btn:hover {
+  background: #310354;
+  color: #fff;
+}
+
+.login-toggle-btn .dropdown-arrow {
+  color: #fff;
+}
+
+/* DROPDOWN MENU CARD */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 260px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid #4b087d;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 1000;
+}
+
+.dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  color: #1e293b;
+}
+
+.dropdown-link:hover {
+  background: #f5f3ff;
+  transform: translateX(3px);
+}
+
+.dd-icon {
+  font-size: 18px;
+  margin-top: 1px;
+}
+
+.dropdown-link div {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-link strong {
+  font-size: 13.5px;
+  color: #1e1b4b;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.dropdown-link small {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.dropdown-link.highlight-link {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+}
+
+.dropdown-link.highlight-link:hover {
+  background: #fef3c7;
+}
+
+/* ========================================================== */
+/* MOBILE MENU TOGGLE BUTTON                                  */
+/* ========================================================== */
+.menu-toggle {
+  display: none;
+  background: #4b087d;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.menu-toggle:hover {
+  background: #310354;
+}
+
+/* ========================================================== */
+/* RESPONSIVE DESIGN FOR TABLETS & MOBILE                     */
+/* ========================================================== */
+@media (max-width: 1024px) {
+  .nav-container {
+    min-height: 85px;
+    padding: 8px 16px;
+  }
+  .dropdown-toggle,
+  .nav-item.home-link {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+  .brand-title {
+    font-size: 22px;
+  }
+  .site-logo-img {
+    height: 78px;
+  }
+}
+
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 20px 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-item.home-link {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14.5px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-left: 3px solid #4b087d;
+    border-radius: 0;
+    margin: 4px 0 10px 14px;
+    padding: 6px 0;
+    display: none;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-link {
+    padding: 9px 12px;
+  }
+
+  .login-toggle-btn {
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .contact-info {
+    justify-content: center;
+    font-size: 11.5px;
+    gap: 8px;
+  }
+
+  .top-actions {
+    justify-content: center;
+  }
+
+  .site-logo-img {
+    height: 72px;
+    max-width: 80px;
+  }
+
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .brand-sub {
+    font-size: 9.5px;
+    letter-spacing: 1px;
+  }
+
+  .brand-reg {
+    font-size: 8.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-logo-img {
+    height: 62px;
+    max-width: 70px;
+  }
+
+  .brand-title {
+    font-size: 18px;
+  }
+}

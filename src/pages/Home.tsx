@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { supabase } from '../lib/supabase'
-import type { User } from '@supabase/supabase-js'
+import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 import './Home.css'
 
 export default function Home() {
-  const navigate = useNavigate()
-  const [user, setUser] = useState<User | null>(null)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
   // Authentic Real Indian Field & Community photos from Shikashvik Welfare Foundation operations
@@ -159,28 +155,12 @@ export default function Home() {
   ]
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user)
-    })
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
-    })
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 5500)
 
-    return () => {
-      subscription.unsubscribe()
-      clearInterval(interval)
-    }
+    return () => clearInterval(interval)
   }, [slides.length])
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
-    setUser(null)
-  }
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length)
@@ -192,107 +172,8 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      {/* TOP CONTACT BAR (WHITE LOGIN REMOVED) */}
-      <div className="top-header">
-        <div className="top-container">
-          <div className="contact-info">
-            <a href="tel:8445020016">📞 +91-8445020016</a>
-            <span className="contact-divider">|</span>
-            <a href="mailto:shikashvik@gmail.com">✉ shikashvik@gmail.com</a>
-            <span className="contact-divider">|</span>
-            <span>📍 Etah, Uttar Pradesh</span>
-            <span className="contact-divider">|</span>
-            <span>Inc: 23 October 2026</span>
-          </div>
-
-          <div className="top-actions">
-            {/* APPLY FRANCHISE PROMINENT BUTTON */}
-            <Link to="/franchise" className="top-franchise-btn">
-              📋 Apply Franchise
-            </Link>
-
-            <a href="#projects" className="top-btn">Donate Now</a>
-
-            {/* AUTH BUTTONS AT TOP - WHITE LOGIN REMOVED */}
-            {user ? (
-              <div className="top-auth-group">
-                <span className="top-user-pill">
-                  👤 {user.user_metadata?.full_name || user.email?.split('@')[0]}
-                </span>
-                <button
-                  onClick={() => navigate('/dashboard')}
-                  className="top-btn"
-                  style={{ padding: '5px 10px', fontSize: '11px' }}
-                >
-                  Dashboard
-                </button>
-                <button onClick={handleLogout} className="top-logout-btn">
-                  Sign Out
-                </button>
-              </div>
-            ) : (
-              <div className="top-auth-group">
-                <Link to="/signup" className="top-signup-btn">
-                  ✨ Sign Up
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* MAIN NAVIGATION WITH BIGGER PROMINENT LOGO */}
-      <header className="main-header">
-        <div className="nav-container">
-          <a href="#home" className="brand-logo" aria-label="Shikashvik Welfare Foundation Home">
-            <img src="./logo.png" alt="Shikashvik Welfare Foundation Official Logo" className="site-logo-img" />
-            <div className="brand-text">
-              <span className="brand-title">SHIKASHVIK</span>
-              <span className="brand-sub">WELFARE FOUNDATION</span>
-              <small className="brand-reg">Reg. Etah, Uttar Pradesh • India</small>
-            </div>
-          </a>
-
-          <button
-            className="menu-toggle"
-            aria-label="Toggle Navigation"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            ☰
-          </button>
-
-          <nav className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
-            <a href="#home" className="home-link" onClick={() => setMobileMenuOpen(false)}>Home</a>
-            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
-            <a href="#what-we-do" onClick={() => setMobileMenuOpen(false)}>What We Do</a>
-            <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
-            <a href="#gallery" onClick={() => setMobileMenuOpen(false)}>Gallery</a>
-            <Link to="/franchise" className="nav-franchise-link" onClick={() => setMobileMenuOpen(false)}>
-              🎓 Apply Franchise
-            </Link>
-            <a href="#certificates" onClick={() => setMobileMenuOpen(false)}>Certificates</a>
-            <a href="#partners" onClick={() => setMobileMenuOpen(false)}>Partners</a>
-
-            {user ? (
-              <a
-                href="#dashboard"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setMobileMenuOpen(false)
-                  navigate('/dashboard')
-                }}
-                style={{ color: '#4b087d', fontWeight: 'bold' }}
-              >
-                Dashboard
-              </a>
-            ) : (
-              <Link to="/login" onClick={() => setMobileMenuOpen(false)} style={{ color: '#4b087d', fontWeight: 'bold' }}>
-                Login
-              </Link>
-            )}
-          </nav>
-        </div>
-      </header>
+      {/* STRUCTURED TOP NAVIGATION WITH DROPDOWNS */}
+      <Navbar />
 
       {/* HERO SLIDER (AUTHENTIC REAL FIELD PHOTOS) */}
       <section id="home" className="hero-slider">
