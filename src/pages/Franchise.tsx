@@ -49,12 +49,15 @@ export default function Franchise() {
 
     setSubmitting(true)
     setTimeout(() => {
+      const generatedRef = `SWF-ATC-${Math.floor(100000 + Math.random() * 900000)}`
       try {
         const existing = JSON.parse(localStorage.getItem('swf_franchise_apps') || '[]')
         existing.unshift({
           ...formData,
+          status: 'Pending Verification',
+          isApproved: false,
           submittedAt: new Date().toISOString(),
-          refNo: `SWF-ATC-${Math.floor(100000 + Math.random() * 900000)}`,
+          refNo: generatedRef,
         })
         localStorage.setItem('swf_franchise_apps', JSON.stringify(existing))
       } catch (err) {
@@ -91,36 +94,45 @@ export default function Franchise() {
       <div className="franchise-container">
         <div className="franchise-card">
           {submitted ? (
-            <div className="success-alert">
-              <div style={{ fontSize: '48px', marginBottom: '10px' }}>🎉</div>
-              <h3>Franchisee Application Submitted Successfully!</h3>
-              <p style={{ fontSize: '15px', color: '#047857', maxWidth: '650px', margin: '0 auto 16px' }}>
-                Thank you for applying for an Authorized Training Center with <strong>Shikashvik Welfare Foundation</strong>. 
-                Our central verification team will review your center details and contact you within <strong>24-48 business hours</strong> on your registered mobile number <strong>{formData.mobile || '8445020016'}</strong>.
-              </p>
-              <div style={{ background: '#fff', display: 'inline-block', padding: '10px 24px', borderRadius: '8px', border: '1px solid #a7f3d0', fontWeight: 'bold', color: '#065f46', marginBottom: '16px' }}>
-                Application Reference No: SWF-ATC-{Math.floor(100000 + Math.random() * 900000)}
-              </div>
+            <div className="success-alert" style={{ background: '#fffbeb', borderColor: '#fde68a' }}>
+              <div style={{ fontSize: '48px', marginBottom: '10px' }}>⏳</div>
+              <h3 style={{ color: '#92400e' }}>Center Application Submitted — Under Administrative Review</h3>
               
-              <div style={{ background: '#eff6ff', border: '1px solid #93c5fd', borderRadius: '10px', padding: '14px 20px', maxWidth: '620px', margin: '0 auto 24px', textAlign: 'left', color: '#1e3a8a', fontSize: '14px' }}>
-                <strong>🚀 Central Portal Notification:</strong> Application details have been synced to the Central Server database and forwarded to the <strong>Foundation Admin Desk</strong> (<a href="https://www.shikashvikwelfare.org.in/admin" target="_blank" rel="noopener noreferrer" style={{ color: '#1d4ed8', fontWeight: 'bold', textDecoration: 'underline' }}>shikashvikwelfare.org.in/admin</a>) for center inspection and verification.
+              <div style={{ background: '#fef3c7', display: 'inline-block', padding: '10px 24px', borderRadius: '8px', border: '1.5px solid #f59e0b', fontWeight: 'bold', color: '#b45309', margin: '14px 0' }}>
+                STATUS: ⏳ PENDING CENTRAL INSPECTION & APPROVAL
+              </div>
+
+              <p style={{ fontSize: '15px', color: '#78350f', maxWidth: '650px', margin: '0 auto 16px', lineHeight: 1.6 }}>
+                Thank you for applying for center affiliation with <strong>Shikashvik Welfare Foundation</strong>. 
+                Your center is currently <strong>NOT APPROVED</strong> and is placed under formal review. 
+                The Central Inspection Desk at Etah Head Office will verify your premises, computer lab setup, and director credentials before allotting your official Authorized Center Code.
+              </p>
+
+              <div style={{ background: '#ffffff', border: '1px solid #fed7aa', borderRadius: '10px', padding: '16px 20px', maxWidth: '620px', margin: '0 auto 24px', textAlign: 'left', color: '#9a3412', fontSize: '13.5px' }}>
+                <strong>📋 Affiliation Next Steps:</strong>
+                <ul style={{ margin: '8px 0 0', paddingLeft: '20px', lineHeight: 1.6 }}>
+                  <li>Center dossier forwarded to Admin Panel: <strong>shikashvikwelfare.org.in/admin</strong></li>
+                  <li>Our verification officer will contact registered mobile: <strong>{formData.mobile || '8445020016'}</strong></li>
+                  <li>Physical or digital inspection of computers, internet connection, and classroom space.</li>
+                  <li>Final approval & issuance of ATC Center Certificate signed by Head Office.</li>
+                </ul>
               </div>
 
               <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Link 
                   to="/franchise/dashboard" 
-                  style={{ background: '#007bff', color: '#fff', padding: '12px 24px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  style={{ background: '#4b087d', color: '#fff', padding: '12px 24px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 >
-                  📊 Enter Franchise Center Dashboard
+                  🏢 Center Portal (View Status)
                 </Link>
                 <Link 
                   to="/admin" 
                   style={{ background: '#1e3a8a', color: '#fff', padding: '12px 24px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 >
-                  🔐 Open Admin Portal (Admin Desk)
+                  🔐 Head Office Admin Desk (For Approvals)
                 </Link>
-                <Link to="/" style={{ background: '#4b087d', color: '#fff', padding: '12px 28px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-block' }}>
-                  Return to Website
+                <Link to="/" style={{ background: '#64748b', color: '#fff', padding: '12px 28px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-block' }}>
+                  Return to Home
                 </Link>
               </div>
             </div>

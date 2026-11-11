@@ -85,8 +85,8 @@ export default function SampleCertificate() {
             {/* STUDENT PHOTO IN FRAME */}
             <div className="cert-photo-container">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
-                alt="Student Photo"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
+                alt="Candidate Devesh Kumar"
               />
             </div>
 

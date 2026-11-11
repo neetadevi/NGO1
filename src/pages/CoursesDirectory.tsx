@@ -113,8 +113,7 @@ export default function CoursesDirectory() {
                   <th style={{ color: '#fff', background: '#250549' }}>Course Name</th>
                   <th style={{ color: '#fff', background: '#250549', width: '160px' }}>Category</th>
                   <th style={{ color: '#fff', background: '#250549', width: '100px' }}>Duration</th>
-                  <th style={{ color: '#fff', background: '#250549', width: '110px' }}>Cert. Fee</th>
-                  <th style={{ color: '#fff', background: '#250549', width: '110px' }}>Course Fee</th>
+                  <th style={{ color: '#fff', background: '#250549', width: '120px' }}>Course Fee</th>
                   <th style={{ color: '#fff', background: '#250549', width: '110px', textAlign: 'center' }}>Action</th>
                 </tr>
               </thead>
@@ -145,11 +144,6 @@ export default function CoursesDirectory() {
                     <td>
                       <span style={{ fontWeight: 600, color: '#334155', fontSize: '13px' }}>
                         {c.duration}
-                      </span>
-                    </td>
-                    <td>
-                      <span style={{ color: '#0284c7', fontWeight: 700 }}>
-                        {c.certificateFee ? `₹${c.certificateFee.toLocaleString('en-IN')}` : 'Included'}
                       </span>
                     </td>
                     <td>

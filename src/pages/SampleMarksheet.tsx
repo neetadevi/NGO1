@@ -5,6 +5,11 @@ import './CertificateMarksheet.css'
 import './PagesCommon.css'
 
 export default function SampleMarksheet() {
+  const handlePrint = () => {
+    window.print()
+  }
+
+  // 8 Subjects from Authentic Scan
   const subjects = [
     { name: 'Introduction to Computers', maxTh: 70, th: 48, maxPr: 30, pr: 29, total: 77, words: 'Seven Seven' },
     { name: 'Introduction to GUI Based Operating System', maxTh: 70, th: 43, maxPr: 30, pr: 28, total: 71, words: 'Seven One' },
@@ -16,27 +21,23 @@ export default function SampleMarksheet() {
     { name: 'LibreOffice', maxTh: 70, th: 49, maxPr: 30, pr: 29, total: 78, words: 'Seven Eight' },
   ]
 
-  const handlePrint = () => {
-    window.print()
-  }
-
   return (
     <div className="page-wrapper">
       <Navbar />
 
-      <section className="inner-hero-banner">
+      <section className="inner-hero-banner no-print">
         <div className="inner-hero-content">
-          <span className="inner-hero-badge">Academic Transcript</span>
+          <span className="inner-hero-badge">Academic Transcript Format</span>
           <h1 className="inner-hero-title">Official Statement of Marks</h1>
           <p className="inner-hero-subtitle">
-            Authentic mark sheet transcript showing detailed theory, practical, viva evaluations, and grades.
+            Authentic academic marksheet showing theory, practical, total in words, and division awarded by Shikashvik Institute.
           </p>
           <div className="breadcrumb-nav">
             <Link to="/">Home</Link>
             <span>/</span>
             <span>Franchise</span>
             <span>/</span>
-            <span>Sample Mark sheet</span>
+            <span>Sample Marksheet</span>
           </div>
         </div>
       </section>
@@ -45,7 +46,7 @@ export default function SampleMarksheet() {
         {/* TOOLBAR */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '20px' }} className="no-print">
           <div>
-            <h2 style={{ margin: 0, color: '#1e3a8a' }}>Standard Mark Sheet Format</h2>
+            <h2 style={{ margin: 0, color: '#1e3a8a' }}>Official Academic Transcript</h2>
             <p style={{ margin: '3px 0 0', color: '#64748b', fontSize: '14px' }}>
               Subject-wise evaluation breakdown with tamper-proof security watermark.
             </p>
@@ -60,18 +61,23 @@ export default function SampleMarksheet() {
           </div>
         </div>
 
-        {/* AUTHENTIC MARKSHEET FRAME */}
-        <div className="marksheet-sample-frame">
-          {/* HEADER */}
+        {/* AUTHENTIC MARKSHEET FRAME - 100% MATCHING ATTACHED PDF SCAN */}
+        <div className="marksheet-sample-frame" id="printable-marksheet">
+          {/* HEADER SECTION */}
           <div className="marksheet-header-box">
-            <img src="./logo.png" alt="Shikashvik Welfare Foundation" style={{ height: '54px', marginBottom: '4px' }} />
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+              <img src="./logo.png" alt="Shikashvik Welfare Foundation" style={{ height: '62px' }} />
+            </div>
+
             <h2 className="marksheet-org-title">SHIKASHVIK INSTITUTE</h2>
-            <h3 className="marksheet-org-sub">An Autonomous Institute of Shikashvik Welfare Foundation</h3>
-            <p style={{ fontSize: '11px', color: '#4b5563', margin: 0 }}>
+            <h3 className="marksheet-org-sub">AN AUTONOMOUS INSTITUTE OF SHIKASHVIK WELFARE FOUNDATION</h3>
+            
+            <p className="marksheet-statutory-line">
               Registered Section 8 Non-Profit under Companies Act, 2013, Ministry of Corporate Affairs, Govt. of India<br />
               Regd. Skill Provider of Ministry of Labour & Employment • Regd. with MSME • NITI Aayog DARPAN
             </p>
-            <div style={{ fontSize: '12px', fontWeight: 800, color: '#1e3a8a', marginTop: '4px' }}>
+
+            <div className="marksheet-iso-badge">
               An ISO 9001:2015 Certified Organisation
             </div>
 
@@ -84,7 +90,7 @@ export default function SampleMarksheet() {
             </div>
           </div>
 
-          {/* STUDENT INFO GRID */}
+          {/* STUDENT INFO & PHOTO GRID */}
           <div className="marksheet-info-grid">
             <div className="marksheet-info-col">
               <div className="ms-info-row">
@@ -93,7 +99,7 @@ export default function SampleMarksheet() {
               </div>
               <div className="ms-info-row">
                 <strong>Student's Name :-</strong>
-                <span style={{ fontWeight: 800, color: '#1e3a8a' }}>Devesh Kumar</span>
+                <span className="ms-student-name">Devesh Kumar</span>
               </div>
               <div className="ms-info-row">
                 <strong>Father's Name :-</strong>
@@ -116,21 +122,22 @@ export default function SampleMarksheet() {
               </div>
             </div>
 
-            {/* STUDENT PHOTO */}
+            {/* STUDENT PASSPORT PHOTO */}
             <div className="marksheet-photo-thumb">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
-                alt="Candidate Photo"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
+                alt="Candidate Devesh Kumar"
               />
             </div>
           </div>
 
-          <div style={{ fontSize: '12.5px', marginBottom: '10px' }}>
+          {/* CENTER NAME LINE */}
+          <div className="marksheet-center-row">
             <strong>Center Name :- </strong>
             <span>Youcca Institute Of Computer Education, Etah</span>
           </div>
 
-          {/* MARKS TABLE */}
+          {/* MARKS EVALUATION TABLE */}
           <table className="marksheet-table">
             <thead>
               <tr>
@@ -156,44 +163,55 @@ export default function SampleMarksheet() {
                   <td>{s.maxPr}</td>
                   <td>{s.pr}</td>
                   <td><strong>{s.total}</strong></td>
-                  <td style={{ fontSize: '10.5px' }}>{s.words}</td>
+                  <td className="words-cell">{s.words}</td>
                 </tr>
               ))}
               <tr className="total-row">
-                <td style={{ textAlign: 'left' }}>Result/Division : <strong>Pass / First Division</strong></td>
-                <td colSpan={4} style={{ textAlign: 'right' }}>Grand Total :</td>
-                <td style={{ color: '#059669', fontSize: '13px' }}>618/800</td>
-                <td style={{ fontSize: '11px', fontWeight: 800 }}>Six One Eight</td>
+                <td style={{ textAlign: 'left' }}>
+                  Result/Division : <strong>Pass / First Division</strong>
+                </td>
+                <td colSpan={4} style={{ textAlign: 'right', fontWeight: 'bold' }}>
+                  Grand Total :
+                </td>
+                <td style={{ color: '#047857', fontSize: '13px', fontWeight: 900 }}>
+                  618/800
+                </td>
+                <td style={{ fontSize: '11px', fontWeight: 800 }}>
+                  Six One Eight
+                </td>
               </tr>
             </tbody>
           </table>
 
-          {/* MARKSHEET SUMMARY */}
+          {/* MARKSHEET SUMMARY BAR */}
           <div className="marksheet-summary-box">
             <div>
               <strong>Overall Percentage :- </strong>
-              <span style={{ fontSize: '14px', fontWeight: 800, color: '#059669' }}>77 %</span>
+              <span style={{ fontSize: '14px', fontWeight: 900, color: '#047857' }}>77 %</span>
             </div>
             <div>
               <strong>Grade :- </strong>
-              <span style={{ fontSize: '14px', fontWeight: 800, color: '#1e3a8a' }}>A</span>
+              <span style={{ fontSize: '14px', fontWeight: 900, color: '#1e3a8a' }}>A</span>
             </div>
             <div>
               <strong>Status :- </strong>
-              <span style={{ fontSize: '12px', background: '#ecfdf5', color: '#065f46', padding: '2px 8px', borderRadius: '3px', fontWeight: 800 }}>
+              <span className="ms-status-passed">
                 ✓ PASSED
               </span>
             </div>
           </div>
 
+          {/* GRADE DISTINCTION KEY */}
           <div className="marksheet-legend">
             Grade Distinction: (above 90%) S, (89% to 70%) A, (69% to 50%) B, (49% to 33%) C, Failed F
           </div>
 
+          <div className="marksheet-dashed-divider"></div>
+
           {/* SIGNATURES ROW */}
-          <div className="cert-signatures-row" style={{ marginTop: '16px' }}>
-            <div>
-              <span style={{ fontSize: '11px', color: '#64748b' }}>Date :- <strong>17/07/2026</strong></span>
+          <div className="marksheet-signatures-row">
+            <div className="ms-date-cell">
+              Date :- <strong>17/07/2026</strong>
             </div>
             <div className="cert-sig-item">
               <div className="cert-sig-line">Checked By</div>
@@ -202,11 +220,14 @@ export default function SampleMarksheet() {
               <div className="cert-sig-line">Center Head</div>
             </div>
             <div className="cert-sig-item">
-              <div className="cert-sig-line">Exam Controller<br />Shikashvik Institute</div>
+              <div className="cert-sig-line">
+                Exam Controller<br />
+                <span style={{ fontSize: '10px' }}>Shikashvik Institute</span>
+              </div>
             </div>
           </div>
 
-          {/* FOOTER ADDRESS */}
+          {/* FOOTER REGISTERED ADDRESS STRIP */}
           <div className="marksheet-footer-strip">
             <strong>H.O. Registered Office : </strong>
             C/o Ankit Shakya, Dhumari, Dhumari, Aliganj, Etah (U.P.) - 207248 | Helpline No.- 8445020016 | Website- shikashvikwelfare.org.in

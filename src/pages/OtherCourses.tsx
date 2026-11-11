@@ -61,10 +61,6 @@ export default function OtherCourses() {
                     <strong>{item.duration}</strong>
                   </div>
                   <div className="course-meta-row">
-                    <span>Certificate Fee:</span>
-                    <strong style={{ color: '#0284c7' }}>₹{item.certificateFee}</strong>
-                  </div>
-                  <div className="course-meta-row">
                     <span>Course Fee:</span>
                     <strong style={{ color: '#059669', fontSize: '14px' }}>₹{item.courseFee.toLocaleString('en-IN')}</strong>
                   </div>

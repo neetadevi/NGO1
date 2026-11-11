@@ -158,6 +158,22 @@ export default function AdminPanel() {
     }
   }
 
+  // Approve a franchise center
+  const handleApproveFranchise = (refNo: string) => {
+    const updated = franchises.map((f) => {
+      if (f.refNo === refNo) {
+        return { ...f, status: 'Approved & Affiliated' }
+      }
+      return f
+    })
+    setFranchises(updated)
+    try {
+      localStorage.setItem('swf_franchise_apps', JSON.stringify(updated.filter((f) => f.refNo !== defaultFranchise.refNo)))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   // Filter students
   const filteredStudents = students.filter((s) => {
     const matchesSearch =
@@ -530,17 +546,28 @@ export default function AdminPanel() {
                       <td>{f.city || f.district || 'Etah'}</td>
                       <td>{f.state || 'Uttar Pradesh'}</td>
                       <td>
-                        <span className="status-pill status-approved">
-                          {f.status || 'Approved & Affiliated'}
+                        <span className={`status-pill ${(f.status || '').toLowerCase().includes('approved') ? 'status-approved' : 'status-pending'}`}>
+                          {f.status || 'Pending Verification'}
                         </span>
                       </td>
                       <td>
-                        <button
-                          onClick={() => alert(`Center Details:\nCenter: ${f.centerName}\nDirector: ${f.directorName}\nContact: ${f.mobile}\nAddress: ${f.city}, ${f.district}, ${f.state}`)}
-                          className="act-btn-view"
-                        >
-                          👁️ View Dossier
-                        </button>
+                        <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                          {!(f.status || '').toLowerCase().includes('approved') && (
+                            <button
+                              onClick={() => handleApproveFranchise(f.refNo || '')}
+                              className="act-btn-approve"
+                              title="Approve Center Affiliation"
+                            >
+                              ✓ Approve
+                            </button>
+                          )}
+                          <button
+                            onClick={() => alert(`Center Details:\nCenter: ${f.centerName}\nDirector: ${f.directorName}\nContact: ${f.mobile}\nAddress: ${f.city}, ${f.district}, ${f.state}\nStatus: ${f.status || 'Pending'}`)}
+                            className="act-btn-view"
+                          >
+                            👁️ View
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
