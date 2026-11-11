@@ -336,6 +336,18 @@ export default function Navbar() {
                 <span className="dropdown-arrow">▾</span>
               </button>
               <div className="dropdown-menu dropdown-menu-right">
+                <a
+                  href="https://www.shikashvikwelfare.org.in/admin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dropdown-link highlight-link"
+                >
+                  <span className="dd-icon">⚙️</span>
+                  <div>
+                    <strong>Admin Panel Login</strong>
+                    <small>shikashvikwelfare.org.in/admin ↗</small>
+                  </div>
+                </a>
                 <Link to="/login/franchise" className="dropdown-link">
                   <span className="dd-icon">🏢</span>
                   <div>

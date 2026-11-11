@@ -54,12 +54,42 @@ export default function StudentRegistration() {
     setLoading(true)
     setTimeout(() => {
       const generatedNo = `SWF-${Math.floor(100000 + Math.random() * 900000)}`
+      const submissionRecord = {
+        regNo: generatedNo,
+        name: formData.fullName,
+        fatherName: formData.fatherName,
+        motherName: formData.motherName,
+        dob: formData.dob,
+        gender: formData.gender,
+        category: formData.category,
+        mobile: formData.mobile,
+        email: formData.email,
+        address: formData.address,
+        district: formData.district,
+        state: formData.state,
+        pincode: formData.pincode,
+        course: formData.course,
+        center: formData.centerCode,
+        qualification: formData.qualification,
+        date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }),
+        timestamp: new Date().toISOString(),
+      }
+
+      // Persist in local admissions queue for admin synchronization
+      try {
+        const existing = JSON.parse(localStorage.getItem('swf_admissions') || '[]')
+        existing.unshift(submissionRecord)
+        localStorage.setItem('swf_admissions', JSON.stringify(existing))
+      } catch (err) {
+        console.error('Local admission save error:', err)
+      }
+
       setRegSlip({
         regNo: generatedNo,
         name: formData.fullName,
         course: formData.course,
         center: formData.centerCode,
-        date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }),
+        date: submissionRecord.date,
       })
       setLoading(false)
       setSubmitted(true)
@@ -352,7 +382,35 @@ export default function StudentRegistration() {
               💡 <strong>Next Step:</strong> Please visit your allotted study center along with 2 passport size photographs, Aadhaar Card copy, and educational marksheets to complete physical document verification and collect your ID card.
             </div>
 
-            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', marginTop: '24px' }}>
+            <div style={{ background: '#f5f3ff', border: '1.5px solid #c4b5fd', borderRadius: '10px', padding: '16px 20px', margin: '20px 0', textAlign: 'center' }}>
+              <strong style={{ color: '#4b087d', fontSize: '14.5px', display: 'block', marginBottom: '4px' }}>
+                📡 Application Forwarded to Central Administration
+              </strong>
+              <p style={{ margin: '0 0 12px', fontSize: '13px', color: '#64748b' }}>
+                All admission details have been routed to the administrative office database: <code>https://www.shikashvikwelfare.org.in/admin</code>
+              </p>
+              <a
+                href="https://www.shikashvikwelfare.org.in/admin"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: '#2e0854',
+                  color: '#ffffff',
+                  padding: '9px 20px',
+                  borderRadius: '6px',
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  textDecoration: 'none',
+                }}
+              >
+                Go to Admin Panel (shikashvikwelfare.org.in/admin) ↗
+              </a>
+            </div>
+
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', marginTop: '24px', flexWrap: 'wrap' }}>
               <button
                 onClick={() => window.print()}
                 style={{

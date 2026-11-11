@@ -1,9 +1,25 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import './CertificateMarksheet.css'
 import './PagesCommon.css'
 
 export default function SampleMarksheet() {
+  const subjects = [
+    { name: 'Introduction to Computers', maxTh: 70, th: 48, maxPr: 30, pr: 29, total: 77, words: 'Seven Seven' },
+    { name: 'Introduction to GUI Based Operating System', maxTh: 70, th: 43, maxPr: 30, pr: 28, total: 71, words: 'Seven One' },
+    { name: 'Elements of Word Processing', maxTh: 70, th: 49, maxPr: 30, pr: 29, total: 78, words: 'Seven Eight' },
+    { name: 'SpreadSheet', maxTh: 70, th: 48, maxPr: 30, pr: 28, total: 76, words: 'Seven Six' },
+    { name: 'Computer Communication & Internet', maxTh: 70, th: 50, maxPr: 30, pr: 28, total: 78, words: 'Seven Eight' },
+    { name: 'WWW & Web Browser', maxTh: 70, th: 51, maxPr: 30, pr: 29, total: 80, words: 'Eight Zero' },
+    { name: 'Communication & Collaboration', maxTh: 70, th: 53, maxPr: 30, pr: 27, total: 80, words: 'Eight Zero' },
+    { name: 'LibreOffice', maxTh: 70, th: 49, maxPr: 30, pr: 29, total: 78, words: 'Seven Eight' },
+  ]
+
+  const handlePrint = () => {
+    window.print()
+  }
+
   return (
     <div className="page-wrapper">
       <Navbar />
@@ -11,9 +27,9 @@ export default function SampleMarksheet() {
       <section className="inner-hero-banner">
         <div className="inner-hero-content">
           <span className="inner-hero-badge">Academic Transcript</span>
-          <h1 className="inner-hero-title">Sample Mark Sheet</h1>
+          <h1 className="inner-hero-title">Official Statement of Marks</h1>
           <p className="inner-hero-subtitle">
-            Comprehensive statement of marks detailing theory, practical, project work, and grading breakdown.
+            Authentic mark sheet transcript showing detailed theory, practical, viva evaluations, and grades.
           </p>
           <div className="breadcrumb-nav">
             <Link to="/">Home</Link>
@@ -26,97 +42,174 @@ export default function SampleMarksheet() {
       </section>
 
       <div className="page-content-container">
-        <div className="content-card">
-          <h2>Official Statement of Marks Format</h2>
-          <p>
-            Every enrolled student receiving an authorized certificate also receives an official mark sheet with subject-wise evaluation, grading rubric, and tamper-resistant serial tracking.
-          </p>
+        {/* TOOLBAR */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '20px' }} className="no-print">
+          <div>
+            <h2 style={{ margin: 0, color: '#1e3a8a' }}>Standard Mark Sheet Format</h2>
+            <p style={{ margin: '3px 0 0', color: '#64748b', fontSize: '14px' }}>
+              Subject-wise evaluation breakdown with tamper-proof security watermark.
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <Link to="/franchise/sample-certificate" className="course-apply-btn" style={{ background: '#b45309', padding: '10px 18px', fontSize: '13px' }}>
+              📜 View Sample Certificate ➔
+            </Link>
+            <button onClick={handlePrint} className="print-form-btn" style={{ padding: '10px 20px', fontSize: '13px' }}>
+              🖨️ Print Mark Sheet
+            </button>
+          </div>
+        </div>
 
-          <div style={{ maxWidth: '850px', margin: '30px auto', background: '#ffffff', border: '3px solid #3b0764', borderRadius: '12px', padding: '28px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.08)' }}>
-            <div style={{ textAlign: 'center', borderBottom: '2px solid #e2e8f0', paddingBottom: '16px' }}>
-              <h3 style={{ margin: '0 0 4px', color: '#4b087d', fontSize: '22px' }}>
-                SHIKASHVIK WELFARE FOUNDATION
-              </h3>
-              <p style={{ margin: 0, fontSize: '12px', color: '#64748b' }}>
-                (Registered under Section 8 of the Companies Act, 2013, Ministry of Corporate Affairs, Govt. of India)
-              </p>
-              <span style={{ display: 'inline-block', marginTop: '8px', background: '#f5f3ff', color: '#4b087d', border: '1px solid #c4b5fd', fontSize: '11px', fontWeight: 800, padding: '3px 12px', borderRadius: '20px' }}>
-                STATEMENT OF MARKS / GRADE SHEET
+        {/* AUTHENTIC MARKSHEET FRAME */}
+        <div className="marksheet-sample-frame">
+          {/* HEADER */}
+          <div className="marksheet-header-box">
+            <img src="./logo.png" alt="Shikashvik Welfare Foundation" style={{ height: '54px', marginBottom: '4px' }} />
+            <h2 className="marksheet-org-title">SHIKASHVIK INSTITUTE</h2>
+            <h3 className="marksheet-org-sub">An Autonomous Institute of Shikashvik Welfare Foundation</h3>
+            <p style={{ fontSize: '11px', color: '#4b5563', margin: 0 }}>
+              Registered Section 8 Non-Profit under Companies Act, 2013, Ministry of Corporate Affairs, Govt. of India<br />
+              Regd. Skill Provider of Ministry of Labour & Employment • Regd. with MSME • NITI Aayog DARPAN
+            </p>
+            <div style={{ fontSize: '12px', fontWeight: 800, color: '#1e3a8a', marginTop: '4px' }}>
+              An ISO 9001:2015 Certified Organisation
+            </div>
+
+            <div className="marksheet-title-banner">
+              STATEMENT OF MARKS
+            </div>
+
+            <div className="marksheet-course-title">
+              Course On Computer Concepts (CCC)
+            </div>
+          </div>
+
+          {/* STUDENT INFO GRID */}
+          <div className="marksheet-info-grid">
+            <div className="marksheet-info-col">
+              <div className="ms-info-row">
+                <strong>Enrollment No. :-</strong>
+                <span>SWF20260150</span>
+              </div>
+              <div className="ms-info-row">
+                <strong>Student's Name :-</strong>
+                <span style={{ fontWeight: 800, color: '#1e3a8a' }}>Devesh Kumar</span>
+              </div>
+              <div className="ms-info-row">
+                <strong>Father's Name :-</strong>
+                <span>Man Pal Singh</span>
+              </div>
+            </div>
+
+            <div className="marksheet-info-col">
+              <div className="ms-info-row">
+                <strong>Roll No. :-</strong>
+                <span>20260150</span>
+              </div>
+              <div className="ms-info-row">
+                <strong>D.O.B. :-</strong>
+                <span>21/06/1997</span>
+              </div>
+              <div className="ms-info-row">
+                <strong>Center Code :-</strong>
+                <span>SALT/UP/046</span>
+              </div>
+            </div>
+
+            {/* STUDENT PHOTO */}
+            <div className="marksheet-photo-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
+                alt="Candidate Photo"
+              />
+            </div>
+          </div>
+
+          <div style={{ fontSize: '12.5px', marginBottom: '10px' }}>
+            <strong>Center Name :- </strong>
+            <span>Youcca Institute Of Computer Education, Etah</span>
+          </div>
+
+          {/* MARKS TABLE */}
+          <table className="marksheet-table">
+            <thead>
+              <tr>
+                <th rowSpan={2} style={{ textAlign: 'left', width: '38%' }}>Subject</th>
+                <th colSpan={2}>Theory</th>
+                <th colSpan={2}>Practical</th>
+                <th rowSpan={2} style={{ width: '60px' }}>Total</th>
+                <th rowSpan={2} style={{ width: '120px' }}>Total in Words</th>
+              </tr>
+              <tr>
+                <th style={{ width: '45px' }}>Max</th>
+                <th style={{ width: '55px' }}>Marks Obt.</th>
+                <th style={{ width: '45px' }}>Max</th>
+                <th style={{ width: '55px' }}>Marks Obt.</th>
+              </tr>
+            </thead>
+            <tbody>
+              {subjects.map((s, idx) => (
+                <tr key={idx}>
+                  <td className="sub-name-cell">{s.name}</td>
+                  <td>{s.maxTh}</td>
+                  <td>{s.th}</td>
+                  <td>{s.maxPr}</td>
+                  <td>{s.pr}</td>
+                  <td><strong>{s.total}</strong></td>
+                  <td style={{ fontSize: '10.5px' }}>{s.words}</td>
+                </tr>
+              ))}
+              <tr className="total-row">
+                <td style={{ textAlign: 'left' }}>Result/Division : <strong>Pass / First Division</strong></td>
+                <td colSpan={4} style={{ textAlign: 'right' }}>Grand Total :</td>
+                <td style={{ color: '#059669', fontSize: '13px' }}>618/800</td>
+                <td style={{ fontSize: '11px', fontWeight: 800 }}>Six One Eight</td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* MARKSHEET SUMMARY */}
+          <div className="marksheet-summary-box">
+            <div>
+              <strong>Overall Percentage :- </strong>
+              <span style={{ fontSize: '14px', fontWeight: 800, color: '#059669' }}>77 %</span>
+            </div>
+            <div>
+              <strong>Grade :- </strong>
+              <span style={{ fontSize: '14px', fontWeight: 800, color: '#1e3a8a' }}>A</span>
+            </div>
+            <div>
+              <strong>Status :- </strong>
+              <span style={{ fontSize: '12px', background: '#ecfdf5', color: '#065f46', padding: '2px 8px', borderRadius: '3px', fontWeight: 800 }}>
+                ✓ PASSED
               </span>
             </div>
+          </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px', margin: '20px 0', fontSize: '13px' }}>
-              <div><strong>Roll Number:</strong> SWF-2026-1082</div>
-              <div><strong>Enrollment No:</strong> ENR-2026-9812</div>
-              <div><strong>Student Name:</strong> ANITA VERMA</div>
-              <div><strong>Father's Name:</strong> MR. SUNIL VERMA</div>
-              <div><strong>Course Name:</strong> DIPLOMA IN COMPUTER APPLICATIONS (DCA)</div>
-              <div><strong>Duration:</strong> 6 MONTHS</div>
-              <div><strong>Center Name:</strong> SHIKASHVIK STUDY CENTER (ETAH)</div>
-              <div><strong>Center Code:</strong> SWF-C-101</div>
+          <div className="marksheet-legend">
+            Grade Distinction: (above 90%) S, (89% to 70%) A, (69% to 50%) B, (49% to 33%) C, Failed F
+          </div>
+
+          {/* SIGNATURES ROW */}
+          <div className="cert-signatures-row" style={{ marginTop: '16px' }}>
+            <div>
+              <span style={{ fontSize: '11px', color: '#64748b' }}>Date :- <strong>17/07/2026</strong></span>
             </div>
-
-            <table className="result-table">
-              <thead>
-                <tr>
-                  <th>Paper Code & Title</th>
-                  <th>Max</th>
-                  <th>Theory</th>
-                  <th>Practical</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>DCA-101: Computer Fundamentals & Windows OS</td>
-                  <td>100</td>
-                  <td>76</td>
-                  <td>18</td>
-                  <td><strong>94</strong></td>
-                </tr>
-                <tr>
-                  <td>DCA-102: Office Automation (Word, Excel, PowerPoint)</td>
-                  <td>100</td>
-                  <td>74</td>
-                  <td>19</td>
-                  <td><strong>93</strong></td>
-                </tr>
-                <tr>
-                  <td>DCA-103: Financial Accounting with Tally</td>
-                  <td>100</td>
-                  <td>70</td>
-                  <td>18</td>
-                  <td><strong>88</strong></td>
-                </tr>
-                <tr>
-                  <td>DCA-104: Internet, E-Commerce & Cyber Safety</td>
-                  <td>100</td>
-                  <td>78</td>
-                  <td>18</td>
-                  <td><strong>96</strong></td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr style={{ background: '#f8fafc', fontWeight: 800 }}>
-                  <td>TOTAL MARKS:</td>
-                  <td>400</td>
-                  <td colSpan={2} style={{ textAlign: 'right' }}>AGGREGATE OBTAINED:</td>
-                  <td style={{ color: '#059669', fontSize: '15px' }}>371 / 400 (92.75%)</td>
-                </tr>
-              </tfoot>
-            </table>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f8fafc', padding: '12px 18px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '13px' }}>
-              <div><strong>Final Division:</strong> FIRST DIVISION WITH DISTINCTION</div>
-              <div><strong>Grade:</strong> <span style={{ color: '#059669', fontWeight: 800 }}>A+</span></div>
-              <div><strong>Result:</strong> <span style={{ color: '#059669', fontWeight: 800 }}>PASSED</span></div>
+            <div className="cert-sig-item">
+              <div className="cert-sig-line">Checked By</div>
             </div>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '36px', borderTop: '1px dashed #cbd5e1', paddingTop: '16px', fontSize: '12px', color: '#64748b' }}>
-              <div>Checked By</div>
-              <div>Security Serial: MS-2026-8812</div>
-              <div>Controller of Examinations</div>
+            <div className="cert-sig-item">
+              <div className="cert-sig-line">Center Head</div>
             </div>
+            <div className="cert-sig-item">
+              <div className="cert-sig-line">Exam Controller<br />Shikashvik Institute</div>
+            </div>
+          </div>
+
+          {/* FOOTER ADDRESS */}
+          <div className="marksheet-footer-strip">
+            <strong>H.O. Registered Office : </strong>
+            C/o Ankit Shakya, Dhumari, Dhumari, Aliganj, Etah (U.P.) - 207248 | Helpline No.- 8445020016 | Website- shikashvikwelfare.org.in
           </div>
         </div>
       </div>
@@ -125,4 +218,3 @@ export default function SampleMarksheet() {
     </div>
   )
 }
-

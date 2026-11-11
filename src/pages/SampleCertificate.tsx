@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import './CertificateMarksheet.css'
 import './PagesCommon.css'
 
 export default function SampleCertificate() {
-  const securityFeatures = [
-    { title: 'Dynamic QR Code Verification', desc: 'Scan via smartphone camera to verify student credentials directly on the official foundation portal.' },
-    { title: 'Unique Serial / Roll Number', desc: 'Every certificate is registered with a unique central database serial number preventing duplication.' },
-    { title: 'ISO 9001:2015 Quality Seal', desc: 'Quality Management System accredited certificate issued under international parameters.' },
-    { title: 'Hologram & High Security Border', desc: 'Special security Guilloche border and anti-photocopy security patterns.' },
-    { title: 'Section 8 Company MCA Seal', desc: 'Legally registered non-profit company seal registered under the Companies Act, 2013, Govt. of India.' },
-  ]
+  const handlePrint = () => {
+    window.print()
+  }
 
   return (
     <div className="page-wrapper">
@@ -18,10 +15,10 @@ export default function SampleCertificate() {
 
       <section className="inner-hero-banner">
         <div className="inner-hero-content">
-          <span className="inner-hero-badge">Credential Quality</span>
-          <h1 className="inner-hero-title">Sample Certificate</h1>
+          <span className="inner-hero-badge">Official Credential Format</span>
+          <h1 className="inner-hero-title">Official Sample Certificate</h1>
           <p className="inner-hero-subtitle">
-            Preview of the government-recognized, ISO accredited certificate awarded to successful learners.
+            Authentic ISO 9001:2015 accredited, MCA & NITI Aayog recognized certificate awarded to successful candidates.
           </p>
           <div className="breadcrumb-nav">
             <Link to="/">Home</Link>
@@ -34,76 +31,126 @@ export default function SampleCertificate() {
       </section>
 
       <div className="page-content-container">
-        <div className="content-card">
-          <h2>Official Certificate Preview & Security Standards</h2>
-          <p>
-            Shikashvik Welfare Foundation provides tamper-proof, professionally designed certificates to students completing computer, vocational, and skill courses through our authorized network of study centers.
-          </p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', margin: '30px 0', alignItems: 'center' }}>
-            {/* CERTIFICATE VISUAL CARD */}
-            <div style={{ background: '#fffbeb', border: '8px double #4b087d', borderRadius: '14px', padding: '24px', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-                <img src="./logo.png" alt="Foundation Logo" style={{ height: '48px' }} />
-                <div style={{ textAlign: 'right', fontSize: '11px', color: '#64748b' }}>
-                  <strong>ISO 9001:2015</strong><br />Certified NGO
-                </div>
-              </div>
-
-              <h3 style={{ fontFamily: 'Georgia, serif', color: '#4b087d', fontSize: '20px', margin: '10px 0 4px' }}>
-                SHIKASHVIK WELFARE FOUNDATION
-              </h3>
-              <small style={{ color: '#64748b', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                Section 8 Non-Profit • Under MCA, Govt. of India
-              </small>
-
-              <div style={{ margin: '18px 0', fontSize: '13px', color: '#1e293b' }}>
-                <p style={{ fontStyle: 'italic', margin: '0 0 6px' }}>This is to certify that</p>
-                <h4 style={{ fontSize: '18px', color: '#b45309', margin: '4px 0' }}>RAHUL KUMAR SHAKYA</h4>
-                <p style={{ margin: '4px 0', fontSize: '12px', color: '#64748b' }}>S/o Shri Ramesh Kumar Shakya</p>
-                <p style={{ margin: '8px 0 4px', fontSize: '12.5px' }}>
-                  has successfully completed <strong>Advanced Diploma in Computer Applications (ADCA)</strong> of 12 Months duration with <strong>Grade A+ (92%)</strong>
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px dashed #cbd5e1', paddingTop: '14px', marginTop: '16px', fontSize: '11px' }}>
-                <div>
-                  <strong>QR Code</strong><br />
-                  <span>[ Scan to Verify ]</span>
-                </div>
-                <div>
-                  <span style={{ color: '#059669', fontWeight: 800 }}>✓ VERIFIED</span><br />
-                  <span>Serial: SWF-2026-9481</span>
-                </div>
-                <div>
-                  <strong>Authorized Signatory</strong><br />
-                  <span>Exam Controller</span>
-                </div>
-              </div>
-            </div>
-
-            {/* SECURITY FEATURES LIST */}
-            <div>
-              <h3 style={{ margin: '0 0 16px', color: '#1e1b4b' }}>Key Security & Verification Features</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                {securityFeatures.map((f, idx) => (
-                  <div key={idx} style={{ display: 'flex', gap: '12px', background: '#f8fafc', padding: '12px 16px', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                    <span style={{ color: '#10b981', fontWeight: 800, fontSize: '16px' }}>✓</span>
-                    <div>
-                      <strong style={{ fontSize: '14px', color: '#1e1b4b' }}>{f.title}</strong>
-                      <p style={{ margin: '2px 0 0', fontSize: '12.5px', color: '#64748b' }}>{f.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* TOOLBAR */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '20px' }} className="no-print">
+          <div>
+            <h2 style={{ margin: 0, color: '#1e3a8a' }}>Standard Student Certificate</h2>
+            <p style={{ margin: '3px 0 0', color: '#64748b', fontSize: '14px' }}>
+              High-security certificate with anti-duplication serials, QR code, and holographic seal.
+            </p>
           </div>
-
-          <div style={{ textAlign: 'center', marginTop: '30px' }}>
-            <Link to="/franchise/apply" className="course-apply-btn" style={{ display: 'inline-block', padding: '12px 28px' }}>
-              Affiliate Your Center to Award Certificates →
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <Link to="/franchise/sample-marksheet" className="course-apply-btn" style={{ background: '#b45309', padding: '10px 18px', fontSize: '13px' }}>
+              📊 View Sample Mark Sheet ➔
             </Link>
+            <button onClick={handlePrint} className="print-form-btn" style={{ padding: '10px 20px', fontSize: '13px' }}>
+              🖨️ Print Certificate
+            </button>
           </div>
+        </div>
+
+        {/* AUTHENTIC CERTIFICATE FRAME */}
+        <div className="cert-sample-frame">
+          {/* TOP METADATA ROW */}
+          <div className="cert-top-meta-row">
+            <div>
+              <span>Enrollment No. :- </span><strong style={{ color: '#1e3a8a' }}>SWF20260150</strong><br />
+              <span>Roll No. :- </span><strong>20260150</strong>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <span>Serial No. - </span><strong style={{ color: '#d97706' }}>10139</strong><br />
+              <span>Certificate No. - </span><strong>260139</strong>
+            </div>
+          </div>
+
+          {/* HEADER */}
+          <div className="cert-header-content">
+            <img src="./logo.png" alt="Shikashvik Welfare Foundation" style={{ height: '60px', marginBottom: '4px' }} />
+            <h2 className="cert-org-title">SHIKASHVIK INSTITUTE</h2>
+            <h3 className="cert-org-sub">An Autonomous Institute of Shikashvik Welfare Foundation</h3>
+            <p className="cert-statutory-text">
+              Registered Section 8 Non-Profit under the Companies Act, 2013, Ministry of Corporate Affairs, Govt. of India<br />
+              Regd. with NITI Aayog (DARPAN) • Regd. with MSME (UDYAM) • CSR Reg. Approved
+            </p>
+            <div style={{ fontSize: '12px', fontWeight: 800, color: '#1e3a8a', marginTop: '4px', letterSpacing: '0.5px' }}>
+              An ISO 9001:2015 Certified Organisation
+            </div>
+          </div>
+
+          {/* CERTIFICATE TITLE */}
+          <div style={{ textAlign: 'center' }}>
+            <div className="cert-main-word">Certificate</div>
+            <div className="cert-certify-line">This is to certify that</div>
+
+            {/* STUDENT PHOTO IN FRAME */}
+            <div className="cert-photo-container">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
+                alt="Student Photo"
+              />
+            </div>
+
+            <div className="cert-student-highlight">
+              Devesh Kumar S/O Man Pal Singh
+            </div>
+
+            <div style={{ fontStyle: 'italic', fontSize: '15px', color: '#475569', margin: '4px 0' }}>
+              On Successful Completion of
+            </div>
+
+            <div className="cert-course-highlight">
+              Course On Computer Concepts (CCC)
+            </div>
+
+            <div className="cert-details-prose">
+              Conducted From <strong>01 Apr. 2026</strong> To <strong>30 Jun. 2026</strong><br />
+              Duration <strong>3 Months</strong> &nbsp;|&nbsp; In the <strong>A</strong> Grade From Our Training Center<br />
+              At - <strong>Youcca Institute Of Computer Education, Etah</strong>
+            </div>
+
+            {/* BADGES ROW */}
+            <div className="cert-badges-row">
+              <span className="cert-badge-chip">🇮🇳 Skill India</span>
+              <span className="cert-badge-chip">🏢 MSME</span>
+              <span className="cert-badge-chip">🌐 Digital India</span>
+              <span className="cert-badge-chip">⭐ ISO 9001:2015</span>
+              <span className="cert-badge-chip">📜 IAF Accredited</span>
+            </div>
+
+            {/* SIGNATURES & QR ROW */}
+            <div className="cert-signatures-row">
+              <div>
+                <span style={{ fontSize: '11px', color: '#64748b' }}>Date of Issue : <strong>17/07/2026</strong></span><br />
+                <span style={{ fontSize: '10px', background: '#ecfdf5', color: '#065f46', padding: '2px 6px', borderRadius: '3px', fontWeight: 700 }}>
+                  ✓ Digitally Verified
+                </span>
+              </div>
+
+              <div className="cert-sig-item">
+                <div className="cert-sig-line">Center Head</div>
+              </div>
+
+              <div className="cert-sig-item">
+                <div className="cert-sig-line">Exam Controller<br />Shikashvik Institute</div>
+              </div>
+
+              <div className="cert-sig-item">
+                <div className="cert-sig-line">Auth. Sign.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SECURITY NOTE */}
+        <div className="content-card no-print" style={{ marginTop: '30px' }}>
+          <h3 style={{ margin: '0 0 10px', color: '#1e3a8a' }}>Official Verification Instructions</h3>
+          <p style={{ margin: 0, fontSize: '14px', color: '#475569', lineHeight: 1.6 }}>
+            Every certificate issued by Shikashvik Welfare Foundation can be verified 24x7 online through the{' '}
+            <Link to="/student-zone/verification" style={{ color: '#4b087d', fontWeight: 700 }}>
+              Student Verification Portal
+            </Link>{' '}
+            by entering Roll Number (<code>20260150</code>) or Enrollment Number (<code>SWF20260150</code>).
+          </p>
         </div>
       </div>
 
@@ -111,4 +158,3 @@ export default function SampleCertificate() {
     </div>
   )
 }
-

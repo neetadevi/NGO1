@@ -29,19 +29,19 @@ export default function StudentVerification() {
 
     setLoading(true)
     setTimeout(() => {
-      // Demo verified record generator or lookup
+      const isCustom = rollNo.includes('102')
       setStudentRecord({
-        enrollmentNo: rollNo.toUpperCase().startsWith('SWF') ? rollNo.toUpperCase() : `SWF-${rollNo.toUpperCase()}`,
-        rollNo: rollNo.toUpperCase(),
-        studentName: 'Pooja Shakya',
-        fatherName: 'Ram Kumar Shakya',
-        courseName: 'ADCA (Advanced Diploma in Computer Applications)',
-        duration: '1 Year (12 Months)',
-        centerCode: 'SWF-C-101',
-        centerName: 'Shikashvik Computer & Skill Center (Etah)',
-        admissionDate: '15 November 2026',
+        enrollmentNo: isCustom ? rollNo.toUpperCase() : 'SWF20260150',
+        rollNo: isCustom ? rollNo.toUpperCase() : '20260150',
+        studentName: isCustom ? 'Pooja Shakya' : 'Devesh Kumar',
+        fatherName: isCustom ? 'Ram Kumar Shakya' : 'Man Pal Singh',
+        courseName: isCustom ? 'ADCA (Advanced Diploma in Computer Applications)' : 'Course On Computer Concepts (CCC)',
+        duration: isCustom ? '1 Year (12 Months)' : '3 Months (01 Apr 2026 to 30 Jun 2026)',
+        centerCode: isCustom ? 'SWF-C-101' : 'SALT/UP/046',
+        centerName: isCustom ? 'Shikashvik Computer & Skill Center (Etah)' : 'Youcca Institute Of Computer Education, Etah',
+        admissionDate: '01 April 2026',
         status: 'VERIFIED & ACTIVE STUDENT',
-        grade: 'A+ (Distinction)',
+        grade: 'A (First Division)',
       })
       setLoading(false)
       setSearched(true)

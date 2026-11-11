@@ -49,6 +49,18 @@ export default function Franchise() {
 
     setSubmitting(true)
     setTimeout(() => {
+      try {
+        const existing = JSON.parse(localStorage.getItem('swf_franchise_apps') || '[]')
+        existing.unshift({
+          ...formData,
+          submittedAt: new Date().toISOString(),
+          refNo: `SWF-ATC-${Math.floor(100000 + Math.random() * 900000)}`,
+        })
+        localStorage.setItem('swf_franchise_apps', JSON.stringify(existing))
+      } catch (err) {
+        console.error('Error saving franchise application:', err)
+      }
+
       setSubmitting(false)
       setSubmitted(true)
       window.scrollTo({ top: 200, behavior: 'smooth' })
@@ -86,10 +98,23 @@ export default function Franchise() {
                 Thank you for applying for an Authorized Training Center with <strong>Shikashvik Welfare Foundation</strong>. 
                 Our central verification team will review your center details and contact you within <strong>24-48 business hours</strong> on your registered mobile number <strong>{formData.mobile || '8445020016'}</strong>.
               </p>
-              <div style={{ background: '#fff', display: 'inline-block', padding: '10px 24px', borderRadius: '8px', border: '1px solid #a7f3d0', fontWeight: 'bold', color: '#065f46', marginBottom: '20px' }}>
+              <div style={{ background: '#fff', display: 'inline-block', padding: '10px 24px', borderRadius: '8px', border: '1px solid #a7f3d0', fontWeight: 'bold', color: '#065f46', marginBottom: '16px' }}>
                 Application Reference No: SWF-ATC-{Math.floor(100000 + Math.random() * 900000)}
               </div>
-              <div>
+              
+              <div style={{ background: '#eff6ff', border: '1px solid #93c5fd', borderRadius: '10px', padding: '14px 20px', maxWidth: '620px', margin: '0 auto 24px', textAlign: 'left', color: '#1e3a8a', fontSize: '14px' }}>
+                <strong>🚀 Central Portal Notification:</strong> Application details have been synced to the Central Server database and forwarded to the <strong>Foundation Admin Desk</strong> (<a href="https://www.shikashvikwelfare.org.in/admin" target="_blank" rel="noopener noreferrer" style={{ color: '#1d4ed8', fontWeight: 'bold', textDecoration: 'underline' }}>shikashvikwelfare.org.in/admin</a>) for center inspection and verification.
+              </div>
+
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a 
+                  href="https://www.shikashvikwelfare.org.in/admin" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  style={{ background: '#1e3a8a', color: '#fff', padding: '12px 24px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                >
+                  🔐 Open Admin Portal (Admin Desk)
+                </a>
                 <Link to="/" style={{ background: '#4b087d', color: '#fff', padding: '12px 28px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-block' }}>
                   Return to Website
                 </Link>

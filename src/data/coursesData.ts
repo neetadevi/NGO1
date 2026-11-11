@@ -556,3 +556,4 @@ export const coursesList: CourseItem[] = [
     description: 'Teaching methodology, class sequencing, body anatomy & physiology, voice modulation, and instructor certification.',
   },
 ]
+
