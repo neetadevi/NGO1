@@ -107,14 +107,12 @@ export default function Franchise() {
               </div>
 
               <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a 
-                  href="https://www.shikashvikwelfare.org.in/admin" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <Link 
+                  to="/admin" 
                   style={{ background: '#1e3a8a', color: '#fff', padding: '12px 24px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 >
                   🔐 Open Admin Portal (Admin Desk)
-                </a>
+                </Link>
                 <Link to="/" style={{ background: '#4b087d', color: '#fff', padding: '12px 28px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-block' }}>
                   Return to Website
                 </Link>

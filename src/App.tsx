@@ -39,6 +39,9 @@ import FranchiseLogin from './pages/FranchiseLogin'
 import StudentLogin from './pages/StudentLogin'
 import VolunteerLogin from './pages/VolunteerLogin'
 
+// Admin Portal
+import AdminPanel from './pages/AdminPanel'
+
 import './App.css'
 
 function Dashboard() {
@@ -161,6 +164,12 @@ function App() {
       <Route path="/login/student" element={<StudentLogin />} />
       <Route path="/login/volunteer" element={<VolunteerLogin />} />
       <Route path="/signup" element={<Signup />} />
+
+      {/* Central Admin Portal */}
+      <Route path="/admin" element={<AdminPanel />} />
+      <Route path="/admin/*" element={<AdminPanel />} />
+      <Route path="/admin-panel" element={<AdminPanel />} />
+      <Route path="/login/admin" element={<AdminPanel />} />
 
       {/* Dashboard */}
       <Route

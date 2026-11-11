@@ -389,10 +389,8 @@ export default function StudentRegistration() {
               <p style={{ margin: '0 0 12px', fontSize: '13px', color: '#64748b' }}>
                 All admission details have been routed to the administrative office database: <code>https://www.shikashvikwelfare.org.in/admin</code>
               </p>
-              <a
-                href="https://www.shikashvikwelfare.org.in/admin"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/admin"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -406,8 +404,8 @@ export default function StudentRegistration() {
                   textDecoration: 'none',
                 }}
               >
-                Go to Admin Panel (shikashvikwelfare.org.in/admin) ↗
-              </a>
+                🔐 Open Central Admin Portal ➔
+              </Link>
             </div>
 
             <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', marginTop: '24px', flexWrap: 'wrap' }}>
