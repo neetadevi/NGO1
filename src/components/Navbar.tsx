@@ -282,6 +282,13 @@ export default function Navbar() {
                 <span className="dropdown-arrow">▾</span>
               </button>
               <div className="dropdown-menu">
+                <Link to="/franchise/dashboard" className="dropdown-link" style={{ background: '#f0fdf4' }}>
+                  <span className="dd-icon">💻</span>
+                  <div>
+                    <strong style={{ color: '#047857' }}>Center Director Dashboard</strong>
+                    <small>Ankit Shakya • SALT/UP/046</small>
+                  </div>
+                </Link>
                 <Link to="/franchise/sample-certificate" className="dropdown-link">
                   <span className="dd-icon">📜</span>
                   <div>

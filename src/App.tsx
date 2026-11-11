@@ -33,6 +33,7 @@ import SampleCertificate from './pages/SampleCertificate'
 import SampleMarksheet from './pages/SampleMarksheet'
 import FranchiseEnquiry from './pages/FranchiseEnquiry'
 import BenefitsRequirement from './pages/BenefitsRequirement'
+import FranchiseDashboard from './pages/FranchiseDashboard'
 
 // Login Pages
 import FranchiseLogin from './pages/FranchiseLogin'
@@ -153,6 +154,9 @@ function App() {
       <Route path="/franchise" element={<Franchise />} />
       <Route path="/franchise/apply" element={<Franchise />} />
       <Route path="/apply-franchise" element={<Franchise />} />
+      <Route path="/franchise/dashboard" element={<FranchiseDashboard />} />
+      <Route path="/center-dashboard" element={<FranchiseDashboard />} />
+      <Route path="/dashboard/franchise" element={<FranchiseDashboard />} />
       <Route path="/franchise/sample-certificate" element={<SampleCertificate />} />
       <Route path="/franchise/sample-marksheet" element={<SampleMarksheet />} />
       <Route path="/franchise/enquiry" element={<FranchiseEnquiry />} />

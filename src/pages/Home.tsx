@@ -7,10 +7,10 @@ import './Home.css'
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Top Hero Slider customized to showcase the official courses provided
+  // Top Hero Slider customized with crisp HD quality images
   const slides = [
     {
-      img: './gallery/field-6.jpg',
+      img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=85',
       badge: 'IT & Computer Software',
       title: 'ADCA, DCA, Tally Prime + GST & Web Designing',
       subtitle: 'Government recognized 3, 6, and 12-month computer applications, programming, accounting, and DTP courses for career readiness.',
@@ -18,7 +18,7 @@ export default function Home() {
       btnText: 'Explore Computer Courses →',
     },
     {
-      img: './gallery/field-5.jpg',
+      img: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1920&q=85',
       badge: 'Tailoring & Fashion Technology',
       title: 'Cutting, Stitching, Tailoring & Boutique Management',
       subtitle: 'Professional certification and diploma courses in advanced garment making, pattern drafting, and fashion technology.',
@@ -26,7 +26,7 @@ export default function Home() {
       btnText: 'View Tailoring Courses →',
     },
     {
-      img: './gallery/field-1.jpg',
+      img: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1920&q=85',
       badge: 'Beauty & Wellness Cosmetology',
       title: 'Advanced Makeup, Bridal Styling & Cosmetology Diploma',
       subtitle: 'Professional salon training, bridal artistry, skin aesthetics, and beauty wellness diplomas with authorized certification.',
@@ -34,7 +34,7 @@ export default function Home() {
       btnText: 'View Beauty Courses →',
     },
     {
-      img: './gallery/field-7.jpg',
+      img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1920&q=85',
       badge: 'Skill Development & Technical Trades',
       title: 'Electrician, Solar Technician, AC/HVAC & CCTV Training',
       subtitle: 'Hands-on technical trade diplomas in electrical wiring, solar panel installation, plumbing, and surveillance engineering.',
@@ -42,7 +42,7 @@ export default function Home() {
       btnText: 'Explore Technical Trades →',
     },
     {
-      img: './gallery/field-8.jpg',
+      img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=85',
       badge: 'Teacher Training & Yoga',
       title: 'Nursery Teacher Training (NTT), Stenography & Yoga',
       subtitle: '1 & 2-Year NTT teacher diplomas, bilingual Hindi/English typing, stenographer certifications, and Yoga teacher training.',
@@ -281,30 +281,6 @@ export default function Home() {
             <p>
               Through grassroots initiatives across Uttar Pradesh and adjoining regions, we bring tangible, life-changing interventions—from school kits and community computer training centers to free medical checkup camps and livelihood support.
             </p>
-
-            {/* OFFICIAL REGISTRATION DETAILS */}
-            <div className="about-key-details">
-              <div className="about-detail-item">
-                <span>Date of Incorporation</span>
-                <span>October 23, 2026</span>
-              </div>
-              <div className="about-detail-item">
-                <span>Registered District</span>
-                <span>Etah, Uttar Pradesh, India</span>
-              </div>
-              <div className="about-detail-item" style={{ gridColumn: 'span 2' }}>
-                <span>Registered Address</span>
-                <span>C/o Ankit Shakya, Dhumari, Dhumari, Aliganj, Etah, Uttar Pradesh, India (PIN: 207248)</span>
-              </div>
-              <div className="about-detail-item">
-                <span>Helpline / Contact</span>
-                <span>+91-8445020016</span>
-              </div>
-              <div className="about-detail-item">
-                <span>Official Email</span>
-                <span>shikashvik@gmail.com</span>
-              </div>
-            </div>
 
             <div className="about-actions-group">
               <a href="#projects" className="view-details">

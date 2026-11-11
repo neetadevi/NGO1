@@ -108,6 +108,12 @@ export default function Franchise() {
 
               <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Link 
+                  to="/franchise/dashboard" 
+                  style={{ background: '#007bff', color: '#fff', padding: '12px 24px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                >
+                  📊 Enter Franchise Center Dashboard
+                </Link>
+                <Link 
                   to="/admin" 
                   style={{ background: '#1e3a8a', color: '#fff', padding: '12px 24px', borderRadius: '25px', fontWeight: 'bold', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 >
