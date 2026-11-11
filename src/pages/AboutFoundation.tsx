@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './PagesCommon.css'
 
 export default function AboutFoundation() {
@@ -98,6 +99,9 @@ export default function AboutFoundation() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
+

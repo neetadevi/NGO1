@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './PagesCommon.css'
 
 export default function SampleMarksheet() {
@@ -119,6 +120,9 @@ export default function SampleMarksheet() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
+

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './PagesCommon.css'
 
 export default function ChairmanMessage() {
@@ -90,6 +91,9 @@ export default function ChairmanMessage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
+

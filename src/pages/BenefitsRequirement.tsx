@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './PagesCommon.css'
 
 export default function BenefitsRequirement() {
@@ -92,6 +93,9 @@ export default function BenefitsRequirement() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
+

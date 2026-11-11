@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './PagesCommon.css'
 
 export default function AuthorizedStudyCentres() {
@@ -232,6 +233,9 @@ export default function AuthorizedStudyCentres() {
           )}
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
+

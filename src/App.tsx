@@ -15,12 +15,14 @@ import ChairmanMessage from './pages/ChairmanMessage'
 import MissionVision from './pages/MissionVision'
 
 // Course Offered Pages
+import CoursesDirectory from './pages/CoursesDirectory'
 import VocationalCourses from './pages/VocationalCourses'
 import SkillCourses from './pages/SkillCourses'
 import ComputerCourses from './pages/ComputerCourses'
 import OtherCourses from './pages/OtherCourses'
 
 // Student Zone Pages
+import OfflineAdmissionForm from './pages/OfflineAdmissionForm'
 import AuthorizedStudyCentres from './pages/AuthorizedStudyCentres'
 import StudentRegistration from './pages/StudentRegistration'
 import StudentVerification from './pages/StudentVerification'
@@ -129,12 +131,16 @@ function App() {
       <Route path="/mission-vision" element={<MissionVision />} />
 
       {/* Course Offered */}
+      <Route path="/courses/all" element={<CoursesDirectory />} />
+      <Route path="/courses" element={<CoursesDirectory />} />
       <Route path="/courses/vocational" element={<VocationalCourses />} />
       <Route path="/courses/skill" element={<SkillCourses />} />
       <Route path="/courses/computer" element={<ComputerCourses />} />
       <Route path="/courses/other" element={<OtherCourses />} />
 
       {/* Student Zone */}
+      <Route path="/student-zone/offline-admission-form" element={<OfflineAdmissionForm />} />
+      <Route path="/offline-admission-form" element={<OfflineAdmissionForm />} />
       <Route path="/student-zone/study-centres" element={<AuthorizedStudyCentres />} />
       <Route path="/student-zone/registration" element={<StudentRegistration />} />
       <Route path="/student-zone/verification" element={<StudentVerification />} />

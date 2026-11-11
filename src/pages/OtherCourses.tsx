@@ -1,58 +1,13 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import { coursesList } from '../data/coursesData'
 import './PagesCommon.css'
 
 export default function OtherCourses() {
-  const courses = [
-    {
-      code: 'SWF-OTH-01',
-      title: 'Spoken English & Professional Personality Development',
-      duration: '3 Months',
-      eligibility: 'All Welcome',
-      badge: 'Communication',
-      desc: 'Confidence building, English grammar, public speaking, interview facing techniques, body language, and formal workplace conversation.',
-    },
-    {
-      code: 'SWF-OTH-02',
-      title: 'NTT (Nursery Teacher Training Diploma)',
-      duration: '1 Year',
-      eligibility: '12th Pass',
-      badge: 'Teaching Career',
-      desc: 'Child psychology, play-way education methods, modern kindergarten teaching aids, rhyme presentation, and school administration.',
-    },
-    {
-      code: 'SWF-OTH-03',
-      title: 'Yoga & Naturopathy Wellness Instructor',
-      duration: '6 Months',
-      eligibility: '10th / 12th Pass',
-      badge: 'Health & Wellness',
-      desc: 'Traditional asanas, pranayama, yogic diet, meditation techniques, stress management, and community wellness camp management.',
-    },
-    {
-      code: 'SWF-OTH-04',
-      title: 'Digital Marketing & Social Media Management',
-      duration: '3 Months',
-      eligibility: '10th / 12th Pass',
-      badge: 'Modern Media',
-      desc: 'Search Engine Optimization (SEO), Facebook/Instagram Ads, YouTube content creation, Canva design, and lead generation.',
-    },
-    {
-      code: 'SWF-OTH-05',
-      title: 'First Aid & Emergency Community Responder',
-      duration: '2 Months',
-      eligibility: '8th Pass',
-      badge: 'Community Health',
-      desc: 'CPR training, trauma management, burn care, disaster relief coordination, and emergency medical assistance protocols.',
-    },
-    {
-      code: 'SWF-OTH-06',
-      title: 'Organic Farming & Rural Vermicomposting',
-      duration: '1 Month / 3 Months',
-      eligibility: 'Open to All',
-      badge: 'Agriculture Upliftment',
-      desc: 'Zero-budget natural farming, bio-fertilizer preparation, soil health testing, micro-irrigation, and organic crop marketing.',
-    },
-  ]
+  const otherCourses = coursesList.filter(
+    (c) => c.category === 'Teacher Training' || c.category === 'Yoga Course'
+  )
 
   return (
     <div className="page-wrapper">
@@ -61,9 +16,9 @@ export default function OtherCourses() {
       <section className="inner-hero-banner">
         <div className="inner-hero-content">
           <span className="inner-hero-badge">Specialized Training</span>
-          <h1 className="inner-hero-title">Other Professional & Community Courses</h1>
+          <h1 className="inner-hero-title">Teacher Training & Yoga Courses</h1>
           <p className="inner-hero-subtitle">
-            Holistic skill courses in teaching, language communication, health wellness, and modern media.
+            Nursery Teacher Training (NTT), Early Childhood Care (ECCE), Yoga Teacher Training, and Yogic Therapy diplomas.
           </p>
           <div className="breadcrumb-nav">
             <Link to="/">Home</Link>
@@ -77,17 +32,24 @@ export default function OtherCourses() {
 
       <div className="page-content-container">
         <div className="content-card">
-          <h2>Specialized Certification Programs</h2>
-          <p>
-            Shikashvik Welfare Foundation believes in multi-dimensional community empowerment. Our allied courses assist rural professionals, teachers, and agriculturalists in enhancing their potential.
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '18px' }}>
+            <div>
+              <h2 style={{ margin: 0 }}>Teaching, Pedagogy & Wellness Diplomas</h2>
+              <p style={{ color: '#64748b', fontSize: '14px', margin: '4px 0 0' }}>
+                Complete child development theory, yoga asana alignment, and classroom pedagogy.
+              </p>
+            </div>
+            <Link to="/student-zone/offline-admission-form" className="course-apply-btn" style={{ background: '#b45309', padding: '10px 18px', fontSize: '13px' }}>
+              📄 Download Offline Admission Form (A4)
+            </Link>
+          </div>
 
           <div className="course-card-grid">
-            {courses.map((item, idx) => (
-              <div key={idx} className="course-item-card">
+            {otherCourses.map((item) => (
+              <div key={item.id} className="course-item-card">
                 <div className="course-card-header">
-                  <span className="course-card-badge">{item.badge}</span>
-                  <h3>{item.title}</h3>
+                  <span className="course-card-badge">{item.category}</span>
+                  <h3>{item.name}</h3>
                 </div>
                 <div className="course-card-body">
                   <div className="course-meta-row">
@@ -99,10 +61,18 @@ export default function OtherCourses() {
                     <strong>{item.duration}</strong>
                   </div>
                   <div className="course-meta-row">
+                    <span>Certificate Fee:</span>
+                    <strong style={{ color: '#0284c7' }}>₹{item.certificateFee}</strong>
+                  </div>
+                  <div className="course-meta-row">
+                    <span>Course Fee:</span>
+                    <strong style={{ color: '#059669', fontSize: '14px' }}>₹{item.courseFee.toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div className="course-meta-row">
                     <span>Eligibility:</span>
                     <strong>{item.eligibility}</strong>
                   </div>
-                  <p className="course-desc">{item.desc}</p>
+                  {item.description && <p className="course-desc">{item.description}</p>}
                   <Link to="/student-zone/registration" className="course-apply-btn">
                     Enroll in this Course →
                   </Link>
@@ -112,6 +82,8 @@ export default function OtherCourses() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

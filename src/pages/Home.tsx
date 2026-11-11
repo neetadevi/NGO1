@@ -1,36 +1,53 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './Home.css'
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Authentic Real Indian Field & Community photos from Shikashvik Welfare Foundation operations
+  // Top Hero Slider customized to showcase the official courses provided
   const slides = [
     {
-      img: './gallery/field-3.jpg',
-      badge: 'Education For All Children',
-      title: 'Empowering Underprivileged Children in Rural India',
-      subtitle: 'Free school kit distribution, daily tutoring, books, and digital literacy across Etah and Uttar Pradesh.',
+      img: './gallery/field-6.jpg',
+      badge: 'IT & Computer Software',
+      title: 'ADCA, DCA, Tally Prime + GST & Web Designing',
+      subtitle: 'Government recognized 3, 6, and 12-month computer applications, programming, accounting, and DTP courses for career readiness.',
+      link: '/courses/all',
+      btnText: 'Explore Computer Courses →',
     },
     {
-      img: './gallery/field-4.jpg',
-      badge: 'Free Healthcare & Medicine',
-      title: 'Aarogya Seva: Rural Free Health & Medical Camps',
-      subtitle: 'Free doctor checkups, vital health screenings, and distributing free medicines to underprivileged rural families.',
+      img: './gallery/field-5.jpg',
+      badge: 'Tailoring & Fashion Technology',
+      title: 'Cutting, Stitching, Tailoring & Boutique Management',
+      subtitle: 'Professional certification and diploma courses in advanced garment making, pattern drafting, and fashion technology.',
+      link: '/courses/all',
+      btnText: 'View Tailoring Courses →',
+    },
+    {
+      img: './gallery/field-1.jpg',
+      badge: 'Beauty & Wellness Cosmetology',
+      title: 'Advanced Makeup, Bridal Styling & Cosmetology Diploma',
+      subtitle: 'Professional salon training, bridal artistry, skin aesthetics, and beauty wellness diplomas with authorized certification.',
+      link: '/courses/all',
+      btnText: 'View Beauty Courses →',
     },
     {
       img: './gallery/field-7.jpg',
-      badge: 'PM DAKSH & Skill Training',
-      title: 'Youth Vocational & Professional Career Empowerment',
-      subtitle: 'Job-oriented skill programs, digital computer training, and livelihood skills fostering self-reliance.',
+      badge: 'Skill Development & Technical Trades',
+      title: 'Electrician, Solar Technician, AC/HVAC & CCTV Training',
+      subtitle: 'Hands-on technical trade diplomas in electrical wiring, solar panel installation, plumbing, and surveillance engineering.',
+      link: '/courses/all',
+      btnText: 'Explore Technical Trades →',
     },
     {
-      img: './gallery/field-12.jpg',
-      badge: 'Student Certification & Honors',
-      title: 'Official Accreditation & Skill Certificate Distribution',
-      subtitle: 'Awarding government-recognized skill certificates and recognizing students transforming their communities.',
+      img: './gallery/field-8.jpg',
+      badge: 'Teacher Training & Yoga',
+      title: 'Nursery Teacher Training (NTT), Stenography & Yoga',
+      subtitle: '1 & 2-Year NTT teacher diplomas, bilingual Hindi/English typing, stenographer certifications, and Yoga teacher training.',
+      link: '/courses/all',
+      btnText: 'View Teacher & Yoga Courses →',
     },
   ]
 
@@ -144,16 +161,6 @@ export default function Home() {
     { id: 8, name: 'PM DAKSH Yojana', img: './govt/pm-daksh.png' },
   ]
 
-  // Partner logos (ENLARGED - TRANSPARENT BACKGROUND - ONLY LOGOS)
-  const partnerLogos = [
-    { id: 1, name: 'PM DAKSH', img: './partners/pm-daksh.png' },
-    { id: 2, name: 'Pradhan Mantri Bhartiya Jan Aushadhi', img: './partners/jan-aushadhi.png' },
-    { id: 3, name: 'Ministry of Rural Development', img: './partners/rural-dev.png' },
-    { id: 4, name: 'Skill India Mission', img: './partners/skill-india.png' },
-    { id: 5, name: 'Telecom Sector Skill Council', img: './partners/tssc.png' },
-    { id: 6, name: 'Ministry of Labour & Employment', img: './partners/labour-ministry.png' },
-  ]
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
@@ -175,7 +182,7 @@ export default function Home() {
       {/* STRUCTURED TOP NAVIGATION WITH DROPDOWNS */}
       <Navbar />
 
-      {/* HERO SLIDER (AUTHENTIC REAL FIELD PHOTOS) */}
+      {/* HERO SLIDER (CUSTOMIZED TO REFLECT COURSES) */}
       <section id="home" className="hero-slider">
         <div className="slider-image">
           <img src={slides[currentSlide].img} alt={slides[currentSlide].title} />
@@ -185,11 +192,28 @@ export default function Home() {
               <h2>{slides[currentSlide].title}</h2>
               <p>{slides[currentSlide].subtitle}</p>
               <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-                <a href="#projects" className="slider-cta-btn">
-                  Support Our Mission →
-                </a>
-                <Link to="/franchise" className="slider-cta-alt">
-                  🎓 Apply For Franchise
+                <Link to={slides[currentSlide].link} className="slider-cta-btn">
+                  {slides[currentSlide].btnText}
+                </Link>
+                <Link to="/student-zone/offline-admission-form" className="slider-cta-alt">
+                  📄 Offline Admission Form (A4)
+                </Link>
+                <Link
+                  to="/franchise/apply"
+                  style={{
+                    background: '#ffffff',
+                    color: '#4b087d',
+                    padding: '13px 24px',
+                    borderRadius: '30px',
+                    fontWeight: 800,
+                    fontSize: '14px',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  🎓 Apply Franchise
                 </Link>
               </div>
             </div>
@@ -470,25 +494,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================================================== */}
-      {/* OUR PARTNERS (ENLARGED - TRANSPARENT - ONLY GOVT LOGOS)    */}
-      {/* ========================================================== */}
-      <section id="partners" className="partners-section">
-        <h2 className="section-title">OUR <span>PARTNERS</span></h2>
-
-        {/* SINGLE CONTINUOUS SLIDING TRACK - ONLY ENLARGED LOGOS WITH TRANSPARENT BACKGROUND */}
-        <div className="partners-single-line-track">
-          <div className="partners-single-marquee">
-            {partnerLogos.concat(partnerLogos).concat(partnerLogos).map((p, idx) => (
-              <div key={`partner-${idx}`} className="partner-logo-item" title={p.name}>
-                <img src={p.img} alt={p.name} className="partner-logo-only" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER REMOVED AS REQUESTED */}
+      {/* SITE FOOTER WITH COMPLETE STATUTORY & ADDRESS DETAILS */}
+      <Footer />
     </div>
   )
 }

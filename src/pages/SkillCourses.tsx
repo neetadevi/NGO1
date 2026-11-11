@@ -1,58 +1,13 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import { coursesList } from '../data/coursesData'
 import './PagesCommon.css'
 
 export default function SkillCourses() {
-  const courses = [
-    {
-      code: 'SWF-SKL-01',
-      title: 'PM DAKSH Aligned Skill Certification',
-      duration: '3 Months / 360 Hours',
-      eligibility: '10th / 12th Pass',
-      badge: 'National Mission',
-      desc: 'Government aligned skill development curriculum covering practical trades, industrial work safety, workplace soft skills, and placement preparation.',
-    },
-    {
-      code: 'SWF-SKL-02',
-      title: 'Telecom & Tower Technician (TSSC Aligned)',
-      duration: '3 Months',
-      eligibility: '10th / ITI Pass',
-      badge: 'Telecom Sector',
-      desc: 'Optical fiber splicing, RF installation, broadband network maintenance, tower equipment safety, and mobile network diagnostics.',
-    },
-    {
-      code: 'SWF-SKL-03',
-      title: 'Solar PV System Installation & Maintenance',
-      duration: '3 Months',
-      eligibility: '10th Pass',
-      badge: 'Green Energy',
-      desc: 'Solar panel sizing, inverter wiring, rooftop array installation, battery bank maintenance, and net metering concepts.',
-    },
-    {
-      code: 'SWF-SKL-04',
-      title: 'Retail Store Operations & Customer Service',
-      duration: '2 Months',
-      eligibility: '10th / 12th Pass',
-      badge: 'Service Sector',
-      desc: 'Point of Sale (POS) operation, retail inventory tracking, customer communication, merchandising, and store billing systems.',
-    },
-    {
-      code: 'SWF-SKL-05',
-      title: 'Logistics & Warehouse Operations Assistant',
-      duration: '3 Months',
-      eligibility: '10th Pass',
-      badge: 'E-Commerce Growth',
-      desc: 'Supply chain principles, barcode scanner handling, inventory management, dispatch coordination, and freight handling safety.',
-    },
-    {
-      code: 'SWF-SKL-06',
-      title: 'General Duty Healthcare Assistant (GDA)',
-      duration: '6 Months',
-      eligibility: '10th / 12th Pass',
-      badge: 'Healthcare Sector',
-      desc: 'Patient care, vitals monitoring (BP, sugar, pulse), first aid, medication administration basics, and hospital hygiene.',
-    },
-  ]
+  const skillCourses = coursesList.filter(
+    (c) => c.category === 'Skill Development Course' || c.category === 'Hardware Course'
+  )
 
   return (
     <div className="page-wrapper">
@@ -60,10 +15,10 @@ export default function SkillCourses() {
 
       <section className="inner-hero-banner">
         <div className="inner-hero-content">
-          <span className="inner-hero-badge">Nation Building</span>
-          <h1 className="inner-hero-title">Skill Development Courses</h1>
+          <span className="inner-hero-badge">Technical Trades</span>
+          <h1 className="inner-hero-title">Skill Development & Technical Courses</h1>
           <p className="inner-hero-subtitle">
-            Sector-specific skill training programs focused on youth employability in emerging industrial and technical domains.
+            Industry-aligned technical training in electrician, plumbing, refrigeration/AC, solar technology, CCTV, and computer hardware.
           </p>
           <div className="breadcrumb-nav">
             <Link to="/">Home</Link>
@@ -77,17 +32,24 @@ export default function SkillCourses() {
 
       <div className="page-content-container">
         <div className="content-card">
-          <h2>Market-Driven Skill Qualifications</h2>
-          <p>
-            Shikashvik Welfare Foundation works in coordination with key skill frameworks to ensure that student credentials meet industry demand and employer standards across India.
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '18px' }}>
+            <div>
+              <h2 style={{ margin: 0 }}>Certified Trade Diplomas & Certifications</h2>
+              <p style={{ color: '#64748b', fontSize: '14px', margin: '4px 0 0' }}>
+                Job-ready practical qualifications with transparent fee structure and recognized certification.
+              </p>
+            </div>
+            <Link to="/student-zone/offline-admission-form" className="course-apply-btn" style={{ background: '#b45309', padding: '10px 18px', fontSize: '13px' }}>
+              📄 Download Offline Admission Form (A4)
+            </Link>
+          </div>
 
           <div className="course-card-grid">
-            {courses.map((item, idx) => (
-              <div key={idx} className="course-item-card">
+            {skillCourses.map((item) => (
+              <div key={item.id} className="course-item-card">
                 <div className="course-card-header">
-                  <span className="course-card-badge">{item.badge}</span>
-                  <h3>{item.title}</h3>
+                  <span className="course-card-badge">{item.category}</span>
+                  <h3>{item.name}</h3>
                 </div>
                 <div className="course-card-body">
                   <div className="course-meta-row">
@@ -99,10 +61,18 @@ export default function SkillCourses() {
                     <strong>{item.duration}</strong>
                   </div>
                   <div className="course-meta-row">
+                    <span>Certificate Fee:</span>
+                    <strong style={{ color: '#0284c7' }}>₹{item.certificateFee}</strong>
+                  </div>
+                  <div className="course-meta-row">
+                    <span>Course Fee:</span>
+                    <strong style={{ color: '#059669', fontSize: '14px' }}>₹{item.courseFee.toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div className="course-meta-row">
                     <span>Eligibility:</span>
                     <strong>{item.eligibility}</strong>
                   </div>
-                  <p className="course-desc">{item.desc}</p>
+                  {item.description && <p className="course-desc">{item.description}</p>}
                   <Link to="/student-zone/registration" className="course-apply-btn">
                     Enroll in this Course →
                   </Link>
@@ -112,6 +82,8 @@ export default function SkillCourses() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

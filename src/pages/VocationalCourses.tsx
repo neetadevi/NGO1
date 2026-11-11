@@ -1,58 +1,13 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import { coursesList } from '../data/coursesData'
 import './PagesCommon.css'
 
 export default function VocationalCourses() {
-  const courses = [
-    {
-      code: 'SWF-VOC-01',
-      title: 'Fashion Designing & Cutting Tailoring',
-      duration: '6 Months / 1 Year',
-      eligibility: '8th / 10th Pass',
-      badge: 'Women Empowerment',
-      desc: 'Complete training in stitching, embroidery, pattern making, modern garment design, boutique management, and commercial dressmaking.',
-    },
-    {
-      code: 'SWF-VOC-02',
-      title: 'Beautician & Cosmetology Diploma',
-      duration: '3 Months / 6 Months',
-      eligibility: '8th / 10th Pass',
-      badge: 'Self-Employment',
-      desc: 'Skin care, bridal makeup, hair styling, parlor hygiene, cosmetic applications, and bridal studio management.',
-    },
-    {
-      code: 'SWF-VOC-03',
-      title: 'Electrician & Home Appliance Repair',
-      duration: '6 Months',
-      eligibility: '10th Pass',
-      badge: 'Technical Trade',
-      desc: 'House wiring, motor rewinding, AC/refrigerator maintenance, inverter wiring, and safety standards.',
-    },
-    {
-      code: 'SWF-VOC-04',
-      title: 'Mobile Phone Hardware & Software Repairing',
-      duration: '3 Months / 6 Months',
-      eligibility: '10th Pass',
-      badge: 'High Demand',
-      desc: 'Smartphone chip-level repair, circuit testing, flashing, software unlocking, display replacement, and troubleshooting.',
-    },
-    {
-      code: 'SWF-VOC-05',
-      title: 'Handicraft & Artisan Handicrafts',
-      duration: '3 Months',
-      eligibility: 'No Minimum Qualification',
-      badge: 'Cottage Industry',
-      desc: 'Traditional handloom, clay art, macrame work, bag making, candle craft, and promoting rural artisanal goods.',
-    },
-    {
-      code: 'SWF-VOC-06',
-      title: 'Plumbing & Sanitation Technician',
-      duration: '3 Months',
-      eligibility: '8th Pass',
-      badge: 'Job Ready',
-      desc: 'Domestic pipe fittings, drainage, water motor installation, PVC welding, and modern sanitary installations.',
-    },
-  ]
+  const vocationalCourses = coursesList.filter(
+    (c) => c.category === 'Beauty Course' || c.category === 'Tailoring Course'
+  )
 
   return (
     <div className="page-wrapper">
@@ -61,9 +16,9 @@ export default function VocationalCourses() {
       <section className="inner-hero-banner">
         <div className="inner-hero-content">
           <span className="inner-hero-badge">Employment Oriented</span>
-          <h1 className="inner-hero-title">Vocational Trade Courses</h1>
+          <h1 className="inner-hero-title">Beauty & Tailoring Vocational Courses</h1>
           <p className="inner-hero-subtitle">
-            Hands-on practical training programs designed for rural youth and women to build self-reliance and immediate earning capabilities.
+            Certified courses in advanced makeup, cosmetology, barbering, mehndi, fashion designing, and modern tailoring.
           </p>
           <div className="breadcrumb-nav">
             <Link to="/">Home</Link>
@@ -77,17 +32,24 @@ export default function VocationalCourses() {
 
       <div className="page-content-container">
         <div className="content-card">
-          <h2>Vocational & Livelihood Programs</h2>
-          <p>
-            Shikashvik Welfare Foundation provides industry-standard curriculum and practical workshops for all vocational streams. Enrolled students receive authorized certificates, toolkits, and placement assistance through our franchise center network.
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '18px' }}>
+            <div>
+              <h2 style={{ margin: 0 }}>Beauty, Cosmetology & Tailoring Diplomas</h2>
+              <p style={{ color: '#64748b', fontSize: '14px', margin: '4px 0 0' }}>
+                All programs feature practical hands-on labs, expert trainer guidance, and recognized certificates.
+              </p>
+            </div>
+            <Link to="/student-zone/offline-admission-form" className="course-apply-btn" style={{ background: '#b45309', padding: '10px 18px', fontSize: '13px' }}>
+              📄 Download Offline Admission Form (A4)
+            </Link>
+          </div>
 
           <div className="course-card-grid">
-            {courses.map((item, idx) => (
-              <div key={idx} className="course-item-card">
+            {vocationalCourses.map((item) => (
+              <div key={item.id} className="course-item-card">
                 <div className="course-card-header">
-                  <span className="course-card-badge">{item.badge}</span>
-                  <h3>{item.title}</h3>
+                  <span className="course-card-badge">{item.category}</span>
+                  <h3>{item.name}</h3>
                 </div>
                 <div className="course-card-body">
                   <div className="course-meta-row">
@@ -99,10 +61,18 @@ export default function VocationalCourses() {
                     <strong>{item.duration}</strong>
                   </div>
                   <div className="course-meta-row">
+                    <span>Certificate Fee:</span>
+                    <strong style={{ color: '#0284c7' }}>₹{item.certificateFee}</strong>
+                  </div>
+                  <div className="course-meta-row">
+                    <span>Course Fee:</span>
+                    <strong style={{ color: '#059669', fontSize: '14px' }}>₹{item.courseFee.toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div className="course-meta-row">
                     <span>Eligibility:</span>
                     <strong>{item.eligibility}</strong>
                   </div>
-                  <p className="course-desc">{item.desc}</p>
+                  {item.description && <p className="course-desc">{item.description}</p>}
                   <Link to="/student-zone/registration" className="course-apply-btn">
                     Enroll in this Course →
                   </Link>
@@ -112,6 +82,8 @@ export default function VocationalCourses() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

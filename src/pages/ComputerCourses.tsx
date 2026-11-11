@@ -1,58 +1,13 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import { coursesList } from '../data/coursesData'
 import './PagesCommon.css'
 
 export default function ComputerCourses() {
-  const courses = [
-    {
-      code: 'SWF-COM-01',
-      title: 'ADCA (Advanced Diploma in Computer Applications)',
-      duration: '12 Months',
-      eligibility: '10th / 12th Pass',
-      badge: 'Flagship Diploma',
-      desc: 'Complete computer foundations, MS Office (Word, Excel, PowerPoint), Tally Prime + GST, DTP (Photoshop, PageMaker, CorelDRAW), Web Design basics & Internet technology.',
-    },
-    {
-      code: 'SWF-COM-02',
-      title: 'DCA (Diploma in Computer Applications)',
-      duration: '6 Months',
-      eligibility: '10th Pass',
-      badge: 'Popular Course',
-      desc: 'Computer fundamentals, Operating Systems (Windows/Linux), MS Office suite, Internet tools, typing skills in Hindi & English, and office documentation.',
-    },
-    {
-      code: 'SWF-COM-03',
-      title: 'CCC (Course on Computer Concepts)',
-      duration: '3 Months',
-      eligibility: '8th / 10th Pass',
-      badge: 'Govt. Job Essential',
-      desc: 'Intro to computers, GUI based OS, word processing, spreadsheets, presentations, digital financial services, internet banking, and cyber safety.',
-    },
-    {
-      code: 'SWF-COM-04',
-      title: 'Tally Prime with GST & E-Way Bill',
-      duration: '3 Months',
-      eligibility: '10th / 12th Pass (Any Stream)',
-      badge: 'Accounting & Finance',
-      desc: 'Double-entry accounting, ledger creation, inventory management, GST invoicing, return filing concepts, balance sheet generation, and payroll management.',
-    },
-    {
-      code: 'SWF-COM-05',
-      title: 'DTP (Desktop Publishing Specialist)',
-      duration: '4 Months',
-      eligibility: '10th Pass',
-      badge: 'Graphic Design',
-      desc: 'Adobe Photoshop, CorelDRAW, Adobe InDesign, typography, printing press layouts, flex banners, visiting cards, and magazine layout design.',
-    },
-    {
-      code: 'SWF-COM-06',
-      title: 'PGDCA (Post Graduate Diploma in Computer Applications)',
-      duration: '12 Months',
-      eligibility: 'Graduation (Any Stream)',
-      badge: 'Post Graduate',
-      desc: 'Advanced software systems, RDBMS (SQL), Programming concepts (Python/C++), Data Structures, Software Engineering, and Enterprise project work.',
-    },
-  ]
+  const computerCourses = coursesList.filter(
+    (c) => c.category === 'IT Software' || c.category === 'Computer Typing'
+  )
 
   return (
     <div className="page-wrapper">
@@ -61,9 +16,9 @@ export default function ComputerCourses() {
       <section className="inner-hero-banner">
         <div className="inner-hero-content">
           <span className="inner-hero-badge">Information Technology</span>
-          <h1 className="inner-hero-title">Computer Applications & IT Courses</h1>
+          <h1 className="inner-hero-title">Computer Applications & Typing Courses</h1>
           <p className="inner-hero-subtitle">
-            Industry recognized computer education programs transforming students into confident, digitally empowered professionals.
+            ADCA, DCA, Tally Prime + GST, Web Designing, DTP, Offset Printing, CCC, Hindi & English Stenography courses.
           </p>
           <div className="breadcrumb-nav">
             <Link to="/">Home</Link>
@@ -77,17 +32,24 @@ export default function ComputerCourses() {
 
       <div className="page-content-container">
         <div className="content-card">
-          <h2>Computer Literacy & Professional IT Programs</h2>
-          <p>
-            With digital skills being paramount in both government and private careers, Shikashvik Welfare Foundation provides practical lab sessions, verified course certificates, and complete exam preparation.
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '18px' }}>
+            <div>
+              <h2 style={{ margin: 0 }}>Software & Typing Diplomas</h2>
+              <p style={{ color: '#64748b', fontSize: '14px', margin: '4px 0 0' }}>
+                Complete computer lab training, speed practice, accounting projects, and authorized ISO certificates.
+              </p>
+            </div>
+            <Link to="/student-zone/offline-admission-form" className="course-apply-btn" style={{ background: '#b45309', padding: '10px 18px', fontSize: '13px' }}>
+              📄 Download Offline Admission Form (A4)
+            </Link>
+          </div>
 
           <div className="course-card-grid">
-            {courses.map((item, idx) => (
-              <div key={idx} className="course-item-card">
+            {computerCourses.map((item) => (
+              <div key={item.id} className="course-item-card">
                 <div className="course-card-header">
-                  <span className="course-card-badge">{item.badge}</span>
-                  <h3>{item.title}</h3>
+                  <span className="course-card-badge">{item.category}</span>
+                  <h3>{item.name}</h3>
                 </div>
                 <div className="course-card-body">
                   <div className="course-meta-row">
@@ -99,10 +61,18 @@ export default function ComputerCourses() {
                     <strong>{item.duration}</strong>
                   </div>
                   <div className="course-meta-row">
+                    <span>Certificate Fee:</span>
+                    <strong style={{ color: '#0284c7' }}>₹{item.certificateFee}</strong>
+                  </div>
+                  <div className="course-meta-row">
+                    <span>Course Fee:</span>
+                    <strong style={{ color: '#059669', fontSize: '14px' }}>₹{item.courseFee.toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div className="course-meta-row">
                     <span>Eligibility:</span>
                     <strong>{item.eligibility}</strong>
                   </div>
-                  <p className="course-desc">{item.desc}</p>
+                  {item.description && <p className="course-desc">{item.description}</p>}
                   <Link to="/student-zone/registration" className="course-apply-btn">
                     Enroll in this Course →
                   </Link>
@@ -112,6 +82,8 @@ export default function ComputerCourses() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

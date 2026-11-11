@@ -174,32 +174,39 @@ export default function Navbar() {
                 <span className="dropdown-arrow">▾</span>
               </button>
               <div className="dropdown-menu">
-                <Link to="/courses/vocational" className="dropdown-link">
-                  <span className="dd-icon">🧵</span>
+                <Link to="/courses/all" className="dropdown-link highlight-link">
+                  <span className="dd-icon">📋</span>
                   <div>
-                    <strong>Vocational Course</strong>
-                    <small>Tailoring, Beauty, Craft & Trades</small>
-                  </div>
-                </Link>
-                <Link to="/courses/skill" className="dropdown-link">
-                  <span className="dd-icon">⚡</span>
-                  <div>
-                    <strong>Skill Course</strong>
-                    <small>PM DAKSH & Employment Skills</small>
+                    <strong>All 45+ Courses & Fees</strong>
+                    <small>Complete Fee & Duration Directory</small>
                   </div>
                 </Link>
                 <Link to="/courses/computer" className="dropdown-link">
                   <span className="dd-icon">💻</span>
                   <div>
-                    <strong>Computer</strong>
-                    <small>DCA, ADCA, CCC, Tally & IT</small>
+                    <strong>IT Software & Computer</strong>
+                    <small>ADCA, DCA, Tally Prime, Web & DTP</small>
+                  </div>
+                </Link>
+                <Link to="/courses/vocational" className="dropdown-link">
+                  <span className="dd-icon">✂️</span>
+                  <div>
+                    <strong>Beauty & Tailoring Courses</strong>
+                    <small>Makeup, Cosmetology, Fashion & Craft</small>
+                  </div>
+                </Link>
+                <Link to="/courses/skill" className="dropdown-link">
+                  <span className="dd-icon">⚡</span>
+                  <div>
+                    <strong>Skill Development Courses</strong>
+                    <small>Electrician, Solar, AC, Plumbing & CCTV</small>
                   </div>
                 </Link>
                 <Link to="/courses/other" className="dropdown-link">
                   <span className="dd-icon">📚</span>
                   <div>
-                    <strong>Other Course</strong>
-                    <small>Spoken English, Yoga, NTT & Health</small>
+                    <strong>Teacher Training, Typing & Yoga</strong>
+                    <small>NTT, Stenography, Spoken English & Yoga</small>
                   </div>
                 </Link>
               </div>
@@ -221,11 +228,11 @@ export default function Navbar() {
                 <span className="dropdown-arrow">▾</span>
               </button>
               <div className="dropdown-menu">
-                <Link to="/student-zone/study-centres" className="dropdown-link">
-                  <span className="dd-icon">🏫</span>
+                <Link to="/student-zone/offline-admission-form" className="dropdown-link highlight-link">
+                  <span className="dd-icon">📄</span>
                   <div>
-                    <strong>Authorized Study centre</strong>
-                    <small>Verified Training Centers List</small>
+                    <strong>Offline Admission Form</strong>
+                    <small>Printable Official A4 Application</small>
                   </div>
                 </Link>
                 <Link to="/student-zone/registration" className="dropdown-link">
@@ -233,6 +240,13 @@ export default function Navbar() {
                   <div>
                     <strong>Student Registration form</strong>
                     <small>Direct Online Admission</small>
+                  </div>
+                </Link>
+                <Link to="/student-zone/study-centres" className="dropdown-link">
+                  <span className="dd-icon">🏫</span>
+                  <div>
+                    <strong>Authorized Study centre</strong>
+                    <small>Verified Training Centers List</small>
                   </div>
                 </Link>
                 <Link to="/student-zone/verification" className="dropdown-link">
@@ -351,3 +365,4 @@ export default function Navbar() {
     </header>
   )
 }
+

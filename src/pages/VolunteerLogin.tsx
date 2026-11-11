@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './PagesCommon.css'
 
 export default function VolunteerLogin() {
@@ -112,6 +113,9 @@ export default function VolunteerLogin() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
+

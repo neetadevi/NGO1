@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './Franchise.css'
 
 export default function Franchise() {
@@ -424,22 +425,7 @@ export default function Franchise() {
       </section>
 
       {/* FOOTER */}
-      <footer className="simple-footer">
-        <div style={{ maxWidth: '1150px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: '#fff', fontWeight: 'bold', fontSize: '16px', marginBottom: '8px' }}>
-            SHIKASHVIK WELFARE FOUNDATION
-          </p>
-          <p style={{ fontSize: '13px', color: '#9ca3af', marginBottom: '4px' }}>
-            Registered Address: C/o Ankit Shakya, Dhumari, Dhumari, Aliganj, Etah, Uttar Pradesh, India (PIN: 207248)
-          </p>
-          <p style={{ fontSize: '13px', color: '#9ca3af', marginBottom: '14px' }}>
-            Helpline: +91 8445020016 | Email: shikashvik@gmail.com | Incorporated: October 23, 2026
-          </p>
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '16px', fontSize: '12px', color: '#6b7280' }}>
-            © {new Date().getFullYear()} Shikashvik Welfare Foundation. All Rights Reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
